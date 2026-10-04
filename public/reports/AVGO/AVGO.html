@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVGO Broadcom｜估值研究｜2026-10-04</title>
+<style>
+:root {
+  --ink:#152235; --muted:#637083; --paper:#F5F2EC; --card:#FFFFFF;
+  --nav:#0F1A2A; --nav2:#18263A; --blue:#4A78D0; --teal:#5CA79B;
+  --gold:#D9A441; --violet:#9B83D0; --red:#C95B68; --green:#3C8B6C;
+  --line:#D8DDE4; --soft:#EAE7E1; --shadow:0 18px 60px rgba(15,26,42,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI","PingFang TC","Microsoft JhengHei",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+a{color:inherit}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;background:linear-gradient(180deg,var(--nav),#101B2D 55%,#0A1320);color:#EAF0F7;padding:26px 18px;overflow:auto}
+.brand{font-size:28px;font-weight:800;letter-spacing:.5px;margin-bottom:4px}
+.brand small{font-size:12px;font-weight:600;color:#9EB0C8;display:block;letter-spacing:1.4px}
+.nav-meta{font-size:11px;color:#8FA4BF;margin:18px 0 16px;padding:12px;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:rgba(255,255,255,.03)}
+nav a{display:block;text-decoration:none;color:#B9C8D9;padding:9px 10px;border-radius:10px;margin:2px 0;font-size:13px}
+nav a:hover, nav a.active{background:rgba(255,255,255,.08);color:#fff}
+main{min-width:0}
+.section{position:relative;padding:54px 64px;min-height:min(900px,56.25vw);border-bottom:1px solid #DDD8D0}
+.section.dark{background:linear-gradient(135deg,#101B2D,#17283E 58%,#17233B);color:#F4F7FB;border-bottom-color:#24364D}
+.section.soft{background:#EEEAE3}
+.section .inner{max-width:1450px;margin:0 auto}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.dark .eyebrow{color:#92B9FF}
+h1{font-size:clamp(42px,5vw,78px);line-height:1.02;margin:0 0 16px;letter-spacing:-2px}
+h2{font-size:clamp(30px,3.2vw,50px);line-height:1.08;margin:0 0 18px;letter-spacing:-1.2px}
+h3{font-size:20px;margin:0 0 10px}
+.lede{font-size:18px;max-width:1080px;color:var(--muted)}
+.dark .lede{color:#C6D1E0}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.tag{padding:6px 10px;border-radius:999px;font-size:11px;font-weight:700;background:#E6EAF0;color:#43536A}
+.dark .tag{background:rgba(255,255,255,.08);color:#D7E4F5}
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid rgba(21,34,53,.08);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.dark .card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.09);box-shadow:none}
+.kpi{font-size:34px;font-weight:800;letter-spacing:-1px;margin:4px 0}
+.kpi small{font-size:14px;font-weight:700;letter-spacing:0}
+.sub{font-size:12px;color:var(--muted)}
+.dark .sub{color:#9EB0C8}
+.good{color:var(--green)} .warn{color:#B37B1E} .bad{color:var(--red)} .blue{color:var(--blue)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:30px;align-items:start}
+.hero-panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:28px}
+.hero-callout{font-size:22px;line-height:1.42;color:#E8EEF7;margin:20px 0}
+.hero-callout strong{color:#fff}
+.big-price{font-size:72px;font-weight:900;letter-spacing:-3px;line-height:.95}
+.delta{font-size:18px;font-weight:800;color:#72D2A5}
+.metric-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line);font-size:13px}
+.dark .metric-table{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+.metric-table th,.metric-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.dark .metric-table th,.dark .metric-table td{border-bottom-color:rgba(255,255,255,.08)}
+.metric-table th{background:#EEF1F5;color:#425167;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.dark .metric-table th{background:rgba(255,255,255,.07);color:#C8D7E9}
+.metric-table tr:last-child td{border-bottom:0}
+.pill{display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800}
+.reported{background:#E8F1FF;color:#315E9E}
+.guided{background:#E7F4EE;color:#2F7257}
+.consensus{background:#F4ECFF;color:#7255A5}
+.derived{background:#FFF1D9;color:#976A14}
+.assumption{background:#FDE8EB;color:#A24451}
+.chart-card{padding:24px}
+.bar-chart{height:285px;display:flex;align-items:flex-end;gap:20px;padding:36px 14px 8px;border-bottom:1px solid var(--line)}
+.bar-item{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bar{width:min(70px,72%);border-radius:12px 12px 4px 4px;box-shadow:inset 0 -10px 25px rgba(0,0,0,.08)}
+.bar-value{font-size:13px;font-weight:800;margin-bottom:7px}
+.bar-label{font-size:11px;color:var(--muted);margin-top:8px;white-space:nowrap}
+.dark .bar-label{color:#AABBD0}
+.note{font-size:11px;color:var(--muted);margin-top:10px}
+.dark .note{color:#AABBD0}
+.donut-wrap{display:flex;align-items:center;gap:28px;justify-content:center;padding:18px 0}
+.donut{width:220px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--blue) 0 70%,var(--teal) 70% 100%);position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.donut:after{content:"Q3 FY26";position:absolute;inset:28%;background:var(--card);border-radius:50%;display:grid;place-items:center;font-weight:800;color:var(--ink);font-size:13px;text-align:center}
+.legend{display:grid;gap:12px}
+.legend-row{display:flex;align-items:center;gap:9px;font-size:13px}
+.dot{width:12px;height:12px;border-radius:50%}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+.flow .node{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);font-size:12px}
+.flow .node strong{display:block;font-size:15px;margin-bottom:6px}
+.flow .arrow{display:none}
+.dark .flow .node{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.09)}
+.stack{display:grid;gap:10px}
+.stack-item{display:grid;grid-template-columns:130px 1fr 80px;gap:12px;align-items:center}
+.stack-bar{height:14px;background:#E5E9EF;border-radius:999px;overflow:hidden}
+.stack-fill{height:100%;border-radius:999px}
+.callout{border-left:5px solid var(--gold);background:#FFFAED;padding:16px 18px;border-radius:0 16px 16px 0;font-size:14px}
+.dark .callout{background:rgba(217,164,65,.09);color:#F4E9CF}
+.price-map{display:grid;grid-template-columns:repeat(5,1fr);border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.zone{padding:20px 14px;min-height:155px}
+.zone strong{display:block;font-size:16px}
+.zone .range{font-size:24px;font-weight:900;margin:8px 0}
+.zone1{background:#EAF5EF} .zone2{background:#EEF5F3} .zone3{background:#F4F0E7} .zone4{background:#F8EEDA} .zone5{background:#F8E7EA}
+.audit{display:grid;grid-template-columns:40px 1fr 110px;gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}
+.audit:last-child{border:0}
+.check{width:26px;height:26px;border-radius:50%;background:#E5F4EC;color:#2A7654;display:grid;place-items:center;font-weight:900}
+.source-list li{margin:8px 0;font-size:12px;color:var(--muted)}
+.source-list a{color:#315E9E;word-break:break-all}
+.dark .source-list li{color:#AABBD0} .dark .source-list a{color:#91B7FF}
+.footer-note{font-size:11px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line);margin-top:26px}
+.dark .footer-note{border-top-color:rgba(255,255,255,.1);color:#AABBD0}
+code.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#EDF1F5;border:1px solid #DCE2E8;padding:2px 6px;border-radius:6px;font-size:12px}
+.dark code.formula{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08)}
+@media(max-width:1050px){
+ .layout{grid-template-columns:1fr} .sidebar{position:relative;height:auto;display:none}
+ .section{padding:38px 24px;min-height:auto} .hero-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+ .flow{grid-template-columns:1fr 1fr} .price-map{grid-template-columns:1fr}
+ .big-price{font-size:56px} .bar-chart{height:245px}
+}
+@media print{.sidebar{display:none} .layout{display:block} .section{page-break-after:always;min-height:100vh}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">AVGO<small>BROADCOM / VALUATION OS</small></div>
+  <div class="nav-meta">資料截至 2026-10-04<br>股價：2026-10-02 收盤<br>財年截止：約每年 11 月初</div>
+  <nav id="nav">
+    <a href="#s1">01　估值結論</a>
+    <a href="#s2">02　管理層展望</a>
+    <a href="#s3">03　公司結構</a>
+    <a href="#s4">04　收入增長</a>
+    <a href="#s5">05　AI 增長曲線</a>
+    <a href="#s6">06　業務組成</a>
+    <a href="#s7">07　盈利與現金流</a>
+    <a href="#s8">08　SBC 正常化</a>
+    <a href="#s9">09　利率與要求報酬</a>
+    <a href="#s10">10　固定 P/E 矩陣</a>
+    <a href="#s11">11　Bear / Base / Bull</a>
+    <a href="#s12">12　Reverse Valuation</a>
+    <a href="#s13">13　資產負債表</a>
+    <a href="#s14">14　Anthropic 融資</a>
+    <a href="#s15">15　風險放置</a>
+    <a href="#s16">16　估值審計</a>
+    <a href="#s17">17　價格地圖</a>
+    <a href="#s18">18　驗證點與來源</a>
+  </nav>
+</aside>
+
+<main>
+<section id="s1" class="section dark">
+<div class="inner">
+  <div class="eyebrow">Decision First · 第一屏先給答案</div>
+  <div class="hero-grid">
+    <div>
+      <h1>Broadcom<br>合理偏低，<br>但不是「無腦便宜」</h1>
+      <p class="hero-callout">Base 以 <strong>FY2027 分析師正常化 EPS $17.6</strong>、<strong>25x 未來退出本益比</strong>，再以約 <strong>10% 股權要求報酬率</strong>折回今天，得到 <strong>Base Fair Value ≈ $400</strong>。</p>
+      <div class="tagrow">
+        <span class="tag">主估值：普通股 P/E</span><span class="tag">估值可信度：Medium</span><span class="tag">盈利品質：Good / Mixed</span><span class="tag">倍數方向：Conditional</span>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="sub">2026-10-02 收盤價 <span class="pill reported">Reported</span></div>
+      <div class="big-price">$355.14</div>
+      <div class="delta">對 Base Fair Value 約 +12.6%</div>
+      <div style="height:18px"></div>
+      <div class="grid grid-2">
+        <div><div class="sub">Base Fair Value</div><div class="kpi">$400</div></div>
+        <div><div class="sub">合理核心區間</div><div class="kpi">$320–480</div></div>
+        <div><div class="sub">FY27 Current P/E</div><div class="kpi">20.2x</div></div>
+        <div><div class="sub">FY27 10% 回報所需 Exit P/E</div><div class="kpi">22.2x</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:28px"></div>
+  <table class="metric-table">
+    <tr><th>核心估值摘要</th><th>結果</th><th>來源標籤</th><th>判斷</th></tr>
+    <tr><td>FY2026 分析師正常化 EPS</td><td><strong>$10.20</strong></td><td><span class="pill derived">Derived</span></td><td>由市場 Non-GAAP EPS 扣除經濟 SBC 後重建</td></tr>
+    <tr><td>FY2027 分析師正常化 EPS</td><td><strong>$17.60</strong></td><td><span class="pill assumption">Analyst Assumption</span></td><td>以 $19.38 共識 EPS 為起點，保留 recurring equity compensation burden</td></tr>
+    <tr><td>Selected Base P/E</td><td><strong>25x</strong></td><td><span class="pill assumption">Analyst Assumption</span></td><td>高增長與高 FCF 支持 premium，但高利率、集中度與融資風險限制 30x</td></tr>
+    <tr><td>Base Fair Value</td><td><strong>$400</strong></td><td><span class="pill derived">Derived</span></td><td>FY27 $17.6 × 25x ÷ 1.10</td></tr>
+  </table>
+  <div class="footer-note">重要：股價在研究流程中最後才比較；本頁只是把獨立估值完成後的結果前置展示，避免市場價格反向校準 EPS、P/E 或折現率。</div>
+</div>
+</section>
+
+<section id="s2" class="section">
+<div class="inner">
+  <div class="eyebrow">Management Outlook Growth · 管理層展望增長</div>
+  <h2>第一個真正的核心問題：管理層到底承諾了多少增長？</h2>
+  <p class="lede">「管理層展望」是公司自己給出的未來路徑；「市場共識」是分析師平均預期。兩者必須分開。AVGO 現在最重要的變化，是 AI 收入展望已從單季度高速增長，延伸到 FY2027 / FY2028 的巨大規模。</p>
+  <div class="grid grid-4">
+    <div class="card"><div class="sub">Q4 FY26 總收入</div><div class="kpi">$34.8B</div><div class="good">+93% YoY</div><div class="sub"><span class="pill guided">Guided</span></div></div>
+    <div class="card"><div class="sub">Q4 FY26 AI 半導體收入</div><div class="kpi">$21.7B</div><div class="good">+236% YoY</div><div class="sub"><span class="pill guided">Guided</span></div></div>
+    <div class="card"><div class="sub">FY2027 AI 收入</div><div class="kpi">$115B</div><div class="good">約 +100%</div><div class="sub"><span class="pill guided">Management Outlook</span></div></div>
+    <div class="card"><div class="sub">FY2028 AI 收入</div><div class="kpi">$230B</div><div class="good">約 +100%</div><div class="sub"><span class="pill guided">Management Outlook</span></div></div>
+  </div>
+  <div style="height:20px"></div>
+  <table class="metric-table">
+    <tr><th>展望項目</th><th>基準期</th><th>管理層展望</th><th>隱含增長</th><th>證據</th><th>估值含義</th></tr>
+    <tr><td>Q4 FY26 總收入</td><td>Q4 FY25 $18.0B</td><td>$34.8B</td><td>+93% YoY / +17.6% QoQ</td><td><span class="pill guided">Guided</span></td><td>FY26 收入可推至約 $105.9B</td></tr>
+    <tr><td>FY26 AI 收入</td><td>Q1–Q3 實際 + Q4 指引</td><td>約 $57.6B</td><td>—</td><td><span class="pill derived">Derived</span></td><td>AI 已成為公司最主要增量來源</td></tr>
+    <tr><td>FY27 AI 收入</td><td>FY26E $57.6B</td><td>$115B</td><td>約 +100%</td><td><span class="pill guided">Outlook</span></td><td>若落地，FY27 EPS 具大幅上升空間</td></tr>
+    <tr><td>FY28 AI 收入</td><td>FY27 $115B</td><td>$230B</td><td>約 +100%</td><td><span class="pill guided">Outlook</span></td><td>屬高依賴成功條件，不可直接當今天 Base Value</td></tr>
+    <tr><td>FY28 EPS</td><td>—</td><td>管理層稱「有望超過 $30」</td><td>—</td><td><span class="pill guided">Outlook</span></td><td>只能作遠期條件值，需概率與折現</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s3" class="section soft">
+<div class="inner">
+  <div class="eyebrow">Business Architecture · 公司結構</div>
+  <h2>Broadcom 已不再是「普通半導體公司」</h2>
+  <p class="lede">它現在更像兩個大型經濟引擎的組合：一邊是客製化 AI 加速器與高速網路，另一邊是 VMware 為核心的基礎設施軟體。前者決定增長斜率，後者提供高毛利、續約與現金流底盤。</p>
+  <div class="flow" style="margin-top:28px">
+    <div class="node"><strong>客製化 AI 加速器</strong>替大型雲端與 AI 實驗室設計特定用途晶片（XPU / ASIC），收入隨部署規模放大。</div>
+    <div class="node"><strong>AI 網路</strong>Ethernet 交換器、光互連、網路晶片，把大型 AI 叢集連起來，是計算之外的第二增量。</div>
+    <div class="node"><strong>非 AI 半導體</strong>無線、寬頻、儲存與工業等成熟業務，提供基礎收入但增長較慢。</div>
+    <div class="node"><strong>VMware / 私有雲</strong>企業把關鍵工作負載運行在私有雲與混合雲，具有高切換成本與續約性。</div>
+    <div class="node"><strong>企業軟體 / 安全</strong>主機、資安、FC SAN 等高黏性產品，提供較穩定的現金盈利。</div>
+  </div>
+  <div class="callout" style="margin-top:24px"><strong>公司本質的變化：</strong>FY2025 半導體佔收入 58%，到 Q3 FY2026 已升至 70%；AI 半導體單項在 Q3 已約佔全公司收入 56%。因此估值不能只看 VMware，也不能只把 AI 當「附加故事」。</div>
+</div>
+</section>
+
+<section id="s4" class="section">
+<div class="inner">
+  <div class="eyebrow">Revenue Growth · 收入增長</div>
+  <h2>收入基數正在跳級，而不是普通週期復甦</h2>
+  <div class="grid grid-2">
+    <div class="card chart-card">
+      <h3>年度總收入</h3>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-value">$51.6B</div>
+          <div class="bar" style="height:107px;background:#8CA6C8;"></div>
+          <div class="bar-label">FY2024</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$63.9B</div>
+          <div class="bar" style="height:133px;background:#5CA79B;"></div>
+          <div class="bar-label">FY2025</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$105.9B</div>
+          <div class="bar" style="height:220px;background:#D9A441;"></div>
+          <div class="bar-label">FY2026E</div>
+        </div></div>
+      <div class="note">FY2026E = Q1/Q2/Q3 實際 + Q4 管理層 $34.8B 指引。FY25 +24%；FY26E +65.7%。</div>
+    </div>
+    <div class="card chart-card">
+      <h3>FY2026 單季收入：環比節奏</h3>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-value">$19.3B</div>
+          <div class="bar" style="height:122px;background:#9FB3C8;"></div>
+          <div class="bar-label">Q1 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$22.2B</div>
+          <div class="bar" style="height:140px;background:#7FA9A0;"></div>
+          <div class="bar-label">Q2 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$29.6B</div>
+          <div class="bar" style="height:187px;background:#5D8ED6;"></div>
+          <div class="bar-label">Q3 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$34.8B</div>
+          <div class="bar" style="height:220px;background:#D9A441;"></div>
+          <div class="bar-label">Q4 FY26E</div>
+        </div></div>
+      <div class="note">Q2 QoQ +14.9% → Q3 +33.4% → Q4E +17.6%。Q3 明顯加速，Q4 仍高增但環比降速。</div>
+    </div>
+  </div>
+  <div style="height:18px"></div>
+  <table class="metric-table">
+    <tr><th>季度</th><th>總收入</th><th>YoY</th><th>QoQ</th><th>判斷</th></tr>
+    <tr><td>Q1 FY26</td><td>$19.31B</td><td>+29%</td><td>—</td><td>AI 已開始拉升整體增速</td></tr>
+    <tr><td>Q2 FY26</td><td>$22.19B</td><td>+48%</td><td>+14.9%</td><td>加速</td></tr>
+    <tr><td>Q3 FY26</td><td>$29.59B</td><td>+86%</td><td>+33.4%</td><td>大幅加速</td></tr>
+    <tr><td>Q4 FY26E</td><td>$34.8B</td><td>+93%</td><td>+17.6%</td><td>YoY 再加速；QoQ 從 Q3 高點降速</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s5" class="section dark">
+<div class="inner">
+  <div class="eyebrow">AI Ramp · AI 增長曲線</div>
+  <h2>AI 是增量主引擎，但 Q3 的 +55% QoQ 不能永續化</h2>
+  <div class="grid grid-2">
+    <div class="card chart-card">
+      <h3>FY2026 單季 AI 半導體收入</h3>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-value">$8.4B</div>
+          <div class="bar" style="height:85px;background:#9FB3C8;"></div>
+          <div class="bar-label">Q1 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$10.8B</div>
+          <div class="bar" style="height:109px;background:#7FA9A0;"></div>
+          <div class="bar-label">Q2 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$16.7B</div>
+          <div class="bar" style="height:169px;background:#5D8ED6;"></div>
+          <div class="bar-label">Q3 FY26</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$21.7B</div>
+          <div class="bar" style="height:220px;background:#D9A441;"></div>
+          <div class="bar-label">Q4 FY26E</div>
+        </div></div>
+      <div class="note">Q2 +28.6% QoQ → Q3 +54.6% → Q4E +29.9%。這代表 Q3 是一次極強的 ramp，Q4 仍強但環比斜率回落。</div>
+    </div>
+    <div class="card chart-card">
+      <h3>AI 收入年度展望</h3>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-value">$58B</div>
+          <div class="bar" style="height:55px;background:#5CA79B;"></div>
+          <div class="bar-label">FY2026E</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$115B</div>
+          <div class="bar" style="height:110px;background:#4A78D0;"></div>
+          <div class="bar-label">FY2027 管理層</div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-value">$230B</div>
+          <div class="bar" style="height:220px;background:#9B83D0;"></div>
+          <div class="bar-label">FY2028 管理層</div>
+        </div></div>
+      <div class="note">FY26E 約 $57.6B 為季度加總；FY27 $115B、FY28 $230B 為管理層長期展望。遠期越長，可靠度越低。</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:20px"><strong>第一性原理：</strong>AI revenue 上升本身不等於 shareholder value 上升。必須繼續穿透到「新增毛利 → 營業利潤 → 每股正常化 EPS → 經濟自由現金流」，同時考慮 HBM、封裝、供應與客戶融資所需資本。</div>
+</div>
+</section>
+
+<section id="s6" class="section">
+<div class="inner">
+  <div class="eyebrow">Revenue Mix · 收入組成</div>
+  <h2>Q3 收入已由 AI 半導體主導</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="donut-wrap">
+        <div class="donut"></div>
+        <div class="legend">
+          <div class="legend-row"><span class="dot" style="background:var(--blue)"></span><span><strong>半導體解決方案 70%</strong><br>$20.84B，+127% YoY</span></div>
+          <div class="legend-row"><span class="dot" style="background:var(--teal)"></span><span><strong>基礎設施軟體 30%</strong><br>$8.75B，+29% YoY</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Q3 內部再拆：AI vs 非 AI</h3>
+      <div class="stack" style="margin-top:20px">
+        <div class="stack-item"><span>AI 半導體</span><div class="stack-bar"><div class="stack-fill" style="width:80%;background:var(--blue)"></div></div><strong>$16.7B</strong></div>
+        <div class="stack-item"><span>非 AI 半導體</span><div class="stack-bar"><div class="stack-fill" style="width:20%;background:#A9B4C3"></div></div><strong>~$4.2B</strong></div>
+        <div class="stack-item"><span>軟體</span><div class="stack-bar"><div class="stack-fill" style="width:42%;background:var(--teal)"></div></div><strong>$8.8B</strong></div>
+      </div>
+      <div class="note">AI 半導體約佔全公司 Q3 收入 56%；非 AI 半導體約 $4.2B、年增約 5%，反映增長高度集中於 AI。</div>
+    </div>
+  </div>
+  <div style="height:18px"></div>
+  <table class="metric-table">
+    <tr><th>業務</th><th>Q3 FY26</th><th>YoY</th><th>未來增量來源</th><th>估值觀察</th></tr>
+    <tr><td>客製化 AI 加速器 / AI 網路</td><td>$16.7B AI 半導體總額</td><td>+221%</td><td>AI 實驗室與 hyperscaler 部署、XPU 世代升級、Ethernet 擴張</td><td>最大上行，也是集中度與資本承諾最大來源</td></tr>
+    <tr><td>非 AI 半導體</td><td>約 $4.2B</td><td>約 +5%</td><td>寬頻、儲存、無線等正常週期</td><td>不應支撐 premium multiple 的主要理由</td></tr>
+    <tr><td>基礎設施軟體</td><td>$8.75B</td><td>+29%</td><td>VMware 私有雲、企業 AI、續約與 ARPU</td><td>高黏性、現金流底盤，有利維持 25x</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s7" class="section soft">
+<div class="inner">
+  <div class="eyebrow">Earnings & Cash · 盈利與現金流</div>
+  <h2>盈利不是只快，而是現金轉換也很強</h2>
+  <div class="grid grid-4">
+    <div class="card"><div class="sub">Q3 Revenue</div><div class="kpi">$29.6B</div><div class="good">+86% YoY</div></div>
+    <div class="card"><div class="sub">Q3 Non-GAAP EPS</div><div class="kpi">$3.32</div><div class="good">+96% YoY</div></div>
+    <div class="card"><div class="sub">Q3 FCF</div><div class="kpi">$13.7B</div><div class="good">46% of Revenue</div></div>
+    <div class="card"><div class="sub">Q3 Non-GAAP Operating Margin</div><div class="kpi">67.9%</div><div class="warn">Q4 指引約 66%</div></div>
+  </div>
+  <div style="height:22px"></div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>自由現金流（FCF）</h3>
+      <p>自由現金流是營運現金流扣掉資本支出後留下的現金。Q1 / Q2 / Q3 FCF 分別約 $8.0B / $10.3B / $13.7B，9M 合計約 <strong>$31.9B</strong>。</p>
+      <p class="sub">但本估值不直接把 headline FCF 當 Owner Earnings，仍要扣除維持人才所需的經濟 SBC、必要再投資與可能新增的融資支持。</p>
+    </div>
+    <div class="card">
+      <h3>毛利率與產品組合</h3>
+      <p>Q3 GAAP 毛利約 $20.46B；Non-GAAP 毛利約 $22.19B，對應 Non-GAAP gross margin 約 <strong>75.0%</strong>。</p>
+      <p class="sub">AI 硬體 mix 大幅上升，會把公司從「更像軟體」拉回「高增長硬體 + 軟體」的混合模型；因此收入超預期，不必然等比例轉成 EPS 超預期。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="s8" class="section">
+<div class="inner">
+  <div class="eyebrow">Normalization · SBC 正常化</div>
+  <h2>Company Non-GAAP 是起點，不是估值答案</h2>
+  <p class="lede">股權薪酬（Stock-Based Compensation, SBC）就是用股票支付員工。雖然不是當期現金支出，但它會稀釋股東，或迫使公司用現金回購來抵銷，因此不能因為公司 Non-GAAP 把它加回，就當作零成本。</p>
+  <div class="grid grid-4">
+    <div class="card"><div class="sub">9M FY26 SBC</div><div class="kpi">$6.29B</div><div class="sub">Reported</div></div>
+    <div class="card"><div class="sub">SBC / 9M Revenue</div><div class="kpi">8.8%</div><div class="sub">Derived</div></div>
+    <div class="card"><div class="sub">SBC / 9M Headline FCF</div><div class="kpi">19.7%</div><div class="sub">Derived</div></div>
+    <div class="card"><div class="sub">期末股數變化</div><div class="kpi">+0.7%</div><div class="sub">4.741B → 4.774B</div></div>
+  </div>
+  <div style="height:20px"></div>
+  <table class="metric-table">
+    <tr><th>盈利口徑</th><th>FY2026E</th><th>FY2027E</th><th>FY2028E</th><th>處理</th></tr>
+    <tr><td>Company Non-GAAP EPS</td><td>$11.66 共識</td><td>$19.38 共識</td><td>管理層稱 >$30 的方向</td><td><span class="pill consensus">Consensus / Outlook</span></td></tr>
+    <tr><td>Analyst Normalized EPS</td><td><strong>$10.2</strong></td><td><strong>$17.6</strong></td><td><strong>$27.8</strong>（僅條件式）</td><td><span class="pill assumption">Analyst Assumption</span></td></tr>
+    <tr><td>主要差異</td><td>保留經濟 SBC</td><td>保留未來授予 / 稀釋 burden</td><td>SBC + 遠期成功依賴</td><td>避免 Non-GAAP 過度正常化</td></tr>
+  </table>
+  <div class="callout" style="margin-top:18px"><strong>Route A：</strong>我把 recurring economic SBC 主要放在盈利扣減路徑。這樣後面就不能再用「稀釋 + 回購現金 + 更低 P/E」把同一 SBC 全額扣三次。</div>
+</div>
+</section>
+
+<section id="s9" class="section dark">
+<div class="inner">
+  <div class="eyebrow">Required Return · 要求報酬率</div>
+  <h2>5% 以上國債收益率，正在壓低所有高 P/E 的容忍度</h2>
+  <p class="lede">要求報酬率回答的是：「投資人承擔股票風險，至少要賺多少才值得？」當 10 年期美債收益率已接近 5.3%，即使 AVGO 盈利不變，合理估值也自然比低利率時期更低。</p>
+  <div class="grid grid-4">
+    <div class="card"><div class="sub">美國 10Y 國債</div><div class="kpi">~5.28%</div><div class="sub"><span class="pill reported">Reported</span> 10/2 市場</div></div>
+    <div class="card"><div class="sub">美國隱含股票風險溢價</div><div class="kpi">4.14%</div><div class="sub"><span class="pill reported">Reported</span> Damodaran 9/1</div></div>
+    <div class="card"><div class="sub">公司剩餘風險調整</div><div class="kpi">~0.5%</div><div class="sub"><span class="pill assumption">Assumption</span></div></div>
+    <div class="card"><div class="sub">Base Equity Required Return</div><div class="kpi">~10.0%</div><div class="sub"><span class="pill derived">Derived</span></div></div>
+  </div>
+  <div style="height:20px"></div>
+  <table class="metric-table">
+    <tr><th>構成</th><th>Base</th><th>Stress</th><th>依據</th><th>是否被其他方法共用</th></tr>
+    <tr><td>無風險基準</td><td>5.28%</td><td>5.75%</td><td>10Y UST</td><td>FY27/FY28 PV、Implied Return</td></tr>
+    <tr><td>股權風險溢價</td><td>4.14%</td><td>4.5%</td><td>市場隱含 ERP</td><td>同上</td></tr>
+    <tr><td>公司特定剩餘風險</td><td>~0.5%</td><td>~1.0%</td><td>客戶集中、資本承諾、融資結構的殘餘部分</td><td>只反映 scenario 未捕捉部分</td></tr>
+    <tr><td><strong>最終要求報酬率</strong></td><td><strong>~10%</strong></td><td><strong>~11%</strong></td><td>校準結果</td><td>統一使用，避免每種方法各選一個有利折現率</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s10" class="section">
+<div class="inner">
+  <div class="eyebrow">Fixed P/E Matrix · 固定倍數座標系</div>
+  <h2>20x / 25x / 30x 全部展示，但不能把它們當估值上下限</h2>
+  <table class="metric-table">
+    <tr><th>EPS 基準</th><th>Analyst Normalized EPS</th><th>20x</th><th>25x</th><th>30x</th><th>今天的 PV</th></tr>
+    <tr><td>FY2026E</td><td>$10.20</td><td>$204</td><td>$255</td><td>$306</td><td>已接近當期，不另作全年折現</td></tr>
+    <tr><td>FY2027E</td><td>$17.60</td><td>$352</td><td><strong>$440</strong></td><td>$528</td><td>$320 / <strong>$400</strong> / $480</td></tr>
+    <tr><td>FY2028E</td><td>$27.80</td><td>$556</td><td>$695</td><td>$834</td><td>$460 / $574 / $689</td></tr>
+  </table>
+  <div style="height:20px"></div>
+  <div class="grid grid-3">
+    <div class="card"><h3>20x｜Compression</h3><div class="kpi">$320</div><p class="sub">假設 EPS 達標但市場只給常規壓縮倍數。高利率或 AI 風險惡化時具有現實意義。</p></div>
+    <div class="card" style="border:2px solid var(--gold)"><h3>25x｜Base</h3><div class="kpi">$400</div><p class="sub">高品質增長 + 高 FCF 支持 premium；但沒有把 AI 成功重複計入更低 discount rate 和更高 P/E。</p></div>
+    <div class="card"><h3>30x｜Premium</h3><div class="kpi">$480</div><p class="sub">需要 FY27 AI ~$115B、高現金轉換、SBC 改善，以及客戶融資風險沒有擴大。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="s11" class="section soft">
+<div class="inner">
+  <div class="eyebrow">Scenario Matrix · Bear / Base / Bull</div>
+  <h2>盈利風險與倍數風險要分開看</h2>
+  <table class="metric-table">
+    <tr><th>情境</th><th>FY27 Normalized EPS</th><th>Exit P/E</th><th>Raw Value</th><th>10% 折現後</th><th>vs $355.14</th><th>核心條件</th></tr>
+    <tr><td>Bear</td><td>$14.5</td><td>20x</td><td>$290</td><td><strong>$264</strong></td><td class="bad">-26%</td><td>AI ramp 降速 + margin 壓縮 + valuation compression</td></tr>
+    <tr><td>Base</td><td>$17.6</td><td>25x</td><td>$440</td><td><strong>$400</strong></td><td class="good">+13%</td><td>FY27 AI 接近 $115B，軟體穩定，FCF 保持高轉換</td></tr>
+    <tr><td>Bull</td><td>$19.0</td><td>30x</td><td>$570</td><td><strong>$518</strong></td><td class="good">+46%</td><td>AI 超標 + 確定性提升 + 客戶/融資風險下降</td></tr>
+    <tr><td>Tail / Failure</td><td colspan="5">普通 P/E 可能失效，不給虛假的精確點值</td><td>核心客戶資金鏈/部署失敗、重大融資反噬或不可逆 margin reset</td></tr>
+  </table>
+  <div class="grid grid-3" style="margin-top:20px">
+    <div class="card"><div class="sub">Earnings Risk</div><div class="kpi">~−18%</div><p class="sub">只把 Base EPS $17.6 下修到 $14.5、仍給 25x，價值約從 $400 降至 ~$330。</p></div>
+    <div class="card"><div class="sub">Multiple Risk</div><div class="kpi">−20%</div><p class="sub">EPS 達標但 25x 壓到 20x，價值從 $400 降至 $320。</p></div>
+    <div class="card"><div class="sub">Combined Risk</div><div class="kpi">~−26%</div><p class="sub">Bear EPS + 20x 同時發生，今日價值約 $264。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="s12" class="section dark">
+<div class="inner">
+  <div class="eyebrow">Reverse Valuation · 反向估值</div>
+  <h2>市場其實沒有要求 FY27 還維持 30x</h2>
+  <div class="hero-grid">
+    <div>
+      <p class="hero-callout">今天買入 <strong>$355.14</strong>，如果要求一年後至少取得 <strong>10%</strong> 報酬，FY27 時只需要價值約 <strong>$390.65</strong>。</p>
+      <p class="hero-callout">用 FY27 正常化 EPS <strong>$17.6</strong> 反推：</p>
+      <div class="big-price">22.2x</div>
+      <div class="sub">這就是達成 10% 年化回報所需的 FY27 Exit P/E</div>
+    </div>
+    <div class="hero-panel">
+      <h3>市場現在在定價什麼？</h3>
+      <p>Current FY27 P/E ≈ <strong>20.2x</strong>。也就是說，現在的核心賭注主要不是「市場還會不會給 30x」，而是 <strong>FY27 盈利是否交付</strong>。</p>
+      <p>如果 EPS 做到 $17.6，而 FY27 市場仍給約 22.2x，就已經足以滿足約 10% 的一年回報門檻。</p>
+      <div class="callout">因此今天價格已大量定價 AI 成功，但還沒有同時定價「AI 成功 + 30x 永久 premium」這個雙重成功堆疊。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="s13" class="section">
+<div class="inner">
+  <div class="eyebrow">Balance Sheet · 資產負債表</div>
+  <h2>VMware 帶來的槓桿仍在，但現金生成速度正在快速去槓桿</h2>
+  <div class="grid grid-4">
+    <div class="card"><div class="sub">現金</div><div class="kpi">$24.0B</div><div class="sub">2026-08-02</div></div>
+    <div class="card"><div class="sub">總債務（帳面）</div><div class="kpi">$59.4B</div><div class="sub">短債 $2.25B + 長債 $57.17B</div></div>
+    <div class="card"><div class="sub">淨負債</div><div class="kpi">$35.4B</div><div class="sub">Derived</div></div>
+    <div class="card"><div class="sub">9M 淨償債</div><div class="kpi">$6.05B</div><div class="sub">同時維持回購與股息</div></div>
+  </div>
+  <div style="height:20px"></div>
+  <table class="metric-table">
+    <tr><th>項目</th><th>最新</th><th>變化 / 期限</th><th>估值處理</th></tr>
+    <tr><td>總債務本金</td><td>$61.08B</td><td>FY2028 約 $5.13B 到期、其後分散</td><td>Equity P/E route 已保留利息，不再機械從 P/E equity value 扣一次同筆 principal</td></tr>
+    <tr><td>現金</td><td>$23.98B</td><td>較 FY25 年末 $16.18B 上升</td><td>不額外加回全部現金，避免 cash interest / NAV double count</td></tr>
+    <tr><td>庫存</td><td>$4.52B</td><td>由 $2.27B 大幅上升</td><td>主要為支持 AI 出貨，需監控 working-capital 風險</td></tr>
+    <tr><td>應收帳款</td><td>$13.71B</td><td>由 $7.15B 上升</td><td>收入暴增伴隨信用曝險上升，需要與客戶融資一起看</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s14" class="section dark">
+<div class="inner">
+  <div class="eyebrow">Vendor Financing · 客戶融資風險</div>
+  <h2>Anthropic 讓「AI 訂單」第一次明顯帶上信用風險</h2>
+  <p class="lede">路透根據 Anthropic IPO 文件報導，Broadcom 對 Anthropic 的基建融資安排最高可達約 <strong>$42B</strong>。這不能直接等同 Broadcom 今天新增 $42B 債務，但意味著部分 AI 收入開始帶有 vendor financing（供應商融資）特徵。</p>
+  <div class="grid grid-3">
+    <div class="card"><div class="sub">融資上限</div><div class="kpi">$42B</div><p class="sub">Reported by Reuters from Anthropic prospectus</p></div>
+    <div class="card"><div class="sub">Anthropic 5 年承諾</div><div class="kpi">$125.2B</div><p class="sub">Broadcom 融資覆蓋約其中三分之一</p></div>
+    <div class="card"><div class="sub">估值處理</div><div class="kpi">Tail / Financing</div><p class="sub">不把 $42B 直接當 Broadcom debt principal 扣除</p></div>
+  </div>
+  <div class="callout" style="margin-top:20px"><strong>為什麼重要：</strong>若客戶需要供應商提供大量融資才能部署 AI，則「收入 visibility」與「客戶信用風險」開始綁在一起。這會改變現金流路徑與 tail risk，但不應同時在 EPS、WACC、P/E、Debt deduction 四個位置全額懲罰。</div>
+</div>
+</section>
+
+<section id="s15" class="section">
+<div class="inner">
+  <div class="eyebrow">Risk Placement Ledger · 風險主要放置帳本</div>
+  <h2>同一風險只允許有一個主要估值位置</h2>
+  <table class="metric-table">
+    <tr><th>重大風險</th><th>Primary Risk Location</th><th>主要量化</th><th>Secondary sensitivity</th><th>禁止重複位置</th></tr>
+    <tr><td>AI 客戶流失 / CapEx 延後</td><td>Revenue / EPS scenario</td><td>Bear EPS $14.5</td><td>若 duration 同時惡化，再考慮 residual multiple</td><td>不可又完整提高 WACC + 完整 20x compression</td></tr>
+    <tr><td>Anthropic / AI lab 融資</td><td>Financing / Tail State</td><td>依實際 guarantees / loan exposure</td><td>剩餘 required-return sensitivity</td><td>不可先扣 $42B，再完整降 EPS、P/E、提高折現率</td></tr>
+    <tr><td>AI mix 壓毛利</td><td>Margin / EPS path</td><td>FY27 Normalized EPS</td><td>若證明 duration/ROIC 下降，再調 multiple</td><td>不能同一毛利下降完整進 EPS + multiple</td></tr>
+    <tr><td>SBC / 稀釋</td><td>Normalized EPS Route A</td><td>FY26 $10.2 / FY27 $17.6</td><td>股價-授予政策 sensitivity</td><td>不可 earnings + dilution + buyback + multiple 四重扣減</td></tr>
+    <tr><td>高利率</td><td>Required Return / Implied Return</td><td>~10%</td><td>±100bps</td><td>不能同時把 5.3% 利率完整壓 P/E 又再次完整折現</td></tr>
+  </table>
+</div>
+</section>
+
+<section id="s16" class="section soft">
+<div class="inner">
+  <div class="eyebrow">Valuation Audit · 估值審計</div>
+  <h2>這個 $400 能不能被另一位分析師重建？</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="audit"><div class="check">✓</div><div><strong>EPS 定義先確認</strong><br><span class="sub">未把公司 Non-GAAP EPS 直接當 Analyst Normalized EPS；SBC 先做經濟處理。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>Forward P/E ≠ Future Exit P/E</strong><br><span class="sub">今天 FY27 P/E 是 current forward multiple；25x 是 FY27 時點的條件退出倍數。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>Debt 沒有雙重扣減</strong><br><span class="sub">普通股 P/E 使用 after-interest EPS，不再把同一 debt principal 從 equity value 再扣一次。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>SBC single-count</strong><br><span class="sub">主要放 Normalized EPS；不在 dilution / buyback / multiple 重複全額處理。</span></div><div><span class="pill guided">Pass</span></div></div>
+    </div>
+    <div class="card">
+      <div class="audit"><div class="check">✓</div><div><strong>Current price 最後比較</strong><br><span class="sub">估值不由 $355.14 倒推 P/E 或 EPS。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>FY28 沒有當今天 Base</strong><br><span class="sub">FY28 仍高度依賴多項 AI 成功條件，只作 conditional upside。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>Risk Placement</strong><br><span class="sub">客戶融資與 AI failure 各有主要風險位置，避免 tail + WACC + P/E 三重懲罰。</span></div><div><span class="pill guided">Pass</span></div></div>
+      <div class="audit"><div class="check">✓</div><div><strong>Required Return 校準</strong><br><span class="sub">10Y UST + ERP + residual company risk，統一用於遠期 PV / implied return。</span></div><div><span class="pill guided">Pass</span></div></div>
+    </div>
+  </div>
+
+  <div style="height:20px"></div>
+  <div class="card">
+    <h3>估值對帳表</h3>
+    <table class="metric-table">
+      <tr><th>步驟</th><th>數字</th><th>公式 / 來源</th><th>標籤</th></tr>
+      <tr><td>FY27 Company Non-GAAP EPS 共識</td><td>$19.38</td><td>市場共識</td><td><span class="pill consensus">Consensus</span></td></tr>
+      <tr><td>經濟 SBC / recurring burden</td><td>約 −$1.78/share</td><td>由 9M SBC、未來授予與 share-count path 校準</td><td><span class="pill assumption">Analyst Assumption</span></td></tr>
+      <tr><td>FY27 Analyst Normalized EPS</td><td><strong>$17.60</strong></td><td>$19.38 − $1.78</td><td><span class="pill derived">Derived</span></td></tr>
+      <tr><td>FY27 Future Exit Value</td><td><strong>$440</strong></td><td>$17.60 × 25x</td><td><span class="pill derived">Derived</span></td></tr>
+      <tr><td>折現回今天</td><td><strong>$400</strong></td><td>$440 ÷ 1.10</td><td><span class="pill derived">Derived</span></td></tr>
+      <tr><td>目前價格</td><td>$355.14</td><td>2026-10-02 close</td><td><span class="pill reported">Reported</span></td></tr>
+      <tr><td>對 Base Upside</td><td><strong>+12.6%</strong></td><td>$400 / $355.14 − 1</td><td><span class="pill derived">Derived</span></td></tr>
+    </table>
+  </div>
+</div>
+</section>
+
+<section id="s17" class="section">
+<div class="inner">
+  <div class="eyebrow">Price Map · 價格地圖</div>
+  <h2>不是只有一個 target price</h2>
+  <div class="price-map">
+    <div class="zone zone1"><strong>Attractive / Accumulation</strong><div class="range">≤ $320</div><span class="sub">接近 FY27 20x PV；前提是 thesis 未破壞。</span></div>
+    <div class="zone zone2"><strong>Fair-Low</strong><div class="range">$320–360</div><span class="sub">盈利交付即可有合理回報；目前股價就在這一帶上沿。</span></div>
+    <div class="zone zone3"><strong>Fair / Base</strong><div class="range">$360–420</div><span class="sub">接近 $400 Base；需要 FY27 AI 與 EPS 路徑大致成立。</span></div>
+    <div class="zone zone4"><strong>Premium</strong><div class="range">$420–480</div><span class="sub">開始要求更高增長持續性、融資風險下降。</span></div>
+    <div class="zone zone5"><strong>Bull-success</strong><div class="range">&gt; $480</div><span class="sub">接近 30x FY27 PV，需多項成功條件同時成立。</span></div>
+  </div>
+  <div class="callout" style="margin-top:22px"><strong>Invalidation Zone 不是股價數字。</strong>真正失效條件是：AI 收入 / 部署路徑明顯下修、經濟 EPS 被 margin / SBC / 融資侵蝕、客戶信用風險改變資本結構，或 Equity P/E 不再適合。</div>
+</div>
+</section>
+
+<section id="s18" class="section dark">
+<div class="inner">
+  <div class="eyebrow">Next Verification · 下一個驗證點</div>
+  <h2>下一季只盯 5 件事</h2>
+  <table class="metric-table">
+    <tr><th>驗證點</th><th>Base 需要看到什麼</th><th>若超標</th><th>若不達標</th><th>估值影響</th></tr>
+    <tr><td>Q4 AI 半導體收入</td><td>接近或高於 $21.7B</td><td>FY27 AI $115B 可信度升</td><td>AI ramp 斜率下修</td><td>EPS / probability</td></tr>
+    <tr><td>FY27 EPS 共識</td><td>穩住 $19.3–19.5+</td><td>Normalised EPS 可上修</td><td>收入升而 EPS 降 = margin 問題</td><td>Base EPS</td></tr>
+    <tr><td>Non-GAAP gross / operating margin</td><td>高 AI mix 下仍維持強勁</td><td>25x 更穩</td><td>硬體 mix 稀釋超預期</td><td>EPS + residual multiple</td></tr>
+    <tr><td>SBC / diluted shares</td><td>SBC/Revenue 下行；股數真正穩定</td><td>股東 EPS 品質改善</td><td>回購只是在填 SBC</td><td>Normalized EPS</td></tr>
+    <tr><td>AI lab 融資曝險</td><td>Broadcom 自身 cash / guarantee exposure 可控</td><td>Tail risk 降低</td><td>信用支持擴大</td><td>Financing / Tail State</td></tr>
+  </table>
+
+  <div style="height:26px"></div>
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>來源標籤</h3>
+      <p><span class="pill reported">Reported</span> 已披露法定或可直接驗證數據</p>
+      <p><span class="pill guided">Guided / Outlook</span> 管理層指引或長期展望</p>
+      <p><span class="pill consensus">Consensus</span> 市場分析師共識</p>
+      <p><span class="pill derived">Derived</span> 由披露數字自行計算</p>
+      <p><span class="pill assumption">Analyst Assumption</span> 分析師假設，不冒充公司指引</p>
+    </div>
+    <div class="card">
+      <h3>一句話收束</h3>
+      <p style="font-size:20px"><strong>AVGO 現在不是靠「30x 才便宜」：</strong>FY27 正常化 EPS 若做到約 $17.6，今天其實只需要 FY27 約 22.2x Exit P/E，就足以提供約 10% 的一年回報。我的 Base 是 25x、今日合理價約 $400。</p>
+    </div>
+  </div>
+
+  <div style="height:26px"></div>
+  <h3>主要資料來源</h3>
+  <ol class="source-list">
+    <li><a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial" target="_blank">Broadcom Q3 FY2026 Financial Results — 2026-09-02</a>：Q3 revenue、EPS、FCF、segment、Q4 guidance、AI Q3/Q4。</li>
+    <li><a href="https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm" target="_blank">Broadcom FY2026 Q3 Form 10-Q — SEC</a>：現金、債務、股數、SBC、回購、客戶集中、庫存與應收。</li>
+    <li><a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-first-quarter-fiscal-year-2026-financial" target="_blank">Broadcom Q1 FY2026</a>：Q1 revenue、AI revenue、FCF。</li>
+    <li><a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial" target="_blank">Broadcom Q2 FY2026</a>：Q2 revenue、AI revenue、segment、FCF。</li>
+    <li><a href="https://www.reuters.com/business/broadcom-forecasts-quarterly-revenue-below-estimates-2026-09-02/" target="_blank">Reuters — Broadcom raises AI chip forecast</a>：FY27 $115B / FY28 $230B AI revenue outlook。</li>
+    <li><a href="https://www.reuters.com/business/broadcom-lend-anthropic-up-42-billion-lease-its-chips-filing-says-2026-10-01/" target="_blank">Reuters — Anthropic financing</a>：最高 $42B 融資安排與信用/利益衝突風險。</li>
+    <li><a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Federal Reserve H.15</a>：美國國債收益率；10/1 官方 10Y 為 5.24%，10/2 市場報價約 5.28%。</li>
+    <li><a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/home.htm" target="_blank">Aswath Damodaran — Implied ERP</a>：2026-09-01 美國隱含 ERP 約 4.14%。</li>
+    <li><a href="https://www.marketwatch.com/data-news/broadcom-inc-stock-outperforms-competitors-on-strong-trading-day-f820b4f3-d12f320a0622" target="_blank">MarketWatch — AVGO 2026-10-02 close</a>：$355.14。</li>
+  </ol>
+  <div class="footer-note">本簡報為估值研究框架示例，不構成個人化投資建議。遠期 FY2027 / FY2028 數字含管理層展望、市場共識與分析師假設，已分開標記。凡未經公司正式披露的精確數字均不應被視為公司承諾。</div>
+</div>
+</section>
+
+</main>
+</div>
+
+<script>
+const sections=[...document.querySelectorAll('.section')];
+const links=[...document.querySelectorAll('#nav a')];
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('active'));
+      const a=map.get(e.target.id); if(a) a.classList.add('active');
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px',threshold:0});
+sections.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
