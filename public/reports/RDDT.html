@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RDDT｜Reddit 估值與基本面研究簡報</title>
+<style>
+:root{
+  --bg:#08111f; --panel:#0f1b2d; --panel2:#132238; --text:#f4f7fb; --muted:#9fb0c6;
+  --line:#24364f; --soft:#dfe8f2; --light:#eef3f8; --ink:#142033; --orange:#ff6314;
+  --cyan:#35c8ff; --green:#47d18c; --yellow:#ffd166; --red:#ff6b6b; --violet:#a98cff;
+  --nav:260px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+a{color:inherit}.layout{display:grid;grid-template-columns:var(--nav) 1fr;min-height:100vh}
+nav{position:fixed;left:0;top:0;width:var(--nav);height:100vh;padding:22px 16px;background:linear-gradient(180deg,#0b1627,#07101d);border-right:1px solid var(--line);overflow:auto;z-index:50}
+.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 18px}.reddit-dot{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:900;color:white}.brand b{font-size:18px}.brand small{display:block;color:var(--muted);font-weight:500;margin-top:2px}
+.navlink{display:block;padding:9px 11px;border-radius:10px;color:#a8b7ca;text-decoration:none;font-size:13px;margin:2px 0}.navlink:hover,.navlink.active{background:#15263d;color:white}
+.navfoot{margin:18px 10px 0;color:#6f849f;font-size:11px;line-height:1.5}
+main{grid-column:2;width:100%}
+.slide{min-height:100vh;padding:64px clamp(28px,4vw,72px);display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid #13233a;position:relative;overflow:hidden}
+.slide.light{background:var(--light);color:var(--ink);border-bottom-color:#d2dce8}
+.slide.dark2{background:#0b1525}
+.inner{width:min(1420px,100%);margin:0 auto}
+.kicker{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:10px}.light .kicker{color:#1379a6}
+h1{font-size:clamp(48px,7vw,106px);line-height:.93;margin:0 0 20px;letter-spacing:-.04em}h2{font-size:clamp(32px,4.2vw,64px);line-height:1;margin:0 0 22px;letter-spacing:-.035em}h3{font-size:20px;margin:0 0 10px}.lead{font-size:clamp(18px,1.6vw,25px);line-height:1.55;color:#c9d5e5;max-width:1100px}.light .lead{color:#4b5d72}
+.row{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.col-12{grid-column:span 12}.col-8{grid-column:span 8}.col-7{grid-column:span 7}.col-6{grid-column:span 6}.col-5{grid-column:span 5}.col-4{grid-column:span 4}.col-3{grid-column:span 3}
+.card{background:linear-gradient(180deg,rgba(19,34,56,.96),rgba(12,25,42,.96));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 34px rgba(0,0,0,.14)}
+.light .card{background:white;border-color:#d6e0ea;box-shadow:0 12px 34px rgba(35,55,80,.06)}
+.metric{padding:18px}.metric .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.light .metric .label{color:#708199}.metric .value{font-size:clamp(28px,3vw,48px);font-weight:800;margin-top:5px}.metric .sub{font-size:12px;color:var(--muted);margin-top:6px}.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.accent{color:var(--orange)}.cyan{color:var(--cyan)}
+.badge{display:inline-flex;align-items:center;padding:5px 9px;border:1px solid #36506d;border-radius:999px;font-size:11px;color:#b7c5d8;margin:3px 5px 3px 0}.light .badge{border-color:#ccd8e5;color:#51657d}
+.badge.reported{border-color:#2b8fb2;color:#67d7ff}.badge.guided{border-color:#9b7715;color:#ffd166}.badge.consensus{border-color:#7157c9;color:#c3b3ff}.badge.derived{border-color:#278e61;color:#6ce2a6}.badge.assume{border-color:#a95252;color:#ff9d9d}
+.big-callout{border-left:5px solid var(--orange);padding:14px 20px;background:rgba(255,99,20,.08);border-radius:0 14px 14px 0;font-size:18px;line-height:1.6}
+.light .big-callout{background:#fff0e7}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}.light th,.light td{border-bottom-color:#dbe4ed}th{color:#8fa4bd;font-weight:700;font-size:12px}.light th{color:#62768e}
+.bar-wrap{display:grid;gap:14px}.bar-row{display:grid;grid-template-columns:120px 1fr 80px;gap:12px;align-items:center}.bar-track{height:18px;background:#1a2b43;border-radius:999px;overflow:hidden}.light .bar-track{background:#dfe7ef}.bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),#ff9b4a)}.bar.c2{background:linear-gradient(90deg,var(--cyan),#77e3ff)}.bar.c3{background:linear-gradient(90deg,var(--green),#83e8b5)}.bar.c4{background:linear-gradient(90deg,var(--violet),#d2c4ff)}
+.donut{width:180px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--orange) 0 94.6%, #29415f 94.6%)}.donut.geo{background:conic-gradient(var(--cyan) 0 79.3%, var(--violet) 79.3%)}.donut::after{content:"";position:absolute;width:62%;height:62%;border-radius:50%;background:var(--panel)}.light .donut::after{background:white}.donut span{position:relative;z-index:2;text-align:center;font-weight:800;font-size:20px}.donut span small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:center}.flowbox{padding:18px;border-radius:16px;background:#12233a;border:1px solid #263b57;text-align:center;min-height:110px;display:flex;flex-direction:column;justify-content:center}.light .flowbox{background:white;border-color:#d6e0ea}.arrow{text-align:center;color:#5b789c;font-size:28px}
+.spark{display:flex;align-items:flex-end;gap:12px;height:220px;padding-top:20px}.spark .sbar{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,var(--cyan),#17759f);position:relative;min-width:34px}.spark .sbar.orange{background:linear-gradient(180deg,#ff8d4c,var(--orange))}.spark .sbar.green{background:linear-gradient(180deg,#79e8b7,#2ba977)}.spark .sbar.violet{background:linear-gradient(180deg,#c0afff,#7658d9)}.sbar label{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-size:12px;white-space:nowrap;color:var(--muted)}.sbar b{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:13px;white-space:nowrap}
+.matrix td.hl{background:rgba(255,99,20,.12);font-weight:800}.matrix td.base{background:rgba(71,209,140,.12);font-weight:800}
+.zone{height:56px;display:flex;align-items:center;padding:0 18px;font-weight:750;border-radius:12px;margin:8px 0}.z1{background:#113f32}.z2{background:#1b5361}.z3{background:#27405f}.z4{background:#5c4b1c}.z5{background:#5b2930}
+.timeline{position:relative;padding-left:28px}.timeline:before{content:"";position:absolute;left:7px;top:3px;bottom:3px;width:2px;background:#2c4564}.tl{position:relative;margin:0 0 22px}.tl:before{content:"";position:absolute;left:-26px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px #1a2d45}
+.small{font-size:12px;color:var(--muted);line-height:1.55}.light .small{color:#66798f}
+.note{padding:14px 16px;border-radius:12px;background:#0b2035;border:1px dashed #35516e;font-size:13px;color:#b7c8dc;line-height:1.6}.light .note{background:#f5f8fb;border-color:#c9d5e2;color:#53667c}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px}.pill{padding:9px 12px;background:#14253b;border:1px solid #2a405e;border-radius:999px;font-size:12px}.light .pill{background:white;border-color:#d5dfe9}
+.source{font-size:12px;line-height:1.7;color:#869ab3}.light .source{color:#6f8092}.source a{text-decoration:underline;text-decoration-color:#4a6079}
+.cover-art{position:absolute;right:-8vw;top:5vh;width:48vw;height:90vh;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,99,20,.65),rgba(255,99,20,.08) 40%,transparent 70%);filter:blur(3px);pointer-events:none}
+.logo-orbit{position:absolute;right:7vw;top:50%;transform:translateY(-50%);width:32vw;max-width:520px;aspect-ratio:1;border:1px solid rgba(255,255,255,.13);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 60px rgba(255,255,255,.018),0 0 0 120px rgba(255,255,255,.012)}
+.logo-orbit .r{width:48%;aspect-ratio:1;border-radius:50%;background:var(--orange);display:grid;place-items:center;color:white;font-size:clamp(48px,7vw,108px);font-weight:900}
+footer{padding:30px 0;color:#71849b;font-size:12px}
+@media(max-width:1050px){:root{--nav:0px}.layout{display:block}nav{display:none}main{grid-column:auto}.slide{padding:48px 22px}.col-8,.col-7,.col-6,.col-5,.col-4,.col-3{grid-column:span 12}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.logo-orbit{opacity:.28;width:70vw;right:-20vw}.bar-row{grid-template-columns:95px 1fr 60px}}
+@media print{nav{display:none}.layout{display:block}.slide{page-break-after:always;min-height:auto;padding:40px}.cover-art,.logo-orbit{display:none}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav>
+  <div class="brand"><div class="reddit-dot">r</div><div><b>RDDT 研究簡報</b><small>Reddit, Inc.｜2026-10-04</small></div></div>
+  <a class="navlink" href="#cover">01｜封面</a>
+  <a class="navlink" href="#decision">02｜估值第一屏</a>
+  <a class="navlink" href="#guidance">03｜管理層展望</a>
+  <a class="navlink" href="#business">04｜公司結構與商業模式</a>
+  <a class="navlink" href="#mix">05｜收入組成與增量</a>
+  <a class="navlink" href="#users">06｜用戶與變現</a>
+  <a class="navlink" href="#searchrisk">07｜搜尋導流風險</a>
+  <a class="navlink" href="#margins">08｜利潤率與現金流</a>
+  <a class="navlink" href="#normalize">09｜盈利正常化</a>
+  <a class="navlink" href="#forecast">10｜收入／盈利趨勢</a>
+  <a class="navlink" href="#matrix">11｜20x / 25x / 30x</a>
+  <a class="navlink" href="#scenario">12｜Bear / Base / Bull</a>
+  <a class="navlink" href="#return">13｜要求報酬率</a>
+  <a class="navlink" href="#reverse">14｜反向估值與 DCF</a>
+  <a class="navlink" href="#balance">15｜資產負債表與 SBC</a>
+  <a class="navlink" href="#risk">16｜風險放置與稽核</a>
+  <a class="navlink" href="#news">17｜最新催化與新聞</a>
+  <a class="navlink" href="#map">18｜價格地圖</a>
+  <a class="navlink" href="#verify">19｜下一季驗證點</a>
+  <a class="navlink" href="#sources">20｜資料來源</a>
+  <div class="navfoot">單一 HTML｜上下滾動｜無翻頁<br/>主要數字截至 2026-10-02 收市；研究日期 2026-10-04。</div>
+</nav>
+
+<main>
+<section id="cover" class="slide dark2">
+<div class="cover-art"></div><div class="logo-orbit"><div class="r">r/</div></div>
+<div class="inner" style="position:relative;z-index:2">
+  <div class="kicker">Equity Research · Valuation Operating System</div>
+  <h1>RDDT<br/><span class="accent">Reddit</span></h1>
+  <p class="lead">高增長仍在，但估值的真正問題已從「能不能成長」轉為：<b>30% 左右收入增長、40%+ 利潤率與高利率環境，能否同時支持 Premium P/E。</b></p>
+  <div class="pillrow" style="margin-top:26px">
+    <span class="pill">Current Price $147.86</span><span class="pill">Base FV ≈ $163</span><span class="pill">合理區間 $137–$173</span><span class="pill">Q3 財報預計 2026-10-29</span>
+  </div>
+</div>
+</section>
+
+<section id="decision" class="slide">
+<div class="inner">
+  <div class="kicker">Decision First｜估值決策優先</div><h2>第一屏先回答：現在值多少？</h2>
+  <div class="row">
+    <div class="col-3 card metric"><div class="label">Current Price</div><div class="value">$147.86</div><div class="sub"><span class="badge reported">Reported</span> 2026/10/02</div></div>
+    <div class="col-3 card metric"><div class="label">Base Fair Value</div><div class="value good">$163</div><div class="sub"><span class="badge derived">Derived</span> 約 +10%</div></div>
+    <div class="col-3 card metric"><div class="label">合理區間</div><div class="value">$137–173</div><div class="sub">25x–32x 主情境</div></div>
+    <div class="col-3 card metric"><div class="label">Selected Base P/E</div><div class="value">30x</div><div class="sub">FY2027 核心正常化 EPS</div></div>
+
+    <div class="col-3 card metric"><div class="label">FY2026 Normalized EPS</div><div class="value">$3.86</div><div class="sub"><span class="badge derived">Derived</span></div></div>
+    <div class="col-3 card metric"><div class="label">FY2027 Normalized EPS</div><div class="value">$5.70</div><div class="sub"><span class="badge derived">Derived</span> Base 主錨</div></div>
+    <div class="col-3 card metric"><div class="label">FY2028 Normalized EPS</div><div class="value">$7.62</div><div class="sub"><span class="badge derived">Derived</span></div></div>
+    <div class="col-3 card metric"><div class="label">Sustainable EPS CAGR</div><div class="value cyan">≈40.5%</div><div class="sub">FY26→FY28；PEG 僅作診斷</div></div>
+
+    <div class="col-8 card">
+      <h3>估值結論</h3>
+      <div class="big-callout"><b>目前屬於「大致合理偏低／輕度低估」</b>，不是深度低估。Base 使用 FY2027 核心正常化普通股 EPS $5.70 × 30x 未來退出倍數，再以約 10.3% 股東要求報酬率折回今天，並加回約 $11.1/股 excess cash，得到約 $163。</div>
+      <p class="small" style="margin-top:14px">核心上行變數：美國登入用戶重新加速、國際 ARPU 持續提升、廣告效率改善帶來更長 growth duration。核心下行變數：Google / AI 搜尋導流結構性下滑，令用戶成長與估值倍數同時受壓。</p>
+    </div>
+    <div class="col-4 card">
+      <h3>管理層展望增長｜第一屏強制顯示</h3>
+      <table>
+        <tr><th>Q3'26</th><th>中點</th><th>隱含</th></tr>
+        <tr><td>Revenue</td><td>$865M</td><td class="good">+47.9% YoY</td></tr>
+        <tr><td>Revenue QoQ</td><td>—</td><td>+7.5%</td></tr>
+        <tr><td>Adj. EBITDA</td><td>$390M</td><td>45.1% margin</td></tr>
+      </table>
+      <div class="small" style="margin-top:10px"><span class="badge guided">Guided</span> 收入 $860–870M；Adj. EBITDA $385–395M。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="guidance" class="slide light">
+<div class="inner">
+  <div class="kicker">Management Outlook Growth</div><h2>管理層指引與市場共識，分開看</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>Q3 2026 指引數學驗證</h3>
+      <table>
+        <tr><th>項目</th><th>管理層指引</th><th>基準期</th><th>隱含 YoY</th><th>隱含 QoQ</th></tr>
+        <tr><td>Revenue 低端</td><td>$860M</td><td>Q3'25 $585M</td><td>+47.0%</td><td>+6.8%</td></tr>
+        <tr><td><b>Revenue 中點</b></td><td><b>$865M</b></td><td>$585M</td><td class="good"><b>+47.9%</b></td><td><b>+7.5%</b></td></tr>
+        <tr><td>Revenue 高端</td><td>$870M</td><td>$585M</td><td>+48.7%</td><td>+8.1%</td></tr>
+        <tr><td>Adj. EBITDA 中點</td><td>$390M</td><td>—</td><td>—</td><td>45.1% margin</td></tr>
+      </table>
+      <div class="note" style="margin-top:15px">同比增速從 Q1 的 +69% → Q2 +61% → Q3 指引中點約 +48%，明顯降速；但調整後 EBITDA margin 從 Q1 40.1% → Q2 42.6% → Q3 指引約 45.1%，盈利效率反而加速。</div>
+    </div>
+    <div class="col-5 card">
+      <h3>市場共識不是管理層指引</h3>
+      <div class="metric"><div class="label">Q3 Revenue Consensus</div><div class="value">$872.4M</div><div class="sub"><span class="badge consensus">Consensus</span> 約高於指引高端 0.3%</div></div>
+      <div class="metric"><div class="label">另一即時共識來源</div><div class="value">$875.3M</div><div class="sub"><span class="badge consensus">Consensus</span> 約高於指引高端 0.6%</div></div>
+      <div class="big-callout" style="font-size:15px"><b>市場已不只要求「達成指引」：</b>最新 sell-side 聚合共識已略高於公司給出的 $860–870M 範圍。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="business" class="slide">
+<div class="inner">
+  <div class="kicker">Company Structure</div><h2>公司本質：把「人類討論資料」變成廣告與資料授權</h2>
+  <p class="lead">Reddit 不是單純內容網站。經濟鏈條是「社群生產內容 → 用戶搜尋／閱讀 → 平台累積高意圖興趣訊號 → 廣告變現」，再疊加內容授權與直接付費產品。</p>
+  <div class="flow" style="margin-top:28px">
+    <div class="flowbox"><b>100,000+ 社群</b><span class="small">UGC／討論／評論／知識</span></div><div class="arrow">→</div>
+    <div class="flowbox"><b>130.3M DAUq</b><span class="small">日均獨立活躍用戶</span></div><div class="arrow">→</div>
+    <div class="flowbox"><b>興趣＋意圖訊號</b><span class="small">搜尋、社群主題、互動</span></div><div class="arrow">→</div>
+    <div class="flowbox"><b>廣告平台</b><span class="small">核心收入與利潤來源</span></div><div class="arrow">→</div>
+    <div class="flowbox"><b>現金流</b><span class="small">第三方雲端托管，CapEx 極低</span></div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div class="col-4 card"><h3>主業：廣告</h3><p class="small">Q2'26 廣告收入 $761.6M，佔總收入 94.6%；同比 +64%。真正的估值引擎仍然是廣告，不是資料授權。</p></div>
+    <div class="col-4 card"><h3>第二曲線：內容授權</h3><p class="small">公司將 Reddit 內容授權給合作方用於機器學習、AI 訓練、商業分析等。仍屬早期市場，而且 10-Q 明示大部分合同價值集中於兩個合作方。</p></div>
+    <div class="col-4 card"><h3>直接付費產品</h3><p class="small">Reddit Premium、Reddit Gold 等目前在公司披露中「不具重大性」。因此不應拿小業務敘事支撐核心 Premium P/E。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="mix" class="slide light">
+<div class="inner">
+  <div class="kicker">Revenue Mix & Increment</div><h2>收入組成：廣告仍然壓倒性主導</h2>
+  <div class="row">
+    <div class="col-6 card">
+      <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+        <div class="donut"><span>94.6%<small>廣告</small></span></div>
+        <div>
+          <h3>Q2'26 按業務</h3>
+          <p><b>廣告：</b>$761.6M，+64% YoY</p>
+          <p><b>其他：</b>$43.3M，+24% YoY</p>
+          <p class="small">其他收入包括內容授權及直接用戶產品；Premium / Gold 仍非重大。</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 card">
+      <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+        <div class="donut geo"><span>79.3%<small>美國收入</small></span></div>
+        <div>
+          <h3>Q2'26 按地區</h3>
+          <p><b>美國：</b>$638.1M，+56% YoY</p>
+          <p><b>國際：</b>$166.8M，+84% YoY</p>
+          <p class="small">國際增速更快，但 ARPU 遠低於美國，因此長期 monetization runway 仍很大。</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 card">
+      <h3>Q2 同比「收入增量」從哪裡來？</h3>
+      <div class="bar-wrap">
+        <div class="bar-row"><span>廣告增量</span><div class="bar-track"><div class="bar" style="width:97%"></div></div><b>+$296.8M</b></div>
+        <div class="bar-row"><span>其他增量</span><div class="bar-track"><div class="bar c2" style="width:8%"></div></div><b>+$8.4M</b></div>
+      </div>
+      <p class="small">所以 2026 年 Q2 的收入增長幾乎完全由廣告推動。內容授權是 optionality，而非現階段的主增量。</p>
+    </div>
+    <div class="col-6 card">
+      <h3>未來年度收入「增量」</h3>
+      <table>
+        <tr><th>年度</th><th>收入</th><th>同比</th><th>較前一年增量</th></tr>
+        <tr><td>2025A</td><td>$2.203B</td><td>+69.4%</td><td>—</td></tr>
+        <tr><td>2026E</td><td>$3.386B</td><td>+53.8%</td><td class="good">+$1.183B</td></tr>
+        <tr><td>2027E</td><td>$4.464B</td><td>+31.8%</td><td>+$1.078B</td></tr>
+        <tr><td>2028E</td><td>$5.545B</td><td>+24.2%</td><td>+$1.081B</td></tr>
+      </table>
+      <p class="small"><span class="badge consensus">Consensus</span> 有趣的是：增速百分比快速下降，但每年新增收入額仍大致維持約 $1.1B。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="users" class="slide">
+<div class="inner">
+  <div class="kicker">Users & Monetization</div><h2>用戶增長 vs 變現：國際用戶是量，美國是錢</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>Q2'26 核心用戶指標</h3>
+      <div class="bar-wrap">
+        <div class="bar-row"><span>Global DAUq</span><div class="bar-track"><div class="bar c2" style="width:74%"></div></div><b>130.3M</b></div>
+        <div class="bar-row"><span>U.S. DAUq</span><div class="bar-track"><div class="bar" style="width:40%"></div></div><b>53.2M</b></div>
+        <div class="bar-row"><span>Intl. DAUq</span><div class="bar-track"><div class="bar c4" style="width:59%"></div></div><b>77.1M</b></div>
+      </div>
+      <table style="margin-top:22px"><tr><th>指標</th><th>Q2'26</th><th>YoY</th></tr>
+        <tr><td>Global DAUq</td><td>130.3M</td><td>+18%</td></tr>
+        <tr><td>U.S. DAUq</td><td>53.2M</td><td>+6%</td></tr>
+        <tr><td>International DAUq</td><td>77.1M</td><td class="good">+28%</td></tr>
+      </table>
+    </div>
+    <div class="col-5 card">
+      <h3>ARPU｜每位活躍用戶平均收入</h3>
+      <div class="metric"><div class="label">全球</div><div class="value">$6.18</div><div class="sub">+36% YoY</div></div>
+      <div class="metric"><div class="label">美國</div><div class="value">$11.85</div><div class="sub good">+51% YoY</div></div>
+      <div class="metric"><div class="label">國際</div><div class="value">$2.26</div><div class="sub">+31% YoY</div></div>
+      <div class="note">美國 ARPU 約為國際的 5.2 倍。第一性原理上，國際市場只要逐步提升廣告密度與定價，就能帶來很長的 monetization runway。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="searchrisk" class="slide light">
+<div class="inner">
+  <div class="kicker">Traffic Quality</div><h2>真正要盯的不是 DAU 總數，而是「登入用戶」</h2>
+  <div class="row">
+    <div class="col-6 card">
+      <h3>Q2'26 Global DAUq 結構</h3>
+      <div class="bar-wrap">
+        <div class="bar-row"><span>Logged-in</span><div class="bar-track"><div class="bar c3" style="width:40%"></div></div><b>52.6M</b></div>
+        <div class="bar-row"><span>Logged-out</span><div class="bar-track"><div class="bar c2" style="width:60%"></div></div><b>77.7M</b></div>
+      </div>
+      <table style="margin-top:22px"><tr><th>用戶類別</th><th>YoY</th><th>含義</th></tr>
+        <tr><td>Global logged-in</td><td>+7%</td><td>較黏、直接關係較強</td></tr>
+        <tr><td>Global logged-out</td><td class="good">+27%</td><td>更受搜尋／外部導流影響</td></tr>
+        <tr><td>U.S. logged-in</td><td class="warn">+1%</td><td>最值得警惕</td></tr>
+      </table>
+    </div>
+    <div class="col-6 card">
+      <h3>Google / AI 搜尋風險如何放進模型？</h3>
+      <p class="lead" style="font-size:18px">如果外部搜尋把使用者留在 AI Overview，而不是點進 Reddit，最先受影響的是 logged-out traffic；因此風險要先放進 <b>Revenue / EPS 情境</b>，而不是在 EPS、折現率與 P/E 三處重複扣。</p>
+      <div class="big-callout" style="font-size:15px">Bear Case 的主要來源：美國用戶增長進一步放緩、外部搜尋導流疲弱、廣告 impressions 增長因此下降。只有當這件事同時改變長期 moat / duration，才再給額外 multiple penalty。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="margins" class="slide">
+<div class="inner">
+  <div class="kicker">Operating Leverage</div><h2>收入在降速，但利潤率還在加速</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>Adjusted EBITDA Margin 趨勢</h3>
+      <div class="spark">
+        <div class="sbar orange" style="height:72%"><b>40.1%</b><label>Q1'26</label></div>
+        <div class="sbar orange" style="height:77%"><b>42.6%</b><label>Q2'26</label></div>
+        <div class="sbar green" style="height:82%"><b>45.1%</b><label>Q3 Guide</label></div>
+      </div>
+      <div class="small"><span class="badge guided">Guided</span> Q3 以 Revenue $865M、Adjusted EBITDA $390M 中點計算。</div>
+    </div>
+    <div class="col-5 card">
+      <div class="metric"><div class="label">Q2 GAAP Gross Margin</div><div class="value">91.3%</div><div class="sub">+50 bps YoY</div></div>
+      <div class="metric"><div class="label">Q2 FCF Margin</div><div class="value good">32.4%</div><div class="sub">$260.7M FCF</div></div>
+      <div class="metric"><div class="label">H1 FCF Margin</div><div class="value">38.9%</div><div class="sub">$571.9M / $1.468B</div></div>
+      <div class="note">Reddit 使用第三方雲端基礎設施，因此傳統固定資產 CapEx 很低；這是高自由現金流轉換的重要原因，但 AWS 最低採購承諾仍是實際 sustaining operating burden。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="normalize" class="slide light">
+<div class="inner">
+  <div class="kicker">Earnings Normalization</div><h2>為什麼市場「調整後 EPS」不能直接乘 P/E？</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>核心正常化 Bridge</h3>
+      <table>
+        <tr><th>項目</th><th>公司／報表</th><th>分析師處理</th><th>原因</th></tr>
+        <tr><td>股權薪酬（SBC）</td><td>Adjusted EBITDA 剔除</td><td class="bad">保留經濟成本</td><td>未來仍需持續授予股票</td></tr>
+        <tr><td>所得稅</td><td>H1 稅費僅 $5.7M</td><td>正常化約 22%</td><td>估值備抵未來可能釋放，當期稅率不可永續</td></tr>
+        <tr><td>淨利息收入</td><td>H1 +$48.9M</td><td>核心 EPS 剝離</td><td>excess cash 另以 NAV 加回，避免重複估值</td></tr>
+        <tr><td>稀釋股數</td><td>Q2 fully diluted 207.0M</td><td>FY26–28 約 207–209M</td><td>考慮持續授予與回購抵銷</td></tr>
+      </table>
+    </div>
+    <div class="col-5 card">
+      <h3>四個最重要的會計事實</h3>
+      <p><b>1.</b> H1 SBC expense = <b>$169.3M</b>；連相關稅費計算約 <b>$185.7M</b>。</p>
+      <p><b>2.</b> Q2 Adjusted EBITDA 明確排除 SBC、稅、利息及部分其他項目。</p>
+      <p><b>3.</b> 公司表示未來 12 個月「有合理可能」釋放大部分美國遞延稅項估值備抵，會形成一次性所得稅利益。</p>
+      <p><b>4.</b> 因此，零稅率＋add-back SBC 的 EPS 不適合作為長期 equity P/E 分母。</p>
+    </div>
+    <div class="col-12 card">
+      <h3>我的 Core Normalized Equity EPS｜核心正常化普通股每股盈利</h3>
+      <table><tr><th>財年</th><th>Revenue</th><th>EBIT</th><th>正常化稅率</th><th>稀釋股數</th><th>Normalized EPS</th><th>來源</th></tr>
+        <tr><td>FY2026E</td><td>$3.386B</td><td>$1.024B</td><td>22%</td><td>207M</td><td class="base">$3.86</td><td>Consensus + Derived</td></tr>
+        <tr><td>FY2027E</td><td>$4.464B</td><td>$1.519B</td><td>22%</td><td>208M</td><td class="base">$5.70</td><td>Consensus + Derived</td></tr>
+        <tr><td>FY2028E</td><td>$5.545B</td><td>$2.042B</td><td>22%</td><td>209M</td><td class="base">$7.62</td><td>Consensus + Derived</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="forecast" class="slide">
+<div class="inner">
+  <div class="kicker">Growth Trend</div><h2>增速下降 ≠ 盈利增量下降</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>年度 Revenue</h3>
+      <div class="spark" style="height:280px">
+        <div class="sbar violet" style="height:40%"><b>$2.20B</b><label>2025A</label></div>
+        <div class="sbar c2" style="height:61%"><b>$3.39B</b><label>2026E</label></div>
+        <div class="sbar c3" style="height:80%"><b>$4.46B</b><label>2027E</label></div>
+        <div class="sbar orange" style="height:100%"><b>$5.55B</b><label>2028E</label></div>
+      </div>
+      <p class="small">YoY：2025 +69.4% → 2026E +53.8% → 2027E +31.8% → 2028E +24.2%。</p>
+    </div>
+    <div class="col-5 card">
+      <h3>EBIT 增長反而維持更高</h3>
+      <table><tr><th>年度</th><th>EBIT</th><th>YoY</th><th>EBIT Margin</th></tr>
+        <tr><td>2025A</td><td>$442M</td><td>—</td><td>20.1%</td></tr>
+        <tr><td>2026E</td><td>$1.024B</td><td class="good">+131.6%</td><td>30.2%</td></tr>
+        <tr><td>2027E</td><td>$1.519B</td><td>+48.4%</td><td>34.0%</td></tr>
+        <tr><td>2028E</td><td>$2.042B</td><td>+34.5%</td><td>36.8%</td></tr>
+      </table>
+      <div class="big-callout" style="font-size:15px;margin-top:16px">所以投資命題已從「收入能否 +60%」轉成「約 +25–30% 收入增長，能否持續轉成更快的 EPS / FCF 增長」。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="matrix" class="slide light">
+<div class="inner">
+  <div class="kicker">Fixed P/E Matrix</div><h2>20x / 25x / 30x：共同估值座標系</h2>
+  <div class="row">
+    <div class="col-12 card">
+      <h3>Raw Forward Value｜遠期時點價值</h3>
+      <table class="matrix"><tr><th>EPS 基準</th><th>Normalized EPS</th><th>20x</th><th>25x</th><th>30x</th></tr>
+        <tr><td>FY2026E</td><td>$3.86</td><td>$77</td><td>$97</td><td>$116</td></tr>
+        <tr><td><b>FY2027E</b></td><td><b>$5.70</b></td><td>$114</td><td>$143</td><td class="base">$171</td></tr>
+        <tr><td>FY2028E</td><td>$7.62</td><td>$152</td><td>$191</td><td>$229</td></tr>
+      </table>
+    </div>
+    <div class="col-12 card">
+      <h3>折回今天＋加回 excess cash 後</h3>
+      <table class="matrix"><tr><th>估值基準</th><th>20x</th><th>25x</th><th>30x</th><th>時間註記</th></tr>
+        <tr><td>FY2026E</td><td>$87</td><td>$105</td><td>$124</td><td>約 0.24 年</td></tr>
+        <tr><td><b>FY2027E</b></td><td>$112</td><td class="hl">$137</td><td class="base">$163</td><td>約 1.24 年</td></tr>
+        <tr><td>FY2028E</td><td>$134</td><td>$164</td><td>$195</td><td>約 2.24 年</td></tr>
+      </table>
+      <p class="small">折現使用 10.28% 股東要求報酬率；excess cash 約 $11.1/股。FY2/FY2028 不能直接當今天 fair value。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="scenario" class="slide">
+<div class="inner">
+  <div class="kicker">Scenario Valuation</div><h2>Bear / Base / Bull：不是機械 ±10%</h2>
+  <div class="row">
+    <div class="col-12 card">
+      <table class="matrix"><tr><th>FY2027 情境</th><th>Revenue</th><th>Operating Margin</th><th>Normal. EPS</th><th>Selected P/E</th><th>今天約值</th><th>核心條件</th></tr>
+        <tr><td>Bear</td><td>$4.10B</td><td>29.5%</td><td>$4.44</td><td>25x</td><td class="bad">$109</td><td>搜尋導流弱、用戶／廣告成長降速</td></tr>
+        <tr><td><b>Base</b></td><td><b>$4.46B</b></td><td><b>34.0%</b></td><td><b>$5.70</b></td><td><b>30x</b></td><td class="good"><b>$163</b></td><td>共識收入大致達成、margin 持續擴張</td></tr>
+        <tr><td>Bull</td><td>$4.75B</td><td>36.5%</td><td>$6.62</td><td>32x</td><td class="cyan">$199</td><td>登入用戶改善＋國際變現超預期</td></tr>
+      </table>
+    </div>
+    <div class="col-4 card metric"><div class="label">Earnings Risk</div><div class="value">$129</div><div class="sub">Bear EPS 但仍給 30x，大約值</div></div>
+    <div class="col-4 card metric"><div class="label">Multiple Risk</div><div class="value">$112</div><div class="sub">Base EPS 但市場只給 20x</div></div>
+    <div class="col-4 card metric"><div class="label">Combined Risk</div><div class="value bad">≈$90</div><div class="sub">Bear EPS + 20x compression</div></div>
+    <div class="col-12 note">FY2 概率不硬填 20% / 60% / 20%。原因是 Reddit 上市歷史短、搜尋生態快速改變；缺乏足夠 reference class 時，用精確 probability-weighted point value 會製造假精確。</div>
+  </div>
+</div>
+</section>
+
+<section id="return" class="slide light">
+<div class="inner">
+  <div class="kicker">Required Return</div><h2>利率是估值的重力</h2>
+  <div class="row">
+    <div class="col-6 card">
+      <h3>股東要求報酬率（Equity Required Return）</h3>
+      <table><tr><th>構成</th><th>Base</th><th>來源／角色</th></tr>
+        <tr><td>10Y 美國國債</td><td>5.28%</td><td><span class="badge reported">Reported</span> 無風險率</td></tr>
+        <tr><td>市場股票風險溢價</td><td>4.50%</td><td><span class="badge assume">Analyst Assumption</span></td></tr>
+        <tr><td>公司剩餘風險</td><td>0.50%</td><td><span class="badge assume">Analyst Assumption</span></td></tr>
+        <tr><td><b>Required Return</b></td><td><b>10.28%</b></td><td><span class="badge derived">Derived</span></td></tr>
+      </table>
+      <p class="small">Required Return 回答：「投資者持有 RDDT，至少要求多少年化回報才願意承擔股票風險？」它不是可自由調整來配合目標價的數字。</p>
+    </div>
+    <div class="col-6 card">
+      <h3>為什麼 30x 可以，但 35–40x 需要更強證據？</h3>
+      <div class="timeline">
+        <div class="tl"><b>支持 30x：</b><span class="small"> 30%+ 中期收入增長、91% 毛利率、高 FCF、淨現金、低傳統 CapEx。</span></div>
+        <div class="tl"><b>限制 35–40x：</b><span class="small"> 10Y 國債 5.28%、美國 logged-in DAUq 僅 +1%、搜尋導流不確定。</span></div>
+        <div class="tl"><b>升檔條件：</b><span class="small"> 登入用戶增速重新到高個位數、國際 ARPU 加速且 margin 不受損。</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="reverse" class="slide">
+<div class="inner">
+  <div class="kicker">Reverse Valuation</div><h2>$147.86 到底已經在定價什麼？</h2>
+  <div class="row">
+    <div class="col-5 card metric">
+      <div class="label">Market-Implied FY2027 Exit P/E</div><div class="value">≈27.1x</div>
+      <div class="sub">以 $5.70 EPS、10.28% required return、$11.1/股 excess cash 反推</div>
+    </div>
+    <div class="col-7 card">
+      <div class="big-callout">目前價格並沒有要求 Reddit 永久維持 60% 增長。市場大致已在定價：收入增速未來兩年下降到 20–30% 區間，但 margin 繼續提高；同時對搜尋流量與 SBC 保留折價。</div>
+    </div>
+    <div class="col-6 card">
+      <h3>DCF｜折現現金流交叉檢查</h3>
+      <table><tr><th>Required Return</th><th>大致 DCF Value</th></tr>
+        <tr><td>9.3%</td><td>≈ $190</td></tr>
+        <tr><td><b>10.3%</b></td><td class="good"><b>≈ $161</b></td></tr>
+        <tr><td>11.3%</td><td>≈ $140</td></tr>
+      </table>
+      <p class="small">Base DCF 假設：近年共識收入／margin，之後增速逐步 fade 到約 5%，成熟營業率約 39%，正常稅率 22%，owner earnings cash conversion 約 90%，終值增長 3.5%。</p>
+    </div>
+    <div class="col-6 card">
+      <h3>方法獨立性測試</h3>
+      <table><tr><th>方法對</th><th>共享假設</th><th>能否算獨立驗證？</th></tr>
+        <tr><td>P/E vs DCF</td><td>Revenue / Margin / Duration</td><td class="warn">只能相關一致</td></tr>
+        <tr><td>P/E vs FY27 PV</td><td>同 EPS / P/E / r</td><td class="bad">不能算第二個方法</td></tr>
+        <tr><td>Reverse valuation</td><td>市場價格本身</td><td>期望測試，不是目標價法</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="balance" class="slide light">
+<div class="inner">
+  <div class="kicker">Balance Sheet · SBC · Claims</div><h2>資產負債表很強，但 SBC 不能當零</h2>
+  <div class="row">
+    <div class="col-4 card metric"><div class="label">Cash + Marketable Securities</div><div class="value">$2.786B</div><div class="sub"><span class="badge reported">Reported</span> 2026/06/30</div></div>
+    <div class="col-4 card metric"><div class="label">Fully Diluted Shares</div><div class="value">207.0M</div><div class="sub">YoY +0.2%</div></div>
+    <div class="col-4 card metric"><div class="label">Q2 Buyback</div><div class="value">$235M</div><div class="sub">1.5M 股；平均 $157.57</div></div>
+    <div class="col-6 card">
+      <h3>SBC 反身性｜股價變化會反過來影響授予與稀釋</h3>
+      <table><tr><th>項目</th><th>2026/06/30</th></tr>
+        <tr><td>Outstanding stock options</td><td>9.99M</td></tr>
+        <tr><td>Outstanding RSUs</td><td>4.67M</td></tr>
+        <tr><td>Unvested RSUs / RSAs</td><td>4.74M</td></tr>
+        <tr><td>H1 SBC expense</td><td>$169.3M</td></tr>
+      </table>
+      <p class="small">雖然 fully diluted shares YoY 僅 +0.2%，但公司同時用了現金回購抵銷部分稀釋。因此「股數沒變」不代表 SBC 沒成本。</p>
+    </div>
+    <div class="col-6 card">
+      <h3>AWS $880M 最低採購承諾怎麼處理？</h3>
+      <p class="lead" style="font-size:18px">2026/07–2029/06，公司承諾向 AWS 合計採購至少 <b>$880M</b> 雲端服務。</p>
+      <div class="note">這不是應該從 equity value 再扣 $880M 的「債務」。雲端成本本身會進入未來 cost of revenue / FCF；若再把全額 principal 當 debt claim 扣一次，就會 double count。</div>
+      <p class="small" style="margin-top:12px">真正要問的是：這個 commitment 相對未來收入與 gross profit 是否合理？以 2027E–2028E 的收入規模來看，金額可承受，但仍屬 sustaining infrastructure burden。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="risk" class="slide">
+<div class="inner">
+  <div class="kicker">Risk Placement Ledger</div><h2>每個重大風險，只能有一個主要估值位置</h2>
+  <div class="card">
+    <table><tr><th>Material Risk</th><th>Primary Risk Location</th><th>Primary Quantification</th><th>禁止完整重複位置</th><th>Residual Risk</th></tr>
+      <tr><td>Google / AI 搜尋導流</td><td>Revenue / EPS scenario</td><td>Bear revenue / user growth</td><td>WACC + P/E 再全額懲罰</td><td>若 moat / duration 真下降，再調 multiple</td></tr>
+      <tr><td>SBC / dilution</td><td>EPS + share path</td><td>保留 SBC 經濟成本</td><td>FCF、dilution、multiple 四重扣</td><td>grant policy 敏感度</td></tr>
+      <tr><td>異常低稅率</td><td>Normalized EPS</td><td>Base tax 22%</td><td>再用低稅率 EPS 給高倍數</td><td>NOL／DTA 現金價值另處理</td></tr>
+      <tr><td>利率 5.28%</td><td>Required Return</td><td>10.28% equity return</td><td>再機械做 rate haircut</td><td>高利率若持續改變市場 regime</td></tr>
+      <tr><td>AWS commitment</td><td>Operating FCF</td><td>未來 COGS / FCF</td><td>全額再扣 debt claim</td><td>使用量／定價超支</td></tr>
+      <tr><td>內容授權集中</td><td>Other revenue scenario</td><td>RPO / renewal</td><td>AI 敘事直接 rerating</td><td>若變成更高品質 recurring revenue 才升級</td></tr>
+    </table>
+  </div>
+  <div class="row" style="margin-top:18px">
+    <div class="col-6 note"><b>Double-count Audit：</b>現金利息 + excess cash NAV、SBC earnings deduction + dilution + buyback、搜尋風險 + higher WACC + multiple compression，均已逐項檢查避免完整重複。</div>
+    <div class="col-6 note"><b>Valuation Reliability：</b>Medium。主要原因不是財報品質，而是遠期用戶來源、搜尋生態與 30x duration 假設仍具有 C/D 級成分。</div>
+  </div>
+</div>
+</section>
+
+<section id="news" class="slide light">
+<div class="inner">
+  <div class="kicker">Latest Developments</div><h2>財報後的重要新信息</h2>
+  <div class="row">
+    <div class="col-6 card">
+      <div class="timeline">
+        <div class="tl"><b>2026-08-14｜納入 S&P 500</b><div class="small">有效日期 8/18。這改善被動資金需求與投資人覆蓋，但不是內在價值本身。</div></div>
+        <div class="tl"><b>2026-09-08｜Goldman Sachs 科技會議</b><div class="small">CEO 出席 fireside chat。屬管理層對外溝通催化，但沒有替代正式財報指引。</div></div>
+        <div class="tl"><b>2026-10-01 附近｜Old Reddit / RSS 限制</b><div class="small">公司加強阻擋 AI bot / 未授權 scraping，長期有利於資料所有權與授權談判，但可能影響 open-web 使用方式。</div></div>
+      </div>
+    </div>
+    <div class="col-6 card">
+      <h3>AI / data licensing：先看真實合約，不看敘事</h3>
+      <div class="metric"><div class="label">Long-term RPO</div><div class="value">$92.1M</div><div class="sub">主要為長期內容授權合同</div></div>
+      <p class="small">其中預計 2026 剩餘期間確認約 $62.0M、2027 約 $30.1M。相對公司數十億美元收入規模仍小。</p>
+      <div class="big-callout" style="font-size:15px">所以目前 AI licensing 最合理的處理是「情境 optionality」，不是直接把 Reddit 變成 AI 純資料授權公司、也不是自動把 P/E 從 30x 提到 40x。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="map" class="slide">
+<div class="inner">
+  <div class="kicker">Price Map</div><h2>不是單一目標價，而是估值區域</h2>
+  <div class="row">
+    <div class="col-7">
+      <div class="zone z1"><span style="width:140px">&lt; $115</span> Attractive｜接近 FY2027 20x 壓縮估值</div>
+      <div class="zone z2"><span style="width:140px">$115–135</span> Attractive / Fair-Low</div>
+      <div class="zone z3"><span style="width:140px">$135–165</span> <b>Fair｜目前 $147.86 在這裡</b></div>
+      <div class="zone z4"><span style="width:140px">$165–175</span> 需要 30x–32x + Base earnings 兌現</div>
+      <div class="zone z5"><span style="width:140px">$175–200+</span> Bull-success｜多項成功條件同時成立</div>
+    </div>
+    <div class="col-5 card">
+      <h3>我的使用方式</h3>
+      <p><b>$135 以下：</b>開始有較明顯風險報酬優勢。</p>
+      <p><b>$110–120：</b>接近真正具安全邊際的位置，前提是基本面 thesis 沒壞。</p>
+      <p><b>$165 以上：</b>市場開始提前要求 30x+ 及更長 duration。</p>
+      <p><b>$200 以上：</b>需要 Bull FY2027 / FY2028 成功，而非單純「達標」。</p>
+      <div class="note">Invalidation Zone 不應只由股價定義。若 logged-in users、廣告 pricing、FCF conversion 或 share dilution 結構性破壞，即使股價很低，也要重新估值。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="verify" class="slide light">
+<div class="inner">
+  <div class="kicker">Next Verification</div><h2>Q3 財報：最多只盯五件事</h2>
+  <div class="card">
+    <table><tr><th>下一個驗證點</th><th>Base Case 需要看到</th><th>若超標</th><th>若不達標</th><th>估值含義</th></tr>
+      <tr><td>Q3 Revenue</td><td>≥ $870–875M 附近</td><td>FY26/FY27 上修</td><td>增長降速超預期</td><td>EPS 主變數</td></tr>
+      <tr><td>Adj. EBITDA Margin</td><td>≈45% 或更高</td><td>30x 更穩</td><td>營運槓桿失效</td><td>P/E quality</td></tr>
+      <tr><td>U.S. logged-in DAUq</td><td>至少不再停在 +1%</td><td>搜尋風險下降</td><td>直接關係變弱</td><td>duration / moat</td></tr>
+      <tr><td>International ARPU</td><td>持續 >30% YoY 成長</td><td>海外 monetization 上修</td><td>國際用戶質量折價</td><td>長期 margin</td></tr>
+      <tr><td>SBC / share count</td><td>股數穩定且 SBC/revenue 下降</td><td>每股價值品質改善</td><td>回購只是在補稀釋</td><td>Normalized EPS / FCF</td></tr>
+    </table>
+  </div>
+  <div class="big-callout" style="margin-top:20px"><b>最重要：</b>我不會只看 EPS beat。RDDT 的下一輪 multiple migration，取決於「用戶品質 + 廣告變現 + SBC + FCF」能不能同時證明 30x 的 duration。</div>
+</div>
+</section>
+
+<section id="sources" class="slide dark2">
+<div class="inner">
+  <div class="kicker">Sources & Methodology</div><h2>資料來源與假設標記</h2>
+  <div class="row">
+    <div class="col-7 card">
+      <h3>主要資料來源</h3>
+      <div class="source">
+        1. Reddit Q2 2026 Earnings Release：<a href="https://investor.redditinc.com/news-events/news-releases/news-details/2026/Reddit-Reports-Second-Quarter-2026-Results/default.aspx" target="_blank">Investor Relations</a><br/>
+        2. Reddit Q1 2026 Earnings Release：<a href="https://investor.redditinc.com/news-events/news-releases/news-details/2026/Reddit-Reports-First-Quarter-2026-Results/default.aspx" target="_blank">Investor Relations</a><br/>
+        3. Reddit Q3 2025 Results：<a href="https://investor.redditinc.com/news-events/news-releases/news-details/2025/Reddit-Announces-Third-Quarter-2025-Results/default.aspx" target="_blank">Investor Relations</a><br/>
+        4. Reddit 2026 Q2 Form 10-Q：<a href="https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/rddt-20260630.htm" target="_blank">SEC</a><br/>
+        5. 2026–2028 Revenue / EBIT consensus：<a href="https://www.marketscreener.com/quote/stock/REDDIT-INC-167442757/finances/" target="_blank">MarketScreener</a><br/>
+        6. 2026/10/02 RDDT close：<a href="https://stockanalysis.com/stocks/rddt/history/" target="_blank">StockAnalysis</a><br/>
+        7. Q3 2026 Revenue Consensus：<a href="https://www.marketbeat.com/earnings/reports/2026-10-29-reddit-stock/" target="_blank">MarketBeat</a> / Benzinga<br/>
+        8. U.S. Treasury Yield Curve：<a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank">U.S. Treasury</a><br/>
+        9. S&P 500 inclusion：<a href="https://investor.redditinc.com/news-events/news-releases/news-details/2026/Reddit-Will-Be-Added-to-the-SP-500/default.aspx" target="_blank">Reddit IR</a>
+      </div>
+    </div>
+    <div class="col-5 card">
+      <h3>假設來源標籤</h3>
+      <p><span class="badge reported">Reported</span> 法定披露／已發生數據</p>
+      <p><span class="badge guided">Guided</span> 管理層正式指引</p>
+      <p><span class="badge consensus">Consensus</span> 市場分析師共識</p>
+      <p><span class="badge derived">Derived</span> 由披露數學反推</p>
+      <p><span class="badge assume">Analyst Assumption</span> 研究員假設</p>
+      <div class="note">所有估值均為研究用途，不構成投資建議。Base Fair Value 不是「保證目標價」，而是特定盈利、倍數、折現率與現金假設下的條件價值。</div>
+    </div>
+  </div>
+  <footer>RDDT｜Reddit, Inc.｜估值研究日期：2026-10-04｜單一檔案 HTML 簡報</footer>
+</div>
+</section>
+</main>
+</div>
+
+<script>
+const links=[...document.querySelectorAll('.navlink')];
+const secs=[...document.querySelectorAll('section[id]')];
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+secs.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
