@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ON｜onsemi 統合估值研究｜2026-10-04</title>
+<style>
+:root{
+  --bg:#f3f5f2; --paper:#fbfcfa; --ink:#15201c; --muted:#66726c; --line:#dce3dd;
+  --forest:#153d33; --forest2:#205b4d; --sage:#dce9e1; --mint:#edf5f0;
+  --amber:#d69a35; --amber2:#f5e8cc; --blue:#315f7c; --blue2:#e4edf3; --red:#a9564e; --red2:#f4e4e1;
+  --purple:#6a5d7b; --shadow:0 18px 50px rgba(22,46,37,.09); --radius:26px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:Inter,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eef2ee 0%,#f7f8f5 32%,#eef2ee 100%);line-height:1.5}
+a{color:inherit}
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1880px;margin:auto}
+.sidebar{position:sticky;top:0;height:100vh;padding:30px 20px;border-right:1px solid #d9dfda;background:rgba(247,249,246,.92);backdrop-filter:blur(18px);z-index:10}
+.logo{font-weight:850;letter-spacing:-.04em;font-size:28px;color:var(--forest);margin-bottom:3px}
+.ticker{font-size:12px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-bottom:26px}
+.sidebar nav{display:flex;flex-direction:column;gap:4px}
+.sidebar a{padding:9px 11px;border-radius:10px;text-decoration:none;color:#516059;font-size:13px}
+.sidebar a:hover{background:#e7ede8;color:var(--forest)}
+.sidebar .small{position:absolute;bottom:24px;left:20px;right:20px;font-size:11px;color:#859089}
+main{padding:30px 34px 90px}
+.slide{position:relative;width:100%;min-height:min(900px,calc((100vw - 340px)*.5625));margin:0 auto 30px;padding:52px 54px;border-radius:var(--radius);background:rgba(255,255,255,.82);border:1px solid rgba(210,219,212,.9);box-shadow:var(--shadow);overflow:hidden}
+.slide.dark{background:linear-gradient(135deg,#102b25 0%,#183b33 58%,#244d42 100%);color:#f6fbf7;border-color:#23483d}
+.slide::after{content:"";position:absolute;right:-150px;top:-170px;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle,rgba(213,232,218,.7),rgba(213,232,218,0));pointer-events:none}.slide.dark::after{background:radial-gradient(circle,rgba(72,147,119,.36),rgba(72,147,119,0))}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--forest2);margin-bottom:12px}.dark .eyebrow{color:#a9d0be}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.035em}h1{font-size:clamp(42px,4.5vw,76px)}h2{font-size:clamp(31px,3.2vw,50px)}h3{font-size:21px}.sub{margin-top:16px;color:var(--muted);font-size:17px;max-width:1100px}.dark .sub,.dark .muted{color:#c6d5cd}.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.card{background:rgba(255,255,255,.73);border:1px solid var(--line);border-radius:18px;padding:20px}.dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13)}
+.kpi{font-size:34px;font-weight:850;letter-spacing:-.04em}.kpi.sm{font-size:27px}.label{font-size:12px;font-weight:750;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.dark .label{color:#abc0b6}.note{font-size:12px;color:var(--muted);margin-top:6px}.dark .note{color:#a9bdb3}
+.good{color:#1b765f}.warn{color:#a16a11}.bad{color:#9c4941}.dark .good{color:#84ddbb}.dark .warn{color:#f2c46d}.dark .bad{color:#f2a19a}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:760;background:#eef1ee;color:#53605a;border:1px solid #dfe5e0;white-space:nowrap}.b-reported{background:#e3f0e8;color:#27614d}.b-guided{background:#f6ecd5;color:#82591b}.b-consensus{background:#e6edf5;color:#3f6278}.b-derived{background:#eee8f3;color:#685779}.b-assume{background:#f4e6e3;color:#8c4e48}
+.callout{border-left:4px solid var(--forest2);padding:14px 18px;background:var(--mint);border-radius:0 14px 14px 0}.dark .callout{background:rgba(255,255,255,.075);border-left-color:#8ed4b7}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.68)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:11px;letter-spacing:.04em;color:#68736d;background:#f5f7f4;position:sticky;top:0}tr:last-child td{border-bottom:0}.dark .tablewrap{border-color:rgba(255,255,255,.13);background:rgba(255,255,255,.05)}.dark th{background:rgba(255,255,255,.07);color:#b9cbc2}.dark th,.dark td{border-bottom-color:rgba(255,255,255,.10)}
+.hero-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.pricebox{text-align:right;min-width:260px}.price{font-size:64px;font-weight:900;letter-spacing:-.06em}.up{color:#89dfbd;font-weight:800}
+.minirow{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:28px}.mini{padding:15px 14px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}.mini .v{font-size:23px;font-weight:850}.mini .t{font-size:10px;color:#afc2b9;margin-top:4px}
+.outlook{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:12px;margin-top:22px}.outlook .card{padding:16px}.outlook .main{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.06))}
+.chart{height:275px;display:flex;align-items:flex-end;gap:10px;padding:26px 12px 35px;border-bottom:1px solid var(--line);position:relative}.bar{flex:1;min-width:32px;position:relative;border-radius:10px 10px 3px 3px;background:linear-gradient(180deg,var(--forest2),#6e9c88)}.bar.amber{background:linear-gradient(180deg,#d69a35,#ecc66d)}.bar.blue{background:linear-gradient(180deg,#315f7c,#7aa2bb)}.bar.red{background:linear-gradient(180deg,#a9564e,#d18a84)}.bar::before{content:attr(data-value);position:absolute;left:50%;transform:translateX(-50%);top:-24px;font-weight:800;font-size:12px;white-space:nowrap}.bar::after{content:attr(data-label);position:absolute;left:50%;transform:translateX(-50%);bottom:-30px;font-size:10px;color:var(--muted);white-space:nowrap}.chart-caption{font-size:11px;color:var(--muted);margin-top:10px}
+.donut{width:230px;height:230px;border-radius:50%;position:relative;margin:auto}.donut::after{content:"";position:absolute;inset:38px;background:var(--paper);border-radius:50%;box-shadow:inset 0 0 0 1px var(--line)}.donut-center{position:absolute;inset:0;z-index:2;display:grid;place-content:center;text-align:center}.legend{display:grid;gap:10px}.legend span{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:7px}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:10px}.flow .box{border:1px solid var(--line);padding:18px;border-radius:16px;background:rgba(255,255,255,.74);min-height:120px}.arrow{font-size:25px;color:#809087}.dark .flow .box{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
+.matrix td,.matrix th{text-align:center}.matrix td:first-child,.matrix th:first-child{text-align:left}.hl{background:#eef5f0;font-weight:800}.dark .hl{background:rgba(127,211,176,.12)}
+.audit{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.audit .item{display:flex;gap:12px;padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.7)}.state{width:54px;flex:0 0 54px;font-weight:850;font-size:11px;text-transform:uppercase;color:#fff;border-radius:10px;display:grid;place-content:center}.pass{background:#357b64}.mixed{background:#c18a30}.watch{background:#9a5550}
+.zone{display:grid;grid-template-columns:1.1fr 2fr;gap:12px;align-items:stretch}.thermo{display:grid;grid-template-columns:repeat(5,1fr);border-radius:16px;overflow:hidden;color:white;font-weight:800;text-align:center}.thermo div{padding:22px 8px}.z1{background:#316b56}.z2{background:#668873}.z3{background:#b08a45}.z4{background:#a56a4f}.z5{background:#884b49}
+.source-list{font-size:12px}.source-list li{margin:8px 0}.source-list a{color:#315f7c;word-break:break-all}
+.footer{font-size:11px;color:#7b8780;margin-top:24px}
+.sep{height:1px;background:var(--line);margin:22px 0}.bigquote{font-size:26px;font-weight:780;line-height:1.35;letter-spacing:-.02em}
+@media(max-width:1100px){.shell{grid-template-columns:1fr}.sidebar{display:none}main{padding:16px}.slide{min-height:auto;padding:30px 24px}.grid4,.grid5,.minirow{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.hero-top{display:block}.pricebox{text-align:left;margin-top:25px}.outlook{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.audit{grid-template-columns:1fr}.zone{grid-template-columns:1fr}.thermo{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="logo">ON / onsemi</div><div class="ticker">Valuation deck · 2026.10.04</div>
+  <nav>
+    <a href="#decision">01 估值第一屏</a><a href="#structure">02 公司結構</a><a href="#growth">03 增長與管理層展望</a><a href="#deal">04 Synaptics 交易</a><a href="#earnings">05 盈利正常化</a><a href="#fcf">06 FCF / 股東經濟</a><a href="#rates">07 利率與要求報酬率</a><a href="#pe">08 固定 P/E 矩陣</a><a href="#scenarios">09 情境估值</a><a href="#reverse">10 反向估值</a><a href="#risk">11 風險放置</a><a href="#audit">12 估值審計</a><a href="#map">13 價格地圖</a><a href="#sources">14 資料來源</a>
+  </nav>
+  <div class="small">單頁上下滾動 · 16:9 視覺區塊<br>資料截至 2026-10-04；股價採 2026-10-02 收市。</div>
+</aside>
+<main>
+<section class="slide dark" id="decision">
+  <div class="hero-top">
+    <div><div class="eyebrow">Decision-first valuation / 估值決策優先</div><h1>ON｜大致合理偏低，<br>但不是「無腦低估」</h1><p class="sub">主估值採「正常化每股盈利 + 未來退出時點市盈率 + 折現」，並把 Synaptics 融資風險放在融資情境，而不是在 EPS、倍數、要求報酬率三處重複懲罰。</p></div>
+    <div class="pricebox"><div class="label">目前股價 · 2026/10/02</div><div class="price">$84.89</div><div class="up">+6.01% 當日</div><div class="note">52週：$44.56–$134.92</div></div>
+  </div>
+  <div class="minirow">
+    <div class="mini"><div class="v">$3.15</div><div class="t">FY26 正常化 EPS</div></div>
+    <div class="mini"><div class="v">$4.30</div><div class="t">FY27 Base EPS</div></div>
+    <div class="mini"><div class="v">$5.70</div><div class="t">FY28 Base EPS</div></div>
+    <div class="mini"><div class="v">19.7x</div><div class="t">FY27 前瞻 P/E</div></div>
+    <div class="mini"><div class="v">0.57x</div><div class="t">PEG 診斷值</div></div>
+    <div class="mini"><div class="v">24x</div><div class="t">Base 未來退出 P/E</div></div>
+    <div class="mini"><div class="v">$90.6</div><div class="t">Base Fair Value</div></div>
+    <div class="mini"><div class="v">+6.7%</div><div class="t">對 Base 上行空間</div></div>
+  </div>
+  <div class="outlook">
+    <div class="card main"><span class="badge b-guided">管理層指引 Guided</span><h3 style="margin-top:10px">Q3 2026 收入中值 $1.70B</h3><div class="kpi sm">QoQ +6.0% · YoY +9.6%</div><div class="note">收入復甦保持，但真正重點是盈利增速更快。</div></div>
+    <div class="card"><span class="badge b-guided">管理層指引</span><div class="label" style="margin-top:10px">Q3 非 GAAP 毛利率</div><div class="kpi sm">41.0%</div><div class="note">Q2 39.3% → 中值 +170bp</div></div>
+    <div class="card"><span class="badge b-guided">管理層指引</span><div class="label" style="margin-top:10px">Q3 非 GAAP EPS</div><div class="kpi sm">$0.87</div><div class="note">QoQ +17.6% · YoY +38.1%</div></div>
+    <div class="card"><span class="badge b-assume">分析師假設</span><div class="label" style="margin-top:10px">合理估值區間</div><div class="kpi sm">$80–105</div><div class="note">完整 Bear/Bull：約 $67–109</div></div>
+  </div>
+  <div class="callout" style="margin-top:20px"><strong>第一性原理：</strong>目前市場並未用 30x 高倍數去定價 ON。真正要回答的是：FY27/FY28 的盈利復甦與 Synaptics 增厚，能否抵消高利率、汽車/工業週期與新增債務成本。</div>
+</section>
+
+<section class="slide" id="structure">
+  <div class="eyebrow">Business architecture / 公司結構</div><h2>三大業務：功率是主引擎，類比與感測提供系統級拼圖</h2><p class="sub">PSG＝功率解決方案事業群（Power Solutions Group），主要做電能轉換與高低壓功率器件；AMG＝類比與混合訊號事業群（Analog & Mixed-Signal Group）；ISG＝智慧感測事業群（Intelligent Sensing Group）。</p>
+  <div class="grid2" style="margin-top:28px">
+    <div class="card">
+      <div class="grid2" style="align-items:center">
+        <div><div class="donut" style="background:conic-gradient(#205b4d 0 51.7%,#d69a35 51.7% 85.7%,#315f7c 85.7% 100%)"><div class="donut-center"><div class="kpi sm">$1.604B</div><div class="note">Q2 2026</div></div></div></div>
+        <div class="legend">
+          <span><b><i class="dot" style="background:#205b4d"></i>PSG 功率</b><b>51.7%</b></span>
+          <span><b><i class="dot" style="background:#d69a35"></i>AMG 類比</b><b>34.0%</b></span>
+          <span><b><i class="dot" style="background:#315f7c"></i>ISG 感測</b><b>14.3%</b></span>
+        </div>
+      </div>
+      <div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>Q2 2026</th><th>收入</th><th>QoQ</th><th>YoY</th><th>增量判斷</th></tr></thead><tbody><tr><td>PSG</td><td>$829.0M</td><td class="good">+13%</td><td class="good">+19%</td><td>目前最主要復甦來源</td></tr><tr><td>AMG</td><td>$545.7M</td><td>+1%</td><td class="bad">-2%</td><td>仍偏弱</td></tr><tr><td>ISG</td><td>$228.8M</td><td class="bad">-3%</td><td>+7%</td><td>YoY恢復、QoQ回落</td></tr></tbody></table></div>
+    </div>
+    <div class="card">
+      <h3>終端市場仍高度依賴汽車與工業</h3><div class="grid2" style="align-items:center;margin-top:14px"><div><div class="donut" style="background:conic-gradient(#153d33 0 51%,#7a9b87 51% 79%,#d69a35 79% 100%)"><div class="donut-center"><div class="kpi sm">2025</div><div class="note">終端市場</div></div></div></div><div class="legend"><span><b><i class="dot" style="background:#153d33"></i>汽車</b><b>51%</b></span><span><b><i class="dot" style="background:#7a9b87"></i>工業</b><b>28%</b></span><span><b><i class="dot" style="background:#d69a35"></i>其他*</b><b>21%</b></span></div></div>
+      <p class="note">*「其他」包含 AI 資料中心、運算、消費、網通等。因此 AI 雖增長最快，現階段尚不足以讓 ON 完全脫離汽車／工業週期。</p>
+      <div class="callout"><strong>公司正在變成什麼？</strong> 從「元件供應商」向「功率 + 感測 + 連接運算 + 控制」的系統級供應商移動。Synaptics 若完成，會補上 Connected Compute（連接運算：把感測資料在邊緣端處理、連接與決策）的缺口。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="growth">
+  <div class="eyebrow">Growth trajectory / 增長趨勢</div><h2>景氣底部已過：收入恢復，但 EPS 與毛利率恢復得更快</h2>
+  <div class="grid2" style="margin-top:24px">
+    <div class="card"><h3>年度收入增長：歷史 → 共識</h3><div class="chart">
+      <div class="bar" data-label="2021A" data-value="+28.3%" style="height:92%"></div><div class="bar" data-label="2022A" data-value="+23.5%" style="height:82%"></div><div class="bar red" data-label="2023A" data-value="-0.9%" style="height:7%"></div><div class="bar red" data-label="2024A" data-value="-14.2%" style="height:46%"></div><div class="bar red" data-label="2025A" data-value="-15.4%" style="height:50%"></div><div class="bar amber" data-label="2026E" data-value="+9.4%" style="height:44%"></div><div class="bar blue" data-label="2027E" data-value="+13.1%" style="height:54%"></div>
+    </div><div class="chart-caption">2026E/2027E 為市場共識；2021–2025 為已報告。柱高按絕對增速視覺化，負值以紅色表示。</div></div>
+    <div class="card"><h3>季度營運槓桿</h3><div class="tablewrap" style="margin-top:14px"><table><thead><tr><th>指標</th><th>Q1'26</th><th>Q2'26</th><th>Q3'26中值</th><th>加速/降速</th></tr></thead><tbody><tr><td>收入</td><td>$1.513B</td><td>$1.604B</td><td>$1.700B</td><td class="good">連續約 +6% QoQ</td></tr><tr><td>非GAAP毛利率</td><td>38.5%</td><td>39.3%</td><td>41.0%</td><td class="good">改善加速</td></tr><tr><td>非GAAP EPS</td><td>$0.64</td><td>$0.74</td><td>$0.87</td><td class="good">+15.6% → +17.6% QoQ</td></tr></tbody></table></div>
+      <div class="callout" style="margin-top:16px"><strong>核心訊號：</strong>收入增長並不爆炸，但毛利率回升和固定成本槓桿，令 EPS 增長約為收入增長的 4 倍。這是倍數能否從週期股區間向品質股區間遷移的關鍵。</div>
+    </div>
+  </div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><span class="badge b-guided">管理層長期展望</span><div class="label" style="margin-top:12px">2026E → 2030 收入 CAGR</div><div class="kpi">12–14%</div><div class="note">以 2026E $6.5B 推導，2030 standalone 收入約 $10.2–11.0B。</div></div>
+    <div class="card"><span class="badge b-guided">管理層長期展望</span><div class="label" style="margin-top:12px">2030 非GAAP毛利率 / 營業率</div><div class="kpi">53% / 38%</div><div class="note">需要利用率、產品組合與 Fab Right 同時改善。</div></div>
+    <div class="card"><span class="badge b-guided">管理層長期展望</span><div class="label" style="margin-top:12px">2030 自由現金流</div><div class="kpi">~$3.5B</div><div class="note">FCF margin 30–35%，相對 2026E $1.6B 超過 2 倍。</div></div>
+  </div>
+</section>
+
+<section class="slide dark" id="deal">
+  <div class="eyebrow">Synaptics / 交易重塑資本結構</div><h2>$5.7B 全現金：更少稀釋，但更多槓桿</h2><p class="sub">2026-10-01 修訂後，onsemi 以每股 $123 現金收購 Synaptics，總值約 $5.7B；原先約 $7B 的全股票方案被取代。管理層稱交易完成即時增厚非GAAP EPS，仍預計 2027 年中完成。</p>
+  <div class="flow" style="margin-top:34px">
+    <div class="box"><span class="badge b-reported">已公布</span><h3 style="margin-top:10px">今天的 ON</h3><p>功率 + 類比 + 感測；Q2 現金與短投約 <b>$3.865B</b>。</p></div><div class="arrow">→</div>
+    <div class="box"><span class="badge b-reported">交易</span><h3 style="margin-top:10px">$5.7B 現金收購</h3><p>現金 + Morgan Stanley 已承諾債務融資；交易無融資條件。</p></div><div class="arrow">→</div>
+    <div class="box"><span class="badge b-guided">協同</span><h3 style="margin-top:10px">>$200M 年化協同</h3><p>原有協同之外，管理層新增收入協同與部分生產內製機會；新增好處主要在交割後18個月之後。</p></div><div class="arrow">→</div>
+    <div class="box"><span class="badge b-derived">估值含義</span><h3 style="margin-top:10px">EPS↑ / 槓桿↑</h3><p>不能只把 EPS 增厚加進 Base 而忽略利息、降槓桿和回購能力下降。</p></div>
+  </div>
+  <div class="grid3" style="margin-top:24px"><div class="card"><div class="label">戰略增量</div><div class="kpi sm">+$30B TAM</div><div class="note">2030 可服務市場由 $213B 擴至約 $243B。</div></div><div class="card"><div class="label">商業模式增量</div><div class="kpi sm">Connected Compute</div><div class="note">補上邊緣 AI 運算、連接、人機介面，提升系統級內容價值。</div></div><div class="card"><div class="label">Primary Risk Location</div><div class="kpi sm">融資情境</div><div class="note">新增債務的主要風險放在利息 / 去槓桿 / 回購下降，不再重複加大折現率與壓倍數。</div></div></div>
+</section>
+
+<section class="slide" id="earnings">
+  <div class="eyebrow">Earnings normalization / 盈利正常化</div><h2>不直接拿 GAAP，也不盲信公司 Non-GAAP</h2><p class="sub">「分析師正常化 EPS」回答的是：扣除真正一次性會計扭曲後，仍保留維持業務所需的經濟成本，普通股股東可持續取得多少每股盈利。</p>
+  <div class="tablewrap" style="margin-top:26px"><table><thead><tr><th>盈利口徑</th><th>FY2026E</th><th>FY2027E</th><th>FY2028E</th><th>來源 / 處理</th></tr></thead><tbody>
+    <tr><td>公司 / 市場 Non-GAAP EPS</td><td>$3.20</td><td>$4.53</td><td>未採用精確共識</td><td><span class="badge b-consensus">市場共識</span> FY26/27；Q2公司口徑保留常規 SBC。</td></tr>
+    <tr class="hl"><td>分析師正常化 EPS</td><td><b>$3.15</b></td><td><b>$4.30</b></td><td><b>$5.70</b></td><td><span class="badge b-assume">分析師假設</span> 對重組負擔、交易融資與不確定協同保守處理。</td></tr>
+    <tr><td>核心正常化股權 EPS</td><td>≈$3.15</td><td>≈$4.30</td><td>≈$5.70</td><td>仍是稅後、利息後、普通股股東口徑；沒有加回債務利息。</td></tr>
+    <tr><td>報告自由現金流 / 股</td><td colspan="3">TTM 約 $3.78 / share</td><td>TTM FCF $1.500B ÷ 約397M股；用作現金轉換交叉檢查。</td></tr>
+    <tr><td>經濟自由現金流 / 股</td><td colspan="3">約 $3.6–3.8（範圍）</td><td><span class="badge b-assume">未完全校準</span> 因維持性資本、重組現金與併購後資本配置仍需拆分，不輸出假精確點值。</td></tr>
+  </tbody></table></div>
+  <div class="grid3" style="margin-top:18px"><div class="card"><h3>Q2 GAAP → Non-GAAP</h3><div class="kpi sm">$0.56 → $0.74</div><div class="note">主要差異來自重組、資產減值、收購相關攤銷及其他特殊項目。</div></div><div class="card"><h3>SBC：不二次正常化</h3><div class="kpi sm">$37.4M / Q2</div><div class="note">Q2 特殊調整表未把 SBC 當常規 add-back；因此本模型不再把同一 SBC 從 Non-GAAP EPS 二次扣除，只在稀釋/股東負擔檢查。</div></div><div class="card"><h3>重組：不是全免費</h3><div class="kpi sm">$370.5M / H1</div><div class="note">其中大量為資產減值等非現金項，但多年 Fab Right / 製造調整意味「重組」不能永遠當零經濟成本。</div></div></div>
+</section>
+
+<section class="slide" id="fcf">
+  <div class="eyebrow">Shareholder economics / 股東經濟</div><h2>FCF 很強，但 2027 後資本配置規則會因併購改變</h2>
+  <div class="grid2" style="margin-top:22px">
+    <div class="card"><h3>自由現金流趨勢</h3><div class="chart"><div class="bar" data-label="2025A" data-value="$1.42B" style="height:41%"></div><div class="bar amber" data-label="2026E" data-value="$1.62B" style="height:47%"></div><div class="bar blue" data-label="2030T" data-value="~$3.5B" style="height:100%"></div></div><div class="chart-caption">2025A/2026E 市場資料；2030T 為管理層 Investor Day 目標。</div></div>
+    <div class="card"><div class="grid2"><div><div class="label">Q2 FCF</div><div class="kpi">$425.4M</div><div class="note">約27% revenue，去年同期約7%。</div></div><div><div class="label">TTM FCF</div><div class="kpi">$1.500B</div><div class="note">TTM revenue $6.198B → 約24.2% FCF margin。</div></div></div><div class="sep"></div><div class="grid2"><div><div class="label">H1 2026 SBC</div><div class="kpi sm">$74.7M</div><div class="note">約2.4% H1 revenue。</div></div><div><div class="label">H1 2026 回購</div><div class="kpi sm">~$678M</div><div class="note">公司稱YTD股東回報約105% FCF。</div></div></div><div class="callout" style="margin-top:16px"><strong>重要：</strong>全現金 Synaptics 交割後，FCF 的優先級不再只是回購，而會加入降槓桿。因此未來 EPS 不應機械外推過去 100% FCF 回購造成的股數下降。</div></div>
+  </div>
+  <div class="grid3" style="margin-top:18px"><div class="card"><div class="label">2023–2026E 累計回購</div><div class="kpi sm">$4.2B</div><div class="note">管理層 Investor Day：92% FCF，用於約12%股數下降。</div></div><div class="card"><div class="label">Q3 指引 Non-GAAP 稀釋股數</div><div class="kpi sm">395M</div><div class="note">但股價 > $74.34 時，部分可轉債相關 warrants 可能重新帶來稀釋。</div></div><div class="card"><div class="label">No-Growth 維持性投入</div><div class="kpi sm">尚未完全拆分</div><div class="note">2026E CapEx 僅約 revenue 2.7%，2030模型約5%；低當期CapEx不能自動等同永久低維持性資本。</div></div></div>
+</section>
+
+<section class="slide dark" id="rates">
+  <div class="eyebrow">Required return / 要求報酬率</div><h2>5%+ 國債利率，是 ON 合理倍數的硬約束</h2><p class="sub">要求報酬率回答的是：「承擔股票風險，投資者至少要賺多少才值得？」最簡化可拆成無風險國債利率 + 股票風險補償 + 公司剩餘風險。</p>
+  <div class="grid4" style="margin-top:30px"><div class="card"><div class="label">10Y 美國國債</div><div class="kpi">5.24%</div><div class="note">2026-10-01</div></div><div class="card"><div class="label">20Y 美國國債</div><div class="kpi">5.64%</div><div class="note">本模型長久期無風險參考</div></div><div class="card"><div class="label">股票風險補償</div><div class="kpi">5.0%</div><div class="note">分析師假設；不是公司披露</div></div><div class="card"><div class="label">Base 股權要求報酬率</div><div class="kpi">11.0%</div><div class="note">5.64% + 5.0% + 約0.36% residual</div></div></div>
+  <div class="callout" style="margin-top:24px"><strong>避免雙重計價：</strong>我沒有「先因高利率把 24x 全面壓縮一次，再用 11% 完整折現一次」。高利率主要透過要求報酬率進今天價值；Future Exit P/E 主要反映當時的增長持續期、ROIC、現金轉換與競爭品質。</div>
+  <div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>要求報酬率構成</th><th>Base</th><th>Stress</th><th>證據/來源</th><th>是否在其他方法共用</th></tr></thead><tbody><tr><td>無風險利率</td><td>5.64%</td><td>5.64%</td><td><span class="badge b-reported">已報告</span> Fed 20Y</td><td>DCF / FY1-FY2 PV</td></tr><tr><td>市場股權風險補償</td><td>5.0%</td><td>5.0%</td><td><span class="badge b-assume">分析師假設</span></td><td>共用</td></tr><tr><td>公司剩餘風險</td><td>0.36%</td><td>1.36%</td><td><span class="badge b-assume">分析師假設</span></td><td>只放未被情境捕捉的 residual risk</td></tr><tr class="hl"><td>最終 Equity Required Return</td><td>11.0%</td><td>12.0%</td><td><span class="badge b-derived">推導</span></td><td>統一 ledger</td></tr></tbody></table></div>
+</section>
+
+<section class="slide" id="pe">
+  <div class="eyebrow">Fixed P/E grid / 固定市盈率估值尺</div><h2>20x / 25x / 30x 全展示，Base 不被迫落在固定檔位</h2><p class="sub">前瞻市盈率（Forward P/E）是「今天價格 ÷ 未來 EPS」；未來退出市盈率（Future Exit P/E）是「到了未來時點，市場願意給幾倍」。兩者不能混為一談。</p>
+  <div class="tablewrap" style="margin-top:24px"><table class="matrix"><thead><tr><th>EPS 基準</th><th>正常化 EPS</th><th>20x</th><th>25x</th><th>30x</th><th>時間註記</th></tr></thead><tbody><tr><td>FY2026E</td><td>$3.15</td><td>$63.0</td><td>$78.8</td><td>$94.5</td><td>近端參考，不折現</td></tr><tr class="hl"><td>FY2027E</td><td><b>$4.30</b></td><td>$86.0 → <b>$75.5 PV</b></td><td>$107.5 → <b>$94.4 PV</b></td><td>$129.0 → <b>$113.2 PV</b></td><td>1.25年、11%</td></tr><tr><td>FY2028E</td><td>$5.70</td><td>$114.0 → <b>$90.1 PV</b></td><td>$142.5 → <b>$112.7 PV</b></td><td>$171.0 → <b>$135.2 PV</b></td><td>2.25年、11%</td></tr></tbody></table></div>
+  <div class="grid3" style="margin-top:20px"><div class="card"><div class="label">為什麼不是 20x</div><p>Q2→Q3 毛利率改善、PSG YoY +19%、AI 資料中心需求、FCF轉換與股數下降，說明 ON 並非單純低品質週期股。</p></div><div class="card hl"><div class="label">Selected Base Future Exit P/E</div><div class="kpi">24x</div><div class="note">FY27 $4.30 × 24x = $103.2 未來值；11%折回今天 = <b>$90.58</b>。</div></div><div class="card"><div class="label">為什麼不是 30x</div><p>汽車/工業仍佔79%、利率高、Synaptics 引入槓桿與整合風險，而且 2030 利潤率目標仍屬管理層展望，尚未被實際業績證實。</p></div></div>
+</section>
+
+<section class="slide" id="scenarios">
+  <div class="eyebrow">Scenario matrix / 情境矩陣</div><h2>真正的 downside 來自「盈利錯 + 倍數壓縮」同時發生</h2>
+  <div class="tablewrap" style="margin-top:24px"><table class="matrix"><thead><tr><th>情境</th><th>FY27 正常化 EPS</th><th>20x PV</th><th>25x PV</th><th>30x PV</th><th>Selected Exit P/E</th><th>今天合理值</th></tr></thead><tbody><tr><td>Bear</td><td>$3.80</td><td><b>$66.7</b></td><td>$83.4</td><td>$100.1</td><td>20x</td><td class="bad"><b>$66.7</b></td></tr><tr class="hl"><td>Base</td><td><b>$4.30</b></td><td>$75.5</td><td>$94.4</td><td>$113.2</td><td><b>24x</b></td><td><b>$90.6</b></td></tr><tr><td>Bull</td><td>$4.60</td><td>$80.7</td><td>$100.9</td><td>$121.1</td><td>27x</td><td class="good"><b>$109.0</b></td></tr><tr><td>Tail / Failure</td><td>~$3.20</td><td colspan="3">普通 P/E 降級</td><td>~18x 條件值</td><td class="bad">~$50–55</td></tr></tbody></table></div>
+  <div class="grid3" style="margin-top:20px"><div class="card"><div class="label">Earnings Risk</div><div class="kpi sm">$4.30 → $3.80</div><div class="note">若 Synaptics 增厚不如預期、汽車/工業回落或毛利率停滯。</div></div><div class="card"><div class="label">Multiple Risk</div><div class="kpi sm">24x → 20x</div><div class="note">即使 EPS 達標，若高利率/週期風險使市場只願給20x，PV約 $75.5。</div></div><div class="card"><div class="label">Probability Calibration</div><div class="kpi sm">Uncalibrated</div><div class="note">缺乏足夠參考類別與併購後實績，因此不製造 Bear/Base/Bull 的精確概率。</div></div></div>
+</section>
+
+<section class="slide dark" id="reverse">
+  <div class="eyebrow">Reverse valuation / 反向估值</div><h2>$84.89 已經在要求 ON 做到什麼？</h2><div class="grid2" style="margin-top:28px"><div class="card"><div class="label">如果用 FY2027 EPS $4.30</div><div class="kpi">22.5x</div><div class="note">現價經 11% × 1.25年還原到 FY27 末，等價於約 22.5x 的未來退出 P/E。</div></div><div class="card"><div class="label">如果用 FY2028 EPS $5.70</div><div class="kpi">18.8x</div><div class="note">現價經 11% × 2.25年還原到 FY28 末，等價於約 18.8x。</div></div></div>
+  <div class="callout" style="margin-top:22px"><div class="bigquote">市場其實沒有定價「FY28 仍然 30x」。它更像是在定價：盈利能復甦，但估值倍數會隨週期成熟而下降。</div></div>
+  <div class="grid3" style="margin-top:20px"><div class="card"><div class="label">股東現金流 DCF 中央</div><div class="kpi sm">~$95</div><div class="note">11%要求報酬率、3%長期增長；以2027–2030 FCFE $2.05/$2.50/$3.0/$3.5B。</div></div><div class="card"><div class="label">DCF 終值佔比</div><div class="kpi sm">~78%</div><div class="note">依賴 2030 管理層目標，因此只能作「相關一致」交叉檢查，不是獨立驗證。</div></div><div class="card"><div class="label">要求報酬率敏感度</div><div class="kpi sm">10%→$110<br>11%→$95<br>12%→$84</div><div class="note">大致以3%長期增長。利率是估值的核心敏感變數。</div></div></div>
+</section>
+
+<section class="slide" id="risk">
+  <div class="eyebrow">Risk placement ledger / 風險主要放置帳本</div><h2>每個重大風險只指定一個主要估值位置</h2><p class="sub">避免同一風險同時把 EPS 下修、概率下調、要求報酬率提高、P/E壓縮，造成四重懲罰。</p>
+  <div class="tablewrap" style="margin-top:22px"><table><thead><tr><th>重大風險</th><th>Primary Risk Location</th><th>主要量化</th><th>可接受的次級敏感度</th><th>禁止完整重複的位置</th></tr></thead><tbody><tr><td>Synaptics 融資 / 債務</td><td><b>Financing Scenario 融資情境</b></td><td>利息、去槓桿、回購下降</td><td>小幅 residual required return</td><td>再把 Base P/E 大幅壓縮 + 全額加 WACC premium</td></tr><tr><td>Synaptics 協同不足</td><td><b>FY27/FY28 EPS</b></td><td>EPS $4.30 vs Bear $3.80</td><td>若同時影響長期競爭品質才調 multiple</td><td>EPS下修後再完整壓倍數</td></tr><tr><td>汽車/工業週期</td><td><b>Revenue / Margin Scenario</b></td><td>PSG/AMG增長與毛利率</td><td>若週期變結構性才影響 multiple</td><td>同時作大幅尾端概率懲罰</td></tr><tr><td>AI資料中心不及預期</td><td><b>Revenue / EPS Scenario</b></td><td>成長增量低於管理層路徑</td><td>只有 duration / moat 改變才調 P/E</td><td>AI EPS失敗 + 全額 multiple compression</td></tr><tr><td>高國債利率</td><td><b>Required Return</b></td><td>Base 11% / Stress 12%</td><td>Future P/E只反映長期經濟品質</td><td>完整提高折現率又完整壓 P/E</td></tr><tr><td>SBC / 可轉債稀釋</td><td><b>Share Count Path</b></td><td>Q3 guide 395M + warrant thresholds</td><td>政策敏感度</td><td>EPS + dilution + FCF + multiple四重扣</td></tr></tbody></table></div>
+</section>
+
+<section class="slide" id="audit">
+  <div class="eyebrow">Valuation audit / 估值審計</div><h2>定稿前的「錯誤防火牆」</h2>
+  <div class="audit" style="margin-top:24px">
+    <div class="item"><div class="state pass">PASS</div><div><b>EPS 定義先確認</b><div class="note">Q2非GAAP特殊調整主要為重組、減值、收購攤銷等；沒有把SBC再二次正常化。</div></div></div>
+    <div class="item"><div class="state pass">PASS</div><div><b>Forward P/E ≠ Future Exit P/E</b><div class="note">當前 FY27 Forward P/E 19.7x；Base 24x 是 FY27末未來退出倍數，再用11%折回。</div></div></div>
+    <div class="item"><div class="state pass">PASS</div><div><b>利率沒有雙重完整計價</b><div class="note">高利率主要進 Required Return；24x不再以同一利率理由做完整第二次壓縮。</div></div></div>
+    <div class="item"><div class="state pass">PASS</div><div><b>Debt 沒有 double count</b><div class="note">Equity P/E route 使用 after-interest EPS；不再從 P/E equity value 機械扣同一 debt principal。</div></div></div>
+    <div class="item"><div class="state mixed">MIXED</div><div><b>Synaptics EPS 增厚仍未量化</b><div class="note">管理層只說 immediate accretion；Base只給保守部分貢獻，Reliability維持 Medium。</div></div></div>
+    <div class="item"><div class="state mixed">MIXED</div><div><b>Economic FCF 尚未完全校準</b><div class="note">報告 FCF 很強，但維持性資本、併購後降槓桿與重組現金需在交割後再更新。</div></div></div>
+    <div class="item"><div class="state watch">WATCH</div><div><b>2030 目標證據等級是 Guided / C級</b><div class="note">收入 CAGR 12–14%、53% GM、38% OM、$3.5B FCF 不能當成已發生的A級證據。</div></div></div>
+    <div class="item"><div class="state mixed">MIXED</div><div><b>DCF 方法獨立性有限</b><div class="note">FCFE路徑與P/E共同依賴FY27/28盈利與2030管理層財務模型，因此只能稱 correlated consistency。</div></div></div>
+  </div>
+  <div class="tablewrap" style="margin-top:22px"><table><thead><tr><th>估值對帳</th><th>數值</th><th>來源標籤</th></tr></thead><tbody><tr><td>FY27 standalone 正常化 EPS</td><td>$4.15</td><td><span class="badge b-assume">Analyst Assumption</span></td></tr><tr><td>Synaptics 2027 部分年度淨增厚</td><td>+$0.15</td><td><span class="badge b-assume">Analyst Assumption</span>；管理層僅定性「立即增厚」</td></tr><tr class="hl"><td>FY27 Base EPS</td><td><b>$4.30</b></td><td><span class="badge b-derived">Derived</span></td></tr><tr><td>Future Exit P/E</td><td>24.0x</td><td><span class="badge b-assume">Analyst Assumption</span></td></tr><tr><td>FY27末 Equity Value</td><td>$103.20</td><td>$4.30 × 24</td></tr><tr><td>Required Return / 折現期間</td><td>11.0% / 1.25年</td><td><span class="badge b-derived">Derived</span></td></tr><tr><td>SOTP / Debt principal 額外調整</td><td>$0</td><td>避免與 after-interest EPS / financing scenario 重複</td></tr><tr class="hl"><td>Base Fair Value</td><td><b>$90.58 ≈ $91</b></td><td>可重建</td></tr></tbody></table></div>
+</section>
+
+<section class="slide dark" id="map">
+  <div class="eyebrow">Price map / 價格地圖</div><h2>不是一個目標價，而是一組「需要什麼條件才合理」的價格區域</h2>
+  <div class="thermo" style="margin-top:30px"><div class="z1">&lt;$75<br><small>Attractive</small></div><div class="z2">$75–85<br><small>Fair-Low</small></div><div class="z3">$85–100<br><small>Fair / Base</small></div><div class="z4">$100–110<br><small>Premium</small></div><div class="z5">&gt;$110<br><small>Bull-success</small></div></div>
+  <div class="grid3" style="margin-top:22px"><div class="card"><h3>&lt;$75</h3><p>接近 20x FY27 PV 的風險定價。若 thesis 未破壞，開始出現較好安全邊際。</p></div><div class="card"><h3>$85–100</h3><p>現在所在區域。需要 Q3/Q4 毛利率向 41%+、FY27 EPS 約 $4.2–4.4、Synaptics 融資可控。</p></div><div class="card"><h3>&gt;$110</h3><p>需要 Bull EPS + 27–30x 品質倍數，代表 AI、Synaptics、margin、duration 多項條件同時成立。</p></div></div>
+  <div class="callout" style="margin-top:20px"><strong>基本面失效條件：</strong>FY27正常化EPS向 $3.5以下滑落、毛利率重新跌破40%且沒有利用率修復、Synaptics融資成本/去槓桿顯著惡化，或收入復甦停止。Invalidation 不是「股價跌到某個數字」，而是原估值方法的盈利與資本結構前提被破壞。</div>
+  <div class="grid3" style="margin-top:18px"><div class="card"><div class="label">下一個驗證點 1</div><div class="kpi sm">Q3 Revenue ≥ ~$1.70B</div><div class="note">低於 $1.65B 需下修復甦斜率。</div></div><div class="card"><div class="label">下一個驗證點 2</div><div class="kpi sm">GM ~41%</div><div class="note">若接近42%，盈利槓桿與24x以上的正當性提高。</div></div><div class="card"><div class="label">下一個驗證點 3</div><div class="kpi sm">EPS ≥ ~$0.87</div><div class="note">若收入達標但EPS不達標，代表成本/毛利改善不如預期。</div></div></div>
+</section>
+
+<section class="slide" id="sources">
+  <div class="eyebrow">Sources & assumption lineage / 資料來源與假設來源</div><h2>資料截至 2026-10-04</h2><p class="sub">本頁刻意把公司已報告、管理層指引、市場共識、推導數據與分析師假設分開；任何管理層 2030 目標都不被視為已實現事實。</p>
+  <div class="grid2" style="margin-top:24px">
+    <div class="card"><h3>主要來源</h3><ol class="source-list"><li>onsemi Q2 2026 Results — <a href="https://investor.onsemi.com/news-releases/news-release-details/onsemi-reports-second-quarter-2026-results">investor.onsemi.com / Q2 2026</a></li><li>onsemi Investor Day 2026 — <a href="https://investor.onsemi.com/static-files/b2b45c86-5cf3-4125-8d3e-56dc938e709c">Investor Day Full Presentation</a></li><li>onsemi 2030 Strategy Press Release — <a href="https://investor.onsemi.com/node/23256/pdf">onsemi Charts Path to Power the Next Decade of Innovation</a></li><li>Revised Synaptics Merger — <a href="https://investor.onsemi.com/news-releases/news-release-details/onsemi-and-synaptics-announce-revised-merger-agreement">Oct. 1, 2026 revised agreement</a></li><li>Revised Merger Presentation — <a href="https://investor.onsemi.com/static-files/9f5d7971-cce9-4520-8899-e8398d059b32">onsemi & Synaptics Revised Merger Terms</a></li><li>2025 Form 10-K — <a href="https://www.sec.gov/Archives/edgar/data/1097864/000109786426000006/on-20251231.htm">SEC 10-K</a></li><li>Federal Reserve H.15 — <a href="https://www.federalreserve.gov/releases/h15/">U.S. Treasury yields</a></li><li>S&P Global consensus via StockAnalysis — <a href="https://stockanalysis.com/stocks/on/forecast/">ON forecast / analyst estimates</a></li><li>Market close history — <a href="https://stockanalysis.com/stocks/on/history/">ON historical price</a></li></ol></div>
+    <div class="card"><h3>假設來源矩陣</h3><div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>核心假設</th><th>來源</th><th>證據等級</th></tr></thead><tbody><tr><td>Q3 Revenue / GM / EPS</td><td>管理層 Q2 指引</td><td>Guided / C</td></tr><tr><td>2026E revenue $6.56B / EPS $3.20</td><td>市場共識</td><td>Consensus / C</td></tr><tr><td>2027 revenue +13.05% / EPS $4.53</td><td>市場共識</td><td>Consensus / C</td></tr><tr><td>2030 12–14% CAGR / 53% GM / 38% OM / ~$3.5B FCF</td><td>Investor Day</td><td>Guided / C</td></tr><tr><td>FY27 Normalized EPS $4.30</td><td>分析師重建</td><td>Derived + Assumption</td></tr><tr><td>Future Exit P/E 24x</td><td>Growth×ROIC×Duration×Risk</td><td>Analyst / D</td></tr><tr><td>Required Return 11%</td><td>20Y UST 5.64% + ERP 5% + residual</td><td>Reported + Assumption</td></tr><tr><td>Bear/Base/Bull 概率</td><td>未校準</td><td>不輸出精確概率</td></tr></tbody></table></div></div>
+  </div>
+  <div class="footer">方法：依「估值決策優先、固定20/25/30倍數尺、盈利正常化、Required Return、Risk Placement、Reverse Valuation、Valuation Audit、可重建估值對帳」框架製作。Alpha Vantage 本輪因 API 日限額未能提供即時資料，因此以 onsemi 官方、SEC、Federal Reserve 與 S&P Global consensus 為主，並在來源標籤中明確區分。</div>
+</section>
+</main>
+</div>
+</body>
+</html>
