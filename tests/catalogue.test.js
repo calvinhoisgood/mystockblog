@@ -70,14 +70,51 @@ test("empty library has no placeholder reports", async (t) => {
     reports: [],
   });
 });
-test("misplaced HTML and empty files produce clear errors", async (t) => {
+test("unrecognizable filenames and empty files produce clear errors", async (t) => {
   const root = await fixture(t);
-  await writeFile(path.join(root, "x.html"), "<title>x</title>");
-  await assert.rejects(createCatalogue({ reportsDir: root }), /股票代碼資料夾/);
-  await rm(path.join(root, "x.html"));
+  await writeFile(path.join(root, "估值研究.html"), "<title>x</title>");
+  await assert.rejects(createCatalogue({ reportsDir: root }), /股票代碼/);
+  await rm(path.join(root, "估值研究.html"));
   await mkdir(path.join(root, "AVGO"));
   await writeFile(path.join(root, "AVGO", "empty.html"), "");
   await assert.rejects(createCatalogue({ reportsDir: root }), /不能是空的/);
+});
+
+test("root uploads classify NVDA separately from the existing AVGO folder", async (t) => {
+  const root = await fixture(t);
+  await mkdir(path.join(root, "AVGO"));
+  await writeFile(
+    path.join(root, "AVGO", "AVGO.html"),
+    "<title>Broadcom</title>",
+  );
+  await writeFile(path.join(root, "NVDA.html"), "<title>輝達 NVDA</title>");
+  const result = await createCatalogue({ reportsDir: root });
+  assert.deepEqual([...new Set(result.reports.map((r) => r.ticker))].sort(), [
+    "AVGO",
+    "NVDA",
+  ]);
+  assert.equal(
+    result.reports.find((r) => r.ticker === "NVDA").path,
+    "reports/NVDA.html",
+  );
+});
+
+test("root filenames accept dated notes and share-class tickers", async (t) => {
+  const root = await fixture(t);
+  await writeFile(
+    path.join(root, "nvda_2026-10-04.html"),
+    "<title>NVDA</title>",
+  );
+  await writeFile(
+    path.join(root, "BRK-B_2026-10-03.htm"),
+    "<title>Berkshire</title>",
+  );
+  await writeFile(path.join(root, "AMD-2026-10-02.html"), "<title>AMD</title>");
+  const result = await createCatalogue({ reportsDir: root });
+  assert.deepEqual(
+    result.reports.map((r) => r.ticker),
+    ["NVDA", "BRK-B", "AMD"],
+  );
 });
 test("invalid tickers and unsafe repository names are rejected", async (t) => {
   const root = await fixture(t);

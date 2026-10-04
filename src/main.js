@@ -81,7 +81,7 @@ document.querySelector("#app").innerHTML = `
       </section>
     </main>
   </div>
-  <dialog id="manage-dialog"><div class="modal-form"><button type="button" class="modal-close" data-close="manage-dialog" aria-label="關閉">${icon("close")}</button><span class="modal-icon">${icon("upload")}</span><div class="eyebrow muted">PUBLISH A NEW NOTE</div><h2>把研究加入簡報庫</h2><p>使用你的 GitHub 帳號管理。上傳 HTML 並提交後，網站會自動更新。</p><ol class="publish-steps"><li>開啟對應的股票資料夾。</li><li>拖入 HTML，按 Commit changes 提交。</li><li>等待部署完成，即可在這裡閱讀。</li></ol><p>新增股票時，把 HTML 放進以股票代碼命名的資料夾，再整個資料夾拖入 GitHub。</p><p id="repository-status" class="form-hint" hidden></p><a id="github-upload-link" class="button primary full" target="_blank" rel="noopener noreferrer" hidden>${icon("arrow")}前往 GitHub 上傳</a></div></dialog>
+  <dialog id="manage-dialog"><div class="modal-form"><button type="button" class="modal-close" data-close="manage-dialog" aria-label="關閉">${icon("close")}</button><span class="modal-icon">${icon("upload")}</span><div class="eyebrow muted">PUBLISH A NEW NOTE</div><h2>把研究加入簡報庫</h2><p>使用你的 GitHub 帳號管理。上傳 HTML 並提交後，網站會自動更新。</p><ol class="publish-steps"><li>檔名以股票代碼開頭，例如 NVDA.html。</li><li>拖入 HTML，按 Commit changes 提交。</li><li>等待部署完成，即可在這裡閱讀。</li></ol><p>想保留不同日期的研究，可用 NVDA_2026-10-04.html 這類檔名。代碼、標題和日期會自動整理。</p><p id="repository-status" class="form-hint" hidden></p><a id="github-upload-link" class="button primary full" target="_blank" rel="noopener noreferrer" hidden>${icon("arrow")}前往 GitHub 上傳</a></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div>`;
 
 const $ = (id) => document.getElementById(id);
@@ -245,20 +245,15 @@ document
     button.addEventListener("click", () => $(button.dataset.close).close()),
   );
 $("manage-button").addEventListener("click", () => {
-  const selected = reports.find((report) => report.ticker === selectedTicker);
-  const folder = selected ? selected.path.split("/")[1] + "/" : "";
   $("github-upload-link").hidden = !repository;
   if (repository)
     $("github-upload-link").href =
-      "https://github.com/" +
-      repository +
-      "/upload/main/public/reports/" +
-      folder;
+      "https://github.com/" + repository + "/upload/main/public/reports/";
   status(
     "repository-status",
     repository
       ? ""
-      : "本機預覽尚未連接 GitHub。簡報放在 public/reports/股票代碼/，連接儲存庫並部署後即可使用管理入口。",
+      : "本機預覽尚未連接 GitHub。將 NVDA.html 等檔案放在 public/reports，連接儲存庫並部署後即可使用管理入口。",
   );
   $("manage-dialog").showModal();
 });

@@ -28,6 +28,17 @@ export function filenameDate(filename) {
   return parts === value ? date.toISOString() : null;
 }
 
+export function filenameTicker(filename) {
+  const stem = filename
+    .replace(/\.html?$/i, "")
+    .replace(/[-_]?\d{4}-\d{2}-\d{2}.*$/, "");
+  const code = stem
+    .split(/[_\s]/)[0]
+    .replace(/[-_]+$/, "")
+    .toUpperCase();
+  return /^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(code) ? code : null;
+}
+
 export async function createCatalogue({
   reportsDir,
   repository = "",
@@ -37,13 +48,39 @@ export async function createCatalogue({
     throw new Error("Invalid GitHub repository name.");
   const folders = await readdir(reportsDir, { withFileTypes: true });
   const reports = [];
+  async function addReport(folder, filename, ticker) {
+    const absolute = path.join(reportsDir, folder, filename);
+    const info = await stat(absolute);
+    if (!info.size) throw new Error(`${filename}：HTML 檔案不能是空的。`);
+    const html = await readFile(absolute, "utf8");
+    const created =
+      filenameDate(filename) ||
+      (getDate ? await getDate(absolute) : info.mtime.toISOString());
+    if (Number.isNaN(new Date(created).getTime()))
+      throw new Error(`Invalid report date: ${filename}`);
+    const relative =
+      "reports/" +
+      [folder, filename].filter(Boolean).map(encodeURIComponent).join("/");
+    reports.push({
+      id: relative,
+      ticker,
+      title: reportTitle(html, filename),
+      original_filename: filename,
+      path: relative,
+      created_at: created,
+    });
+  }
   for (const folder of folders) {
     if (folder.name.startsWith(".")) continue;
     if (!folder.isDirectory()) {
-      if (/\.html?$/i.test(folder.name))
-        throw new Error(
-          `${folder.name}：請把 HTML 放進股票代碼資料夾，例如 public/reports/AVGO/。`,
-        );
+      if (folder.isFile() && /\.html?$/i.test(folder.name)) {
+        const ticker = filenameTicker(folder.name);
+        if (!ticker)
+          throw new Error(
+            `${folder.name}：檔名請以股票代碼開頭，例如 NVDA.html 或 NVDA_2026-10-04.html。`,
+          );
+        await addReport("", folder.name, ticker);
+      }
       continue;
     }
     const ticker = folder.name.toUpperCase();
@@ -56,25 +93,7 @@ export async function createCatalogue({
     });
     for (const file of files) {
       if (!file.isFile() || !/\.html?$/i.test(file.name)) continue;
-      const absolute = path.join(reportsDir, folder.name, file.name);
-      const info = await stat(absolute);
-      if (!info.size)
-        throw new Error(`${folder.name}/${file.name}：HTML 檔案不能是空的。`);
-      const html = await readFile(absolute, "utf8");
-      const created =
-        filenameDate(file.name) ||
-        (getDate ? await getDate(absolute) : info.mtime.toISOString());
-      if (Number.isNaN(new Date(created).getTime()))
-        throw new Error(`Invalid report date: ${file.name}`);
-      const relative = `reports/${encodeURIComponent(folder.name)}/${encodeURIComponent(file.name)}`;
-      reports.push({
-        id: relative,
-        ticker,
-        title: reportTitle(html, file.name),
-        original_filename: file.name,
-        path: relative,
-        created_at: created,
-      });
+      await addReport(folder.name, file.name, ticker);
     }
   }
   reports.sort(
