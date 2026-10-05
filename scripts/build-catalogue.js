@@ -1,8 +1,9 @@
 import { execFileSync } from "node:child_process";
-import { stat, writeFile } from "node:fs/promises";
+import { stat, writeFile, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createCatalogue } from "./catalogue.js";
+import { parseStockOrder } from "../src/stock-order.js";
 
 const projectDir = fileURLToPath(new URL("../", import.meta.url));
 const reportsDir = path.join(projectDir, "public", "reports");
@@ -37,6 +38,9 @@ const catalogue = await createCatalogue({
     );
   },
 });
+catalogue.stock_order = parseStockOrder(
+  await readFile(path.join(projectDir, "stock-order.txt"), "utf8"),
+);
 await writeFile(
   path.join(projectDir, "public", "catalogue.json"),
   JSON.stringify(catalogue, null, 2) + "\n",

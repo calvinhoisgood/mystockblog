@@ -1,5 +1,6 @@
 import "./styles.css";
 import { kellyMarkup, mountKelly } from "./kelly-ui.js";
+import { sortedTickers } from "./stock-order.js";
 
 const icons = {
   book: '<path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-4-2H4z"/><path d="M20 4h-4a3 3 0 0 0-3 3v13a4 4 0 0 1 4-2h3z"/>',
@@ -38,7 +39,8 @@ const companies = {
 let reports = [],
   selectedTicker = "all",
   search = "",
-  repository = "";
+  repository = "",
+  stockOrder = [];
 let loading = true,
   readerRequest = 0,
   controller,
@@ -82,7 +84,7 @@ document.querySelector("#app").innerHTML = `
       </section>
     </main>
   </div>
-  <dialog id="manage-dialog"><div class="modal-form"><button type="button" class="modal-close" data-close="manage-dialog" aria-label="關閉">${icon("close")}</button><span class="modal-icon">${icon("upload")}</span><div class="eyebrow muted">PUBLISH A NEW NOTE</div><h2>把研究加入簡報庫</h2><p>使用你的 GitHub 帳號管理。上傳 HTML 並提交後，網站會自動更新。</p><ol class="publish-steps"><li>檔名以股票代碼開頭，例如 NVDA.html。</li><li>拖入 HTML，按 Commit changes 提交。</li><li>等待部署完成，即可在這裡閱讀。</li></ol><p>想保留不同日期的研究，可用 NVDA_2026-10-04.html 這類檔名。代碼、標題和日期會自動整理。</p><p id="repository-status" class="form-hint" hidden></p><a id="github-upload-link" class="button primary full" target="_blank" rel="noopener noreferrer" hidden>${icon("arrow")}前往 GitHub 上傳</a></div></dialog>
+  <dialog id="manage-dialog"><div class="modal-form"><button type="button" class="modal-close" data-close="manage-dialog" aria-label="關閉">${icon("close")}</button><span class="modal-icon">${icon("upload")}</span><div class="eyebrow muted">PUBLISH A NEW NOTE</div><h2>把研究加入簡報庫</h2><p>使用你的 GitHub 帳號管理。上傳 HTML 並提交後，網站會自動更新。</p><ol class="publish-steps"><li>檔名以股票代碼開頭，例如 NVDA.html。</li><li>拖入 HTML，按 Commit changes 提交。</li><li>等待部署完成，即可在這裡閱讀。</li></ol><p>想保留不同日期的研究，可用 NVDA_2026-10-04.html 這類檔名。代碼、標題和日期會自動整理。</p><p id="repository-status" class="form-hint" hidden></p><a id="github-upload-link" class="button primary full" target="_blank" rel="noopener noreferrer" hidden>${icon("arrow")}前往 GitHub 上傳</a><a id="github-order-link" class="button subtle full" target="_blank" rel="noopener noreferrer" hidden>調整股票順序</a><p class="form-hint">一行一個股票代碼，提交後全網站同步排序。</p></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div>`;
 
 const $ = (id) => document.getElementById(id);
@@ -97,14 +99,14 @@ function notify(message) {
 }
 
 function renderCatalogue() {
-  const tickers = [...new Set(reports.map((r) => r.ticker))].sort();
+  const tickers = sortedTickers(reports, stockOrder);
   $("ticker-count").textContent = String(tickers.length).padStart(2, "0");
   $("ticker-nav").innerHTML =
     `<button class="ticker-link ${selectedTicker === "all" ? "active" : ""}" data-ticker="all" aria-pressed="${selectedTicker === "all"}"><span class="ticker-logo all">${icon("grid")}</span><span class="ticker-detail"><b>全部簡報</b><small>All research notes</small></span><span class="nav-count">${reports.length}</span></button>` +
     tickers
       .map(
         (t) =>
-          `<button class="ticker-link ${selectedTicker === t ? "active" : ""}" data-ticker="${escape(t)}" aria-pressed="${selectedTicker === t}"><span class="ticker-detail"><b>${escape(t)}</b><small>${escape(companies[t] || "股票研究簡報")}</small></span>${icon("right")}</button>`,
+          `<button class="ticker-link ${selectedTicker === t ? "active" : ""}" data-ticker="${escape(t)}" aria-pressed="${selectedTicker === t}"><span class="ticker-detail"><b>${escape(t)}</b></span>${icon("right")}</button>`,
       )
       .join("");
   $("report-count").textContent = String(reports.length).padStart(2, "0");
@@ -150,6 +152,7 @@ async function loadReports() {
     const catalogue = await response.json();
     if (!Array.isArray(catalogue.reports)) throw new Error("簡報清單格式錯誤");
     reports = catalogue.reports;
+    stockOrder = catalogue.stock_order || [];
     repository = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(catalogue.repository)
       ? catalogue.repository
       : "";
@@ -247,9 +250,13 @@ document
   );
 $("manage-button").addEventListener("click", () => {
   $("github-upload-link").hidden = !repository;
+  $("github-order-link").hidden = !repository;
   if (repository)
     $("github-upload-link").href =
       "https://github.com/" + repository + "/upload/main/public/reports/";
+  if (repository)
+    $("github-order-link").href =
+      "https://github.com/" + repository + "/edit/main/stock-order.txt";
   status(
     "repository-status",
     repository
