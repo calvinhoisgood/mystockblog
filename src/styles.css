@@ -1483,3 +1483,30 @@ dialog::backdrop {
     font-size: 9px;
   }
 }
+
+.kelly-equation {
+  font-size: 11px;
+  color: #4e6b9d;
+  line-height: 1.8;
+  margin: 14px 0 0;
+  overflow-wrap: anywhere;
+}
+.kelly-panel [hidden] { display: none !important; }
+.kelly-mode { display: flex; align-items: center; gap: 12px; margin: 16px 0; font-size: 12px; color: #4e6b9d; }
+.kelly-mode select { min-width: 0; padding: 9px 12px; border: 1px solid #dce5f5; border-radius: 8px; background: white; color: #17345a; font: inherit; }
+.kelly-trade-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 18px 0; border-top: 1px solid #dce5f5; }
+.kelly-trade-results > span { display: flex; flex-direction: column; gap: 7px; font-size: 11px; color: #6d83a5; }
+.kelly-trade-results b { font-size: 15px; color: #1c479b; }
+@media (max-width: 760px) { .kelly-trade-results { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kelly-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.kelly-reset {
+  grid-column: 1/-1;
+  justify-self: start;
+}
+@media (min-width: 1500px) {
+  .kelly-fields {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
