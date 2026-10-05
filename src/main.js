@@ -65,7 +65,7 @@ document.querySelector("#app").innerHTML = `
       <section id="catalogue">
         <div class="breadcrumb">研究資料庫 <span>/</span> <b id="breadcrumb-current">全部簡報</b></div>
         <section class="hero">
-          <div class="hero-copy"><div class="eyebrow"><span></span> EQUITY RESEARCH · 投資研究</div><h1>獨立思考，<br><span>。</span></h1><p>整理公司的基本面、估值與邏輯。<br>記錄一個投資想法。</p><div class="hero-foot">READ. THINK. REVISIT. <span>↗</span></div></div>
+          <div class="hero-copy"><div class="eyebrow"><span></span> EQUITY RESEARCH · 投資研究</div><h1>獨立思考<br><span>。</span></h1><p>整理公司的基本面、估值與邏輯。<br>記錄一個投資想法。</p><div class="hero-foot">READ. THINK. REVISIT. <span>↗</span></div></div>
           <div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-sheet"><div class="sheet-label">RESEARCH NOTE <span>↗</span></div><div class="sheet-lines"><i></i><i></i></div><div class="art-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="sheet-footer">LONG-TERM PERSPECTIVE <span>01</span></div></div><div class="art-tag">THINK IN YEARS.</div></div>
         </section>
         <div class="metrics"><div><span>研究簡報</span><strong id="report-count">—</strong><small>份已公開的研究</small></div><div><span>追蹤公司</span><strong id="company-count">—</strong><small>個獨立投資視角</small></div><div><span>最近發布</span><strong class="date-value" id="latest-date">—</strong><small>持續更新研究筆記</small></div><div class="archive-note">${icon("book")}<p>每一份簡報<br><b>都是一次完整的思考。</b></p></div></div>
