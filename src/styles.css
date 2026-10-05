@@ -222,13 +222,6 @@ nav {
   background: #dae5ff;
   color: var(--blue);
 }
-.ticker-logo.avgo {
-  background: #fff;
-  color: #cc0b37;
-  font-size: 39px;
-  font-family: serif;
-  line-height: 1;
-}
 .ticker-detail {
   min-width: 0;
   flex: 1;
@@ -1051,9 +1044,6 @@ dialog::backdrop {
     height: 28px;
     width: 28px;
     font-size: 9px;
-  }
-  .ticker-logo.avgo {
-    font-size: 31px;
   }
   .ticker-detail b {
     font-size: 11px;

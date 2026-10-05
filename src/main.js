@@ -104,7 +104,7 @@ function renderCatalogue() {
     tickers
       .map(
         (t) =>
-          `<button class="ticker-link ${selectedTicker === t ? "active" : ""}" data-ticker="${escape(t)}" aria-pressed="${selectedTicker === t}"><span class="ticker-logo ${t === "AVGO" ? "avgo" : ""}">${t === "AVGO" ? "∿" : escape(t.slice(0, 2))}</span><span class="ticker-detail"><b>${escape(t)}</b><small>${escape(companies[t] || "股票研究簡報")}</small></span>${icon("right")}</button>`,
+          `<button class="ticker-link ${selectedTicker === t ? "active" : ""}" data-ticker="${escape(t)}" aria-pressed="${selectedTicker === t}"><span class="ticker-detail"><b>${escape(t)}</b><small>${escape(companies[t] || "股票研究簡報")}</small></span>${icon("right")}</button>`,
       )
       .join("");
   $("report-count").textContent = String(reports.length).padStart(2, "0");
