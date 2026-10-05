@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NVDA｜NVIDIA 估值簡報｜2026-10-05</title>
+<style>
+:root{
+  --nv:#76b900; --nv2:#a7d948; --ink:#10140d; --muted:#697062; --line:#dfe6d6;
+  --paper:#f5f7f1; --paper2:#eef3e8; --black:#090b08; --dark:#11150f; --card:#ffffff;
+  --red:#c64b4b; --amber:#c8922c; --blue:#3976a8; --shadow:0 18px 50px rgba(16,20,13,.10);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#dfe5d9;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;line-height:1.55}
+nav{position:fixed;inset:0 0 auto 0;height:58px;background:rgba(9,11,8,.96);backdrop-filter:blur(12px);z-index:50;border-bottom:1px solid rgba(118,185,0,.3);display:flex;align-items:center;gap:12px;padding:0 22px;overflow-x:auto;white-space:nowrap}
+nav .brand{font-weight:900;letter-spacing:.08em;color:white;margin-right:12px} nav .brand b{color:var(--nv)} nav a{color:#d9ded4;text-decoration:none;font-size:12px;padding:9px 10px;border-radius:999px} nav a:hover{background:#24301c;color:white}
+main{padding-top:58px}.slide{width:min(1600px,100%);min-height:min(900px,calc(100vh - 58px));margin:0 auto;padding:58px 64px 64px;position:relative;background:var(--paper);border-bottom:1px solid #cfd8c7}.slide.dark{background:radial-gradient(circle at 84% 20%,rgba(118,185,0,.17),transparent 32%),linear-gradient(145deg,#0a0c09 0%,#11160e 62%,#182111 100%);color:#f5f7f1;border-bottom-color:#27311f}.slide.soft{background:linear-gradient(150deg,#f6f8f3,#edf3e6)}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#68715f;font-weight:800}.dark .kicker{color:#a8b69c}.title{font-size:clamp(38px,5vw,76px);line-height:1.03;margin:10px 0 18px;letter-spacing:-.045em}.section-title{font-size:clamp(30px,3.4vw,52px);line-height:1.08;margin:8px 0 12px;letter-spacing:-.035em}.lead{font-size:18px;max-width:1100px;color:#4d5547}.dark .lead{color:#c9d2c1}.accent{color:var(--nv)}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}.mt{margin-top:24px}.mt2{margin-top:36px}.mb{margin-bottom:24px}
+.card{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}.dark .card{background:rgba(22,27,18,.82);border-color:#324028;box-shadow:none}.card h3{margin:0 0 8px;font-size:16px}.metric{font-size:34px;font-weight:850;letter-spacing:-.04em;line-height:1.05}.metric.sm{font-size:27px}.sub{font-size:12px;color:var(--muted);margin-top:7px}.dark .sub{color:#aab5a0}.note{font-size:13px;color:#5d6558}.dark .note{color:#b9c5b0}
+.badge{display:inline-block;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.04em;margin:2px 4px 2px 0;border:1px solid transparent}.reported{background:#e8f4de;color:#315b13;border-color:#cfe6be}.guided{background:#fff0cc;color:#6f4e00;border-color:#f1d58c}.consensus{background:#e6f0fb;color:#174a74;border-color:#c8dff4}.derived{background:#f0e9fa;color:#5c3b86;border-color:#ddcff3}.assumption{background:#fbe9e8;color:#7a2f2a;border-color:#efc9c5}.grade{background:#20251d;color:white}.dark .reported,.dark .guided,.dark .consensus,.dark .derived,.dark .assumption{filter:saturate(.8) brightness(.9)}
+.hero-wrap{display:grid;grid-template-columns:1.3fr .9fr;gap:28px;align-items:center;min-height:720px}.wordmark{font-size:18px;letter-spacing:.26em;font-weight:900;color:white}.wordmark span{color:var(--nv)}.hero-stat{display:flex;align-items:flex-end;gap:12px;margin:16px 0}.hero-price{font-size:86px;font-weight:900;letter-spacing:-.06em;line-height:.9}.hero-up{font-size:22px;color:var(--nv2);font-weight:800}.thesis{font-size:22px;line-height:1.45;max-width:820px}.callout{border-left:5px solid var(--nv);padding:16px 18px;background:rgba(118,185,0,.08);border-radius:0 16px 16px 0}.dark .callout{background:rgba(118,185,0,.11)}
+.table-wrap{overflow:auto;border-radius:18px;border:1px solid var(--line);background:white;box-shadow:var(--shadow)}.dark .table-wrap{border-color:#314128;background:#12170f;box-shadow:none}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:12px 14px;border-bottom:1px solid #e7ece2;text-align:right;vertical-align:top}th:first-child,td:first-child{text-align:left}th{background:#f0f4eb;font-size:11px;letter-spacing:.04em;color:#52604a;position:sticky;top:0}.dark th{background:#1b2317;color:#c6d2bd}.dark td{border-bottom-color:#263020}.hi{font-weight:800;color:#416c1d}.dark .hi{color:#aadd72}.risk{font-weight:800;color:#a54343}.dark .risk{color:#f08f8f}
+.bar-chart{display:flex;align-items:flex-end;gap:14px;height:310px;padding:22px 12px 34px;border-bottom:1px solid #cad4c1;position:relative}.bar-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}.bar{width:min(72px,70%);border-radius:10px 10px 3px 3px;background:linear-gradient(180deg,var(--nv2),var(--nv));position:relative;box-shadow:0 10px 24px rgba(73,116,20,.15)}.bar.estimate{background:repeating-linear-gradient(135deg,#a2c76e 0 8px,#c6dfaa 8px 16px)}.bar.guide{background:linear-gradient(180deg,#edc463,#c8922c)}.bar-label{font-size:11px;text-align:center;color:#596252;line-height:1.2}.bar-value{font-size:12px;font-weight:800}.dark .bar-label{color:#b9c4b0}.chart-card{padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.76);border-radius:22px}.dark .chart-card{background:#12170f;border-color:#314128}.chart-title{font-size:15px;font-weight:800;margin-bottom:4px}.chart-source{font-size:10px;color:#7a8173;margin-top:12px}
+.donut-wrap{display:flex;align-items:center;gap:28px}.donut{width:220px;height:220px;border-radius:50%;background:conic-gradient(var(--nv) 0 50.6%,#a7d948 50.6% 92.5%,#56604e 92.5% 100%);position:relative;flex:0 0 auto}.donut:after{content:"Q2 FY27";position:absolute;inset:26%;background:var(--paper);border-radius:50%;display:grid;place-items:center;font-size:15px;font-weight:850}.dark .donut:after{background:#11160e}.legend{display:grid;gap:11px}.legend div{display:flex;align-items:center;gap:9px;font-size:13px}.dot{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch}.node{border:1px solid var(--line);background:white;border-radius:18px;padding:16px;min-height:120px}.node b{display:block;font-size:16px;margin-bottom:6px}.arrow{display:none}.soft .node{background:rgba(255,255,255,.85)}
+.gauge{height:14px;background:#dde4d7;border-radius:999px;overflow:hidden}.gauge>i{height:100%;display:block;background:linear-gradient(90deg,var(--nv),#a7d948)}
+.zone{display:grid;grid-template-columns:160px 1fr 250px;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #dfe5d9}.zone .range{font-size:20px;font-weight:850}.zone .track{height:18px;border-radius:999px;background:#e6eadf;overflow:hidden}.zone .fill{height:100%;border-radius:999px}.z1{background:#4d7d26}.z2{background:#7aa643}.z3{background:#c6a33b}.z4{background:#d2763f}.z5{background:#b64545}
+.smallcaps{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.split{display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 12px;font-size:12px}.dark .pill{background:#171d14;border-color:#303b2a}
+.footer{font-size:11px;color:#71786b;margin-top:30px}.sources{font-size:12px}.sources a{color:#446e20;text-decoration:none;word-break:break-all}.dark .sources a{color:#aadd72}.source-item{padding:8px 0;border-bottom:1px dashed #d5ddce}
+.hr{height:1px;background:var(--line);margin:24px 0}.dark .hr{background:#314128}.right{text-align:right}.center{text-align:center}.big-num{font-size:50px;font-weight:900;letter-spacing:-.05em}.muted{color:var(--muted)}.dark .muted{color:#aab5a0}.pos{color:#4d7d26}.neg{color:#aa3f3f}.dark .pos{color:#a8df71}.dark .neg{color:#f08f8f}
+.sticky-tag{position:absolute;right:28px;top:22px;font-size:11px;color:#6c7567}.dark .sticky-tag{color:#9eaa96}
+@media(max-width:1050px){.slide{padding:44px 28px 54px}.hero-wrap,.g2,.g3,.g4,.g5{grid-template-columns:1fr}.hero-wrap{min-height:auto}.hero-price{font-size:64px}.flow{grid-template-columns:1fr 1fr}.donut-wrap{flex-direction:column;align-items:flex-start}.zone{grid-template-columns:120px 1fr}.zone>div:last-child{grid-column:1/-1}.title{font-size:52px}}
+@media(max-width:620px){nav{padding:0 10px}.slide{padding:34px 18px 46px}.title{font-size:42px}.section-title{font-size:34px}.flow{grid-template-columns:1fr}.hero-price{font-size:54px}.metric{font-size:28px}}
+@media print{nav{display:none}main{padding:0}.slide{min-height:900px;page-break-after:always;width:1600px;max-width:none}.table-wrap{overflow:visible}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand"><b>NVDA</b> 估值研究</div>
+  <a href="#conclusion">估值結論</a><a href="#outlook">管理層展望</a><a href="#structure">公司結構</a><a href="#growth">收入與 AI 增長</a><a href="#earnings">盈利正常化</a><a href="#valuation">估值矩陣</a><a href="#cashflow">現金流 / SBC</a><a href="#balance">資產負債表</a><a href="#reverse">反向估值</a><a href="#risk">風險</a><a href="#price-map">價格地圖</a><a href="#audit">估值對帳</a>
+</nav>
+<main>
+<section class="slide dark" id="conclusion">
+  <div class="sticky-tag">資料截點：2026-10-05｜價格：10:02 ET 盤中</div>
+  <div class="hero-wrap">
+    <div>
+      <div class="wordmark"><span>NVIDIA</span>｜ACCELERATED COMPUTING</div>
+      <div class="kicker">Decision-first valuation</div>
+      <h1 class="title">NVDA：盈利仍在加速，<br><span class="accent">但資本風險已開始變形</span></h1>
+      <p class="thesis">基準情境（Base）以 <b>FY2028（FY1）分析師正常化每股盈利 $15.6</b> × <b>25 倍未來合理市盈率</b>，以約 10% 股東要求報酬率折回今天，再加折價後非核心股權投資價值，得到 <b>約 $347</b> 的基準合理價值（Base Fair Value）。現在價格並不是在定價完美情境；真正的新風險，是 NVIDIA 正從晶片供應商向 AI 基建生態的資本與信用提供者延伸。</p>
+      <div class="hero-stat"><div class="hero-price">$347</div><div><div class="hero-up">基準合理價值（Base Fair Value）</div><div class="sub">合理核心區間約 $300–390｜非投資建議</div></div></div>
+      <div class="split"><span class="badge reported">已披露（Reported）</span><span class="badge guided">管理層指引（Guided）</span><span class="badge consensus">市場共識（Consensus）</span><span class="badge derived">推導（Derived）</span><span class="badge assumption">分析師假設（Analyst Assumption）</span></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="smallcaps">盤中價格</div><div class="metric">$237.12</div><div class="sub">10/05 10:02 ET；前收 $233.95</div></div>
+      <div class="card"><div class="smallcaps">Base 上行</div><div class="metric pos">+46%</div><div class="sub">$347 / $237.12 − 1</div></div>
+      <div class="card"><div class="smallcaps">FY2028 正常化 EPS</div><div class="metric">$15.6</div><div class="sub">市場共識約 $15.7；分析師正常化後取 $15.6</div></div>
+      <div class="card"><div class="smallcaps">FY2028 目前 P/E</div><div class="metric">15.2x</div><div class="sub">以 $237.12 ÷ $15.6</div></div>
+      <div class="card"><div class="smallcaps">美國 10 年國債</div><div class="metric">5.30%</div><div class="sub">高無風險利率抬高股東要求報酬率</div></div>
+      <div class="card"><div class="smallcaps">估值可靠度</div><div class="metric sm">Medium</div><div class="sub">盈利證據強；資本承諾與尾端風險上升</div></div>
+    </div>
+  </div>
+  <div class="callout"><b>第一屏最重要的管理層展望：</b> FY2027 Q3 收入指引中點 <b>$108B</b>，隱含同比約 <b>+89.5%</b>、環比約 <b>+12.2%</b>；毛利率指引 <b>74.0% ±0.5 個百分點</b>，而且指引中<b>沒有假設任何中國資料中心運算收入</b>。<span class="badge guided">Guided</span></div>
+</section>
+
+<section class="slide soft" id="outlook">
+  <div class="kicker">Management outlook growth</div><h2 class="section-title">管理層展望增長：增速仍極高，但環比開始自然降速</h2>
+  <p class="lead">管理層指引與市場共識必須分開。Q3 指引只覆蓋季度收入、毛利率、營業費用與全年稅率；FY2027、FY2028 全年收入與 EPS 則屬市場共識，不可寫成管理層保證。</p>
+  <div class="grid g4 mt">
+    <div class="card"><h3>Q3 FY27 收入</h3><div class="metric">$108B</div><div class="sub">±2%｜不含中國資料中心運算收入 <span class="badge guided">Guided</span></div></div>
+    <div class="card"><h3>隱含同比</h3><div class="metric pos">+89.5%</div><div class="sub">基準 Q3 FY26 = $57.006B <span class="badge derived">Derived</span></div></div>
+    <div class="card"><h3>隱含環比</h3><div class="metric pos">+12.2%</div><div class="sub">Q2 FY27 = $96.221B <span class="badge derived">Derived</span></div></div>
+    <div class="card"><h3>Q3 毛利率</h3><div class="metric">74.0%</div><div class="sub">±0.5 個百分點；Q2 為 75.0% <span class="badge guided">Guided</span></div></div>
+  </div>
+  <div class="grid g2 mt2">
+    <div class="chart-card">
+      <div class="chart-title">季度收入：實際 → 指引 → 共識隱含 Q4（十億美元）</div>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-value">68.1</div><div class="bar" style="height:54%"></div><div class="bar-label">Q4 FY26<br>+20% QoQ</div></div>
+        <div class="bar-col"><div class="bar-value">81.6</div><div class="bar" style="height:65%"></div><div class="bar-label">Q1 FY27<br>+20%</div></div>
+        <div class="bar-col"><div class="bar-value">96.2</div><div class="bar" style="height:77%"></div><div class="bar-label">Q2 FY27<br>+18%</div></div>
+        <div class="bar-col"><div class="bar-value">108.0</div><div class="bar guide" style="height:86%"></div><div class="bar-label">Q3 指引<br>+12.2%</div></div>
+        <div class="bar-col"><div class="bar-value">125.7</div><div class="bar estimate" style="height:100%"></div><div class="bar-label">Q4 隱含<br>+16.4%</div></div>
+      </div>
+      <div class="chart-source">Q4 隱含值 = FY2027 市場收入共識 $411.56B − Q1 − Q2 − Q3 指引。這是推導，不是公司指引。</div>
+    </div>
+    <div class="card">
+      <h3>管理層展望 vs 市場共識</h3>
+      <div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>項目</th><th>金額</th><th>同比</th><th>環比 / 備註</th></tr></thead><tbody>
+      <tr><td>Q3 FY27 管理層收入指引</td><td>$108.0B</td><td>+89.5%</td><td>+12.2% QoQ</td></tr>
+      <tr><td>Q3 FY27 市場共識</td><td>$109.0B</td><td>+91.2%</td><td>+13.3% QoQ</td></tr>
+      <tr><td>FY2027 市場共識</td><td>$411.56B</td><td>+90.6%</td><td>非管理層全年指引</td></tr>
+      <tr><td>FY2028 市場共識</td><td>$683.28B</td><td>+66.0%</td><td>高增長但明顯降速</td></tr>
+      <tr><td>FY2029 市場共識</td><td>$894.70B</td><td>+30.9%</td><td>遠期可信度較低</td></tr>
+      </tbody></table></div>
+      <div class="callout mt"><b>數學檢查：</b>若 Q3 正好做到 $108B，而 FY2027 全年要達到 $411.56B 共識，Q4 需要約 <b>$125.7B</b>，即環比再增 <b>16.4%</b>、同比約 <b>84.5%</b>。這意味市場仍假設 Rubin 與整體 AI 工廠建設在 Q4 繼續加速。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="structure">
+  <div class="kicker">公司結構（Business Structure）</div><h2 class="section-title">公司結構：NVIDIA 已不是「GPU 公司」，而是完整 AI 運算平台</h2>
+  <p class="lead">NVIDIA 官方將平台描述為處理器、互連、軟體、演算法、系統與服務的整合。FY2027 起，市場平台改為 <b>資料中心（Data Center）</b>與<b>邊緣運算（Edge Computing）</b>；資料中心再拆為超大規模客戶（Hyperscale）與 AI 雲、工業及企業（ACIE）。</p>
+  <div class="flow mt2">
+    <div class="node"><b>晶片與處理器</b>GPU、CPU、DPU、推理加速器；核心是每代架構的運算效率與成本。</div>
+    <div class="node"><b>高速互連</b>NVLink、InfiniBand、Spectrum-X，把單顆晶片擴展為整個 AI 工廠。</div>
+    <div class="node"><b>系統與機櫃</b>GB / Rubin 等整機與 rack-scale 系統，提高每客戶錢包份額。</div>
+    <div class="node"><b>軟體與模型</b>CUDA、生態工具、開放模型與企業軟體，提高切換成本與平台黏性。</div>
+    <div class="node"><b>AI 基建生態</b>供應承諾、雲端協議、資料中心租賃與信用擔保開始進入資本配置。</div>
+  </div>
+  <div class="grid g2 mt2">
+    <div class="chart-card"><div class="chart-title">Q2 FY27 收入結構</div><div class="donut-wrap mt"><div class="donut"></div><div class="legend">
+      <div><span class="dot" style="background:#76b900"></span><b>Hyperscale $48.71B</b>｜50.6%</div>
+      <div><span class="dot" style="background:#a7d948"></span><b>ACIE $40.31B</b>｜41.9%</div>
+      <div><span class="dot" style="background:#56604e"></span><b>Edge $7.20B</b>｜7.5%</div>
+      <div class="note">資料中心合計 $89.02B，佔季度總收入約 92.5%。</div>
+    </div></div></div>
+    <div class="card"><h3>兩套「公司結構」要同時看</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>口徑</th><th>Q2 FY27</th><th>用途</th></tr></thead><tbody>
+      <tr><td>市場平台：Data Center</td><td>$89.02B</td><td>看需求終端與 AI 增長來源</td></tr>
+      <tr><td>市場平台：Edge</td><td>$7.20B</td><td>PC、工作站、車用、機器人等</td></tr>
+      <tr><td>報告分部：Compute & Networking</td><td>$88.30B</td><td>看會計分部盈利</td></tr>
+      <tr><td>報告分部：Graphics</td><td>$7.92B</td><td>遊戲與專業圖形</td></tr>
+    </tbody></table></div><p class="note">兩套分類不是一一對應；估值與增長判斷優先用「市場平台」，分部利潤則用會計分部。</p></div>
+  </div>
+</section>
+
+<section class="slide dark" id="growth">
+  <div class="kicker">收入與 AI 增長（Revenue & AI Growth）</div><h2 class="section-title">收入與 AI 增長：資料中心佔比升至 92.5%，但真正的新增量正在從「晶片」延伸到整個 AI 工廠</h2>
+  <div class="grid g2 mt2">
+    <div class="chart-card">
+      <div class="chart-title">總收入長期趨勢（十億美元）</div>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-value">60.9</div><div class="bar" style="height:7%"></div><div class="bar-label">FY2024<br>+126%</div></div>
+        <div class="bar-col"><div class="bar-value">130.5</div><div class="bar" style="height:15%"></div><div class="bar-label">FY2025<br>+114%</div></div>
+        <div class="bar-col"><div class="bar-value">215.9</div><div class="bar" style="height:24%"></div><div class="bar-label">FY2026<br>+65%</div></div>
+        <div class="bar-col"><div class="bar-value">411.6</div><div class="bar estimate" style="height:46%"></div><div class="bar-label">FY2027E<br>+90.6%</div></div>
+        <div class="bar-col"><div class="bar-value">683.3</div><div class="bar estimate" style="height:76%"></div><div class="bar-label">FY2028E<br>+66.0%</div></div>
+        <div class="bar-col"><div class="bar-value">894.7</div><div class="bar estimate" style="height:100%"></div><div class="bar-label">FY2029E<br>+30.9%</div></div>
+      </div><div class="chart-source">FY2024–FY2026：公司披露；FY2027–FY2029：市場共識。預期增速正在從爆發期向高基數成長過渡。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">資料中心收入與佔比</div>
+      <div class="grid g4 mt">
+        <div><div class="big-num">$47.5B</div><div class="sub">FY2024</div><div class="gauge"><i style="width:78%"></i></div><div class="note">佔總收入 78.0%</div></div>
+        <div><div class="big-num">$115.2B</div><div class="sub">FY2025</div><div class="gauge"><i style="width:88.3%"></i></div><div class="note">88.3%</div></div>
+        <div><div class="big-num">$193.7B</div><div class="sub">FY2026</div><div class="gauge"><i style="width:89.7%"></i></div><div class="note">89.7%</div></div>
+        <div><div class="big-num">92.5%</div><div class="sub">Q2 FY2027</div><div class="gauge"><i style="width:92.5%"></i></div><div class="note">$89.0B / $96.2B</div></div>
+      </div>
+      <div class="callout mt"><b>結構判斷：</b>資料中心不只是份額變大，而是從訓練 GPU 延伸到網路、CPU、rack-scale 系統、推理與軟體。這提高每一座 AI 工廠的錢包份額，但也同步提高供應、營運資金與基建承諾。</div>
+    </div>
+  </div>
+  <div class="grid g4 mt2">
+    <div class="card"><h3>Hyperscale</h3><div class="metric">$48.7B</div><div class="sub">Q2：+102% YoY / +13% QoQ</div><p class="note">公有雲與最大型消費互聯網公司。增長仍非常高，但環比慢於 ACIE。</p></div>
+    <div class="card"><h3>ACIE</h3><div class="metric">$40.3B</div><div class="sub">Q2：+138% YoY / +25% QoQ</div><p class="note">AI 雲、工業與企業。現在是更快的季度增量來源，代表客戶基礎正在擴散。</p></div>
+    <div class="card"><h3>Vera Rubin</h3><div class="metric sm">量產爬坡</div><div class="sub">合作夥伴已有運行中的機櫃</div><p class="note">是 FY2027 下半年與 FY2028 共識增長能否兌現的主要產品驗證點。</p></div>
+    <div class="card"><h3>PORTS-Pike</h3><div class="metric sm">$150–200B</div><div class="sub">每一代基建潛在 NVIDIA 收入 <span class="badge guided">管理層陳述</span></div><p class="note">不是已簽收入。第一批擔保預計 FY2029 才隨場站投入服務生效。</p></div>
+  </div>
+</section>
+
+<section class="slide soft" id="earnings">
+  <div class="kicker">盈利正常化（Earnings Normalization）</div><h2 class="section-title">盈利正常化：FY2027 起公司 Non-GAAP 已把股票薪酬算回成本，正常化品質明顯提高</h2>
+  <p class="lead"><b>股票薪酬（SBC）</b>是用股票或限制性股票單位支付員工薪酬的經濟成本。NVIDIA 從 FY2027 Q1 開始不再從 Non-GAAP 排除 SBC，因此我不再二次扣除同一筆成本；這避免了「正常化」把真實人才成本剔得太乾淨。</p>
+  <div class="grid g3 mt2">
+    <div class="card"><div class="smallcaps">Q2 GAAP EPS</div><div class="metric">$2.46</div><div class="sub">包含股權證券淨收益等非核心波動</div></div>
+    <div class="card"><div class="smallcaps">Q2 公司 Non-GAAP EPS</div><div class="metric">$2.22</div><div class="sub">已包含 SBC；剔除股權證券損益等</div></div>
+    <div class="card"><div class="smallcaps">H1 公司 Non-GAAP EPS</div><div class="metric">$4.09</div><div class="sub">FY2027 上半年</div></div>
+  </div>
+  <div class="table-wrap mt2"><table><thead><tr><th>調整項</th><th>公司處理</th><th>我的處理</th><th>經濟理由</th><th>證據等級</th></tr></thead><tbody>
+    <tr><td>股票薪酬 SBC</td><td>FY27 起保留</td><td class="hi">保留；不二次扣</td><td>持續人才成本，且實際造成股份／回購現金影響</td><td>A</td></tr>
+    <tr><td>股權證券淨收益</td><td>Non-GAAP 剔除</td><td class="hi">核心 EPS 剔除；NAV 另估</td><td>H1 FY27 股權證券淨收益約 $23.7B，不是晶片營運盈利</td><td>A</td></tr>
+    <tr><td>收購相關與其他成本</td><td>剔除</td><td>大致剔除，但保留小幅正常化負擔</td><td>Q2 約 $222M，相對盈利規模不重大</td><td>A/B</td></tr>
+    <tr><td>利息收入／支出</td><td>留在 equity earnings</td><td>保留</td><td>本估值使用 after-interest 普通股 EPS 路線</td><td>A</td></tr>
+    <tr><td>稅率</td><td>FY27 指引 16–18%</td><td>Base 17%</td><td>採管理層全年區間中位數，不使用單季低稅率外推</td><td>C</td></tr>
+  </tbody></table></div>
+  <div class="grid g5 mt2">
+    <div class="card"><div class="smallcaps">FY0｜FY2027</div><div class="metric">$9.25</div><div class="sub">Analyst Normalized EPS</div></div>
+    <div class="card"><div class="smallcaps">FY1｜FY2028</div><div class="metric">$15.60</div><div class="sub">主估值盈利基準</div></div>
+    <div class="card"><div class="smallcaps">FY2｜FY2029</div><div class="metric">$20.00</div><div class="sub">低權重；遠期依賴較高</div></div>
+    <div class="card"><div class="smallcaps">核心 EPS CAGR</div><div class="metric">≈47%</div><div class="sub">FY27→FY29</div></div>
+    <div class="card"><div class="smallcaps">PEG</div><div class="metric">≈0.32</div><div class="sub">只作診斷，不生成目標價</div></div>
+  </div>
+</section>
+
+<section class="slide" id="valuation">
+  <div class="kicker">Fixed P/E matrix</div><h2 class="section-title">20x / 25x / 30x：固定尺先展示，再決定哪一檔最符合股東經濟</h2>
+  <p class="lead">下表同時展示遠期條件價值與折回今天的現值。<b>FY2028 的 25x 是「到 FY2028 當時的未來合理市盈率」</b>，不是今天的 Forward P/E；兩者不可混用。折現採 10% 股東要求報酬率。</p>
+  <div class="table-wrap mt2"><table><thead><tr><th>EPS 基準</th><th>分析師正常化 EPS</th><th>20x Raw / PV</th><th>25x Raw / PV</th><th>30x Raw / PV</th><th>角色</th></tr></thead><tbody>
+    <tr><td>FY0E｜FY2027</td><td>$9.25</td><td>$185 / <b>$179</b></td><td>$231 / <b>$224</b></td><td>$278 / <b>$269</b></td><td>當前盈利能力</td></tr>
+    <tr><td class="hi">FY1E｜FY2028</td><td class="hi">$15.60</td><td>$312 / <b>$275</b></td><td class="hi">$390 / <b>$344</b></td><td>$468 / <b>$413</b></td><td class="hi">主估值錨</td></tr>
+    <tr><td>FY2E｜FY2029</td><td>$20.00</td><td>$400 / <b>$321</b></td><td>$500 / <b>$401</b></td><td>$600 / <b>$481</b></td><td>低權重交叉驗證</td></tr>
+  </tbody></table></div>
+  <div class="grid g2 mt2">
+    <div class="card"><h3>悲觀／基準／樂觀情境（Bear / Base / Bull）</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>情境</th><th>FY28 EPS</th><th>倍數</th><th>今天價值</th><th>核心條件</th></tr></thead><tbody>
+      <tr><td class="risk">悲觀（Bear）</td><td>$13.0</td><td>20x</td><td>≈$231</td><td>增長降至 35–45%，毛利率 70–71%，現金流偏弱</td></tr>
+      <tr><td class="hi">基準（Base）</td><td>$15.6</td><td>25x</td><td class="hi">≈$347</td><td>FY28 約 $680B 收入、低至中 70% 毛利率、Rubin 正常爬坡</td></tr>
+      <tr><td>樂觀（Bull）</td><td>$18.0</td><td>30x</td><td>≈$480</td><td>FY28 >$750B、約 75% 毛利率、現金轉換改善</td></tr>
+      <tr><td>尾端／失敗（Tail / Failure）</td><td>不適用</td><td>不用普通 P/E</td><td>$150–200 條件區間</td><td>AI CapEx 急凍 + 信用／擔保鏈條同時惡化</td></tr>
+    </tbody></table></div><p class="note">情境概率（Scenario probabilities） 未能以歷史 base rate 精準校準，因此不輸出虛假的精確概率加權點值。</p></div>
+    <div class="card"><h3>倍數決策卡</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><tbody>
+      <tr><td>選定基準市盈率（Selected Base P/E）</td><td class="hi">25x</td></tr>
+      <tr><td>為什麼不是更低</td><td>FY28 EPS 快速上修、Data Center +117% YoY、ACIE +138% YoY、毛利率 75%</td></tr>
+      <tr><td>為什麼不是更高</td><td>5.3% 國債、應收與 DSO 上升、$366B 承諾、$108.5B 擔保上限</td></tr>
+      <tr><td>升檔至 30x</td><td>FCF/share 追上 EPS、DSO 回落、Rubin 增量不依賴更高信用支持</td></tr>
+      <tr><td>降檔至 20x</td><td>FY28 EPS 跌向 $13、毛利率結構性跌穿約 71%、AI CapEx 明顯降速</td></tr>
+      <tr><td>Grid Relevance</td><td>Primary，但 >30x 不作 Base</td></tr>
+    </tbody></table></div></div>
+  </div>
+  <div class="grid g4 mt2">
+    <div class="card"><div class="smallcaps">要求報酬率 9%</div><div class="metric">$351</div><div class="sub">Base FV sensitivity</div></div>
+    <div class="card"><div class="smallcaps">要求報酬率 10%</div><div class="metric hi">$347</div><div class="sub">Base</div></div>
+    <div class="card"><div class="smallcaps">要求報酬率 11%</div><div class="metric">$343</div><div class="sub">+100bps 壓力</div></div>
+    <div class="card"><div class="smallcaps">非核心投資 NAV</div><div class="metric">≈$3/股</div><div class="sub">約 75% 折價後；避免與投資收益重複計價</div></div>
+  </div>
+</section>
+
+<section class="slide dark" id="cashflow">
+  <div class="kicker">Economic FCF / SBC</div><h2 class="section-title">現金流與股票薪酬：EPS 很強，但 Q2 現金轉換出現明顯工作資金拖累</h2>
+  <p class="lead"><b>經濟自由現金流（Economic FCF）</b>回答的是「扣掉維持現有盈利能力需要的現金投入後，普通股股東真正得到多少現金」。NVIDIA 的 headline FCF 仍很強，但 Q2 應收帳款與付款期限拉長，令單季轉換率明顯下降。</p>
+  <div class="grid g3 mt2">
+    <div class="card"><h3>Q1 FY27</h3><div class="metric">$48.6B</div><div class="sub">FCF / Non-GAAP NI ≈ 107%</div><div class="gauge mt"><i style="width:100%"></i></div></div>
+    <div class="card"><h3>Q2 FY27</h3><div class="metric">$21.3B</div><div class="sub">FCF / Non-GAAP NI ≈ 40%</div><div class="gauge mt"><i style="width:40%"></i></div></div>
+    <div class="card"><h3>H1 FY27</h3><div class="metric">$69.9B</div><div class="sub">FCF / Non-GAAP NI ≈ 70%</div><div class="gauge mt"><i style="width:70%"></i></div></div>
+  </div>
+  <div class="grid g4 mt2">
+    <div class="card"><div class="smallcaps">應收帳款</div><div class="metric">$63.1B</div><div class="sub">Jan 2026：$38.5B</div></div>
+    <div class="card"><div class="smallcaps">DSO 應收天數</div><div class="metric">60 天</div><div class="sub">前季 45 天</div></div>
+    <div class="card"><div class="smallcaps">H1 SBC</div><div class="metric">$3.95B</div><div class="sub">約佔 H1 收入 2.2%</div></div>
+    <div class="card"><div class="smallcaps">H1 回購</div><div class="metric">$39.8B</div><div class="sub">203M 股；遠高於 SBC 費用</div></div>
+  </div>
+  <div class="callout mt2"><b>SBC 反身性：</b>截至 7 月底未確認 SBC 約 $19.4B、加權剩餘確認期約 2.6 年。由於公司已把 SBC 納入 Non-GAAP，我採「盈利扣除路線」；股份稀釋只按實際 fully diluted shares 與未來授予敏感度檢查，不再把同一 SBC 全額從 FCF 和 P/E 重複扣除。</div>
+  <div class="grid g2 mt2">
+    <div class="card"><h3>回購是否創造價值？</h3><p class="note">H1 回購約 $39.8B，Q2 平均回購價格約 $209/股附近，低於本報告 Base Fair Value 約 $347，因此在本模型下屬於具正淨現值的資本配置；不過要繼續檢查未來 $235B 授權是否仍在合理價格執行。</p></div>
+    <div class="card"><h3>真正要看的現金流驗證點</h3><p class="note">若未來 2–3 季收入仍高速增長，但 DSO、應收帳款與客戶延長付款條款持續惡化，則「收入增長」與「股東現金回報」會開始分離。那時應先下修 Economic FCF，再考慮 P/E 是否要降檔。</p></div>
+  </div>
+</section>
+
+<section class="slide soft" id="balance">
+  <div class="kicker">Balance sheet / Claims</div><h2 class="section-title">資產負債表：表內仍很強，但表外承諾與信用支持已變成估值核心</h2>
+  <div class="grid g4 mt2">
+    <div class="card"><div class="smallcaps">現金 + 可交易債券</div><div class="metric">$56.6B</div><div class="sub">Reported｜7/26/2026</div></div>
+    <div class="card"><div class="smallcaps">可交易股權證券</div><div class="metric">$42.8B</div><div class="sub">非核心資產；價格可波動</div></div>
+    <div class="card"><div class="smallcaps">非上市證券</div><div class="metric">$51.2B</div><div class="sub">流動性與估值折價更高</div></div>
+    <div class="card"><div class="smallcaps">債務帳面值</div><div class="metric">$33.4B</div><div class="sub">Q2 新發 $25B 無擔保票據</div></div>
+  </div>
+  <div class="grid g2 mt2">
+    <div class="card"><h3>未來承諾（截至 7/26/2026）</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>類型</th><th>總額</th><th>解讀</th></tr></thead><tbody>
+      <tr><td>供應與產能</td><td>$279B</td><td>主要為記憶體與製造；部分可調整／重排</td></tr>
+      <tr><td>雲端服務協議</td><td>$29B</td><td>支援開放模型與研發</td></tr>
+      <tr><td>尚未開始的資料中心租賃</td><td>$25B</td><td>最長可達 20 年</td></tr>
+      <tr><td>股權投資承諾</td><td>$25B</td><td>AI 模型公司、基建融資商等</td></tr>
+      <tr><td>資本支出承諾</td><td>$8B</td><td>設備與基建</td></tr>
+      <tr><td class="hi">合計</td><td class="hi">$366B</td><td>不是全部等同債務，但已 materially 改變資本需求</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>擔保與尾端請求權</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>項目</th><th>最大毛額曝險</th><th>估值放置</th></tr></thead><tbody>
+      <tr><td>AI 雲土地／電力／建築外殼擔保</td><td>$3.5B</td><td>Claims / Tail</td></tr>
+      <tr><td>SB Energy / OpenAI 擔保</td><td class="risk">$105.0B</td><td class="risk">Tail / Failure State</td></tr>
+      <tr><td class="hi">合計最大毛額曝險</td><td class="hi">$108.5B</td><td>不可直接當今天負債全額扣除</td></tr>
+    </tbody></table></div><p class="note">SB Energy 擔保分九期，第一期預計 FY2029；OpenAI 履約後曝險會下降，且在信用評級等條件達成後可終止。因此 Base 不直接扣 $105B，但 Tail State 必須單獨展示。</p></div>
+  </div>
+  <div class="callout mt2"><b>融資一致性：</b>本報告使用 after-interest 普通股 EPS × Equity P/E，因此不會再機械扣除同一筆 $33.4B 債務本金；真正未被 EPS 完整捕捉的，是長期承諾、擔保與可能的非線性信用事件。</div>
+</section>
+
+<section class="slide" id="reverse">
+  <div class="kicker">反向估值（Reverse Valuation）</div><h2 class="section-title">反向估值：$237 的股價究竟要求 NVIDIA 做到甚麼？</h2>
+  <p class="lead">反向估值不是再產生另一個目標價，而是把現在的股價拆成市場必須相信的盈利與倍數條件。以下用同一 10% 股東要求報酬率、FY2028 時點與約 $3/股非核心投資價值反推。</p>
+  <div class="grid g3 mt2">
+    <div class="card center"><div class="smallcaps">若 FY2028 只給 20x</div><div class="metric">$13.28</div><div class="sub">市場隱含 FY28 EPS</div><div class="hr"></div><div class="note">低於基準情境（Base）$15.6 約 15%</div></div>
+    <div class="card center"><div class="smallcaps">若 FY2028 給 25x</div><div class="metric hi">$10.62</div><div class="sub">市場隱含 FY28 EPS</div><div class="hr"></div><div class="note">比 Base 低約 32%</div></div>
+    <div class="card center"><div class="smallcaps">若 FY2028 給 30x</div><div class="metric">$8.85</div><div class="sub">市場隱含 FY28 EPS</div><div class="hr"></div><div class="note">甚至低於 FY2027 正常化 EPS</div></div>
+  </div>
+  <div class="table-wrap mt2"><table><thead><tr><th>市場隱含條件</th><th>現在價格要求</th><th>本報告 Base</th><th>差距</th><th>判斷</th></tr></thead><tbody>
+    <tr><td>FY2028 EPS（若 25x）</td><td>$10.62</td><td>$15.60</td><td>-31.9%</td><td>市場留有很大盈利失誤空間</td></tr>
+    <tr><td>FY2028 Exit P/E（若 EPS=$15.6）</td><td>約 17x</td><td>25x</td><td>-8x</td><td>目前更像定價「永久壓縮」</td></tr>
+    <tr><td>FY2028 收入</td><td>不需要 $683B 才能支撐 25x 情境</td><td>約 $680B</td><td>—</td><td>盈利／倍數二者至少一項可低於共識</td></tr>
+    <tr><td>主要未反映風險</td><td>資本承諾、擔保、AI 基建融資鏈</td><td>Tail 單獨建模</td><td>非線性</td><td>這才是「低 P/E」可能的合理原因</td></tr>
+  </tbody></table></div>
+  <div class="callout mt2"><b>第一性原理：</b>如果 NVIDIA FY2028 真能做到約 $15.6 正常化 EPS，而商業模式仍值得 25x，那今天的 $237 明顯偏低；要證明今天合理，最有力的反方不是「增長會從 90% 放慢」，而是「高增長本身需要愈來愈多資本／信用支持，最終令每股股東經濟回報低於會計 EPS」。</div>
+</section>
+
+<section class="slide dark" id="risk">
+  <div class="kicker">Risk placement ledger</div><h2 class="section-title">風險放置：每個重大風險只選一個主要估值位置，避免重複扣值</h2>
+  <div class="table-wrap mt2"><table><thead><tr><th>重大風險</th><th>主要放置位置</th><th>主要量化</th><th>只作次要敏感度</th><th>禁止重複</th></tr></thead><tbody>
+    <tr><td>AI CapEx / Rubin 增速放慢</td><td>FY28 Revenue / EPS scenario</td><td>Bear EPS $13</td><td>20x–25x range</td><td>不再另加完整 WACC premium</td></tr>
+    <tr><td>SB Energy / OpenAI 信用事件</td><td>Tail / Failure State</td><td>條件式 $150–200 區間</td><td>Claims sensitivity</td><td>不把 $105B 全額扣掉再提高 WACC</td></tr>
+    <tr><td>應收／延長付款期限</td><td>Economic FCF</td><td>DSO 60 vs 45 天</td><td>估值倍數殘餘影響</td><td>不在 EPS 再二次扣工作資金</td></tr>
+    <tr><td>國債利率上升</td><td>Required Return</td><td>10 年債約 5.30%</td><td>P/E sanity check</td><td>不完整同時壓折現率 + P/E</td></tr>
+    <tr><td>中國出口限制</td><td>Revenue / EPS</td><td>Q3 指引已假設中國 DC compute = 0</td><td>政策敏感度</td><td>Base 不再另加同幅折價</td></tr>
+    <tr><td>SBC / 稀釋</td><td>Normalized EPS + shares</td><td>H1 SBC $3.95B</td><td>授予政策敏感度</td><td>不做 earnings + FCF + dilution + multiple 四重扣</td></tr>
+  </tbody></table></div>
+  <div class="grid g3 mt2">
+    <div class="card"><h3>最新市場檢查：電力瓶頸</h3><p class="note">10 月 5 日 Reuters 引述 Morgan Stanley 指出，NVIDIA 與 Broadcom 相對能抵禦美國資料中心電力瓶頸，但若 AI 部署因電力延誤，整條供應鏈的收入確認節奏仍可能被推遲。</p></div>
+    <div class="card"><h3>最新市場檢查：晶片融資</h3><p class="note">Reuters 10 月 1 日報導，NVIDIA 推動以 GPU 支撐大規模 AI 基建融資，但銀行與信用投資者仍對 GPU 殘值與年限要求更強的收入／客戶保障。這正是本報告把融資生態列為尾端風險的原因。</p></div>
+    <div class="card"><h3>正面變數：買回授權</h3><p class="note">9 月 28 日公司把剩餘回購授權提高至 <b>$235B</b>，預計 FY2028 前執行。若回購價長期低於內在價值，能直接提高每股價值；反之在高估區大規模回購會降低資本配置效率。</p></div>
+  </div>
+</section>
+
+<section class="slide soft" id="price-map">
+  <div class="kicker">Valuation-derived price map</div><h2 class="section-title">價格地圖：不是一個目標價，而是「甚麼價格需要甚麼基本面」</h2>
+  <div class="mt2">
+    <div class="zone"><div class="range">&lt; $280</div><div><div class="track"><div class="fill z1" style="width:34%"></div></div></div><div><b>Attractive / Accumulation</b><br><span class="note">接近 FY28 20x 的折現價值；前提是 thesis 未破壞。</span></div></div>
+    <div class="zone"><div class="range">$280–320</div><div><div class="track"><div class="fill z2" style="width:50%"></div></div></div><div><b>Fair-Low</b><br><span class="note">Base 盈利大致成立，但市場仍要求較高風險補償。</span></div></div>
+    <div class="zone"><div class="range">$320–370</div><div><div class="track"><div class="fill z3" style="width:67%"></div></div></div><div><b>Fair</b><br><span class="note">接近 Base $347；FY28 $15–16 EPS 與 24–26x 大致成立。</span></div></div>
+    <div class="zone"><div class="range">$370–420</div><div><div class="track"><div class="fill z4" style="width:83%"></div></div></div><div><b>Premium / Expensive</b><br><span class="note">需要更強 FCF conversion、更低信用風險或更長增長 duration。</span></div></div>
+    <div class="zone"><div class="range">&gt; $420</div><div><div class="track"><div class="fill z5" style="width:100%"></div></div></div><div><b>Bull-success</b><br><span class="note">接近 30x / 更高 EPS 情境；多個成功條件需要同時兌現。</span></div></div>
+  </div>
+  <div class="callout mt2"><b>Invalidation 不是某個股價：</b>如果 FY2028 正常化 EPS 下修至約 $13 以下、毛利率結構性跌穿約 71%、DSO 與融資依賴持續惡化，或大型擔保開始實質消耗股東現金，原本 25x 的估值框架就需要重算。</div>
+  <div class="grid g5 mt2">
+    <div class="card"><h3>Q3 收入</h3><div class="metric sm">≥$108B</div><div class="sub">Base 驗證 1</div></div>
+    <div class="card"><h3>毛利率</h3><div class="metric sm">≈74%</div><div class="sub">Base 驗證 2</div></div>
+    <div class="card"><h3>DSO</h3><div class="metric sm">不再上升</div><div class="sub">Base 驗證 3</div></div>
+    <div class="card"><h3>FY28 EPS 修正</h3><div class="metric sm">≥$15.5</div><div class="sub">Base 驗證 4</div></div>
+    <div class="card"><h3>Rubin</h3><div class="metric sm">按期放量</div><div class="sub">Base 驗證 5</div></div>
+  </div>
+</section>
+
+<section class="slide" id="audit">
+  <div class="kicker">Valuation audit & reconciliation</div><h2 class="section-title">估值對帳：另一位分析師可以由原始數據重建 Base Fair Value</h2>
+  <div class="grid g2 mt2">
+    <div class="card"><h3>Base Fair Value 對帳</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>步驟</th><th>數值</th><th>來源 / 類型</th></tr></thead><tbody>
+      <tr><td>FY2028 市場 Normalized EPS 共識</td><td>$15.7</td><td>Consensus｜C級</td></tr>
+      <tr><td>正常化微調</td><td>-$0.1</td><td>Analyst Assumption｜保留小幅持續成本</td></tr>
+      <tr><td>FY2028 Analyst Normalized EPS</td><td class="hi">$15.6</td><td>Derived</td></tr>
+      <tr><td>Selected Future Exit P/E</td><td class="hi">25x</td><td>Analyst Assumption｜Growth × ROIC × duration × risk</td></tr>
+      <tr><td>FY2028 Raw Equity Value</td><td>$390</td><td>$15.6 × 25</td></tr>
+      <tr><td>股東要求報酬率</td><td>10.0%</td><td>5.30% 無風險 + 約 4.2% ERP + 0.5% residual</td></tr>
+      <tr><td>時間至 FY2028 年末</td><td>≈1.32 年</td><td>Derived</td></tr>
+      <tr><td>折現後營運股權價值</td><td>$343.9</td><td>$390 ÷ 1.10^1.32</td></tr>
+      <tr><td>非核心股權投資 NAV 調整</td><td>≈$3.0/股</td><td>約 $94B 帳面股權證券 × 折價／稅漏後</td></tr>
+      <tr><td class="hi">Base Fair Value</td><td class="hi">≈$347</td><td>最終</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>假設來源追蹤（Assumption Lineage）</h3><div class="table-wrap" style="box-shadow:none;margin-top:12px"><table><thead><tr><th>假設</th><th>P/E</th><th>Reverse</th><th>FCF</th><th>證據</th></tr></thead><tbody>
+      <tr><td>FY28 收入 / EPS</td><td>共識 + 正常化</td><td>被反推</td><td>影響營運資金</td><td>C</td></tr>
+      <tr><td>毛利率</td><td>支持 25x</td><td>隱含</td><td>影響現金利潤</td><td>A/C</td></tr>
+      <tr><td>要求報酬率</td><td>不直接決定 P/E</td><td>同一 10%</td><td>同一 claim</td><td>B/D</td></tr>
+      <tr><td>AI 基建信用風險</td><td>不在 Base 完整壓倍數</td><td>Tail 解釋</td><td>不完整進 Base</td><td>A/B</td></tr>
+      <tr><td>SBC</td><td>已進 EPS</td><td>已含</td><td>不二次全扣</td><td>A</td></tr>
+    </tbody></table></div><p class="note">P/E 與反向估值共享 FY2028 EPS、折現率等輸入，因此只能稱為「相關一致」，不是兩個完全獨立的估值方法。FCF 的工作資金檢查提供較獨立的股東經濟證據。</p></div>
+  </div>
+  <div class="grid g3 mt2">
+    <div class="card"><h3>Double-count Audit</h3><p class="note">投資收益已從核心 EPS 剔除，才加折價後投資 NAV；利率主要放 Required Return；SBC 走盈利扣除路線；AI 擔保放 Tail / Claims。未發現把同一重大風險完整扣兩次的 Base 處理。</p></div>
+    <div class="card"><h3>主要估值敏感項</h3><p class="note"><b>#1 FY2028 EPS</b>、<b>#2 Exit P/E</b>、<b>#3 AI 基建信用支持是否變成真現金損失</b>。相較之下 ±100bps 要求報酬率只令 Base Fair Value 變動約 $4/股，並非最大敏感度。</p></div>
+    <div class="card"><h3>結論</h3><p class="note"><b>目前屬合理偏低。</b>NVDA 的低 Forward P/E 有一部分是盈利預期快速上修的結果，也有一部分是市場開始要求為高利率、工作資金與 AI 基建資本承諾付風險折價。只要 FY2028 EPS 沒有下修到 $13 左右、FCF conversion 恢復，25x 仍合理。</p></div>
+  </div>
+  <div class="hr"></div>
+  <h3>主要資料來源</h3>
+  <div class="sources">
+    <div class="source-item"><b>S1｜NVIDIA Q2 FY2027 財報與指引：</b> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/">investor.nvidia.com — Q2 FY27 Results</a></div>
+    <div class="source-item"><b>S2｜NVIDIA Q2 FY2027 10-Q：</b> <a href="https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm">SEC — Form 10-Q for quarter ended July 26, 2026</a></div>
+    <div class="source-item"><b>S3｜NVIDIA Q2 CFO Commentary：</b> <a href="https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27cfocommentary.htm">SEC — Q2 FY27 CFO Commentary</a></div>
+    <div class="source-item"><b>S4｜FY2026 年度財報：</b> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/">NVIDIA — FY2026 Results</a></div>
+    <div class="source-item"><b>S5｜市場收入與 EPS 共識：</b> <a href="https://finance.yahoo.com/quote/NVDA/analysis/">Yahoo Finance — NVDA Analysis</a>；FY2029 補充：MarketScreener analyst estimates。</div>
+    <div class="source-item"><b>S6｜股價：</b> Charles Schwab stock research，2026-10-05 10:02 ET 約 $237.12；前收 $233.95。</div>
+    <div class="source-item"><b>S7｜10 年美債：</b> 2026-10-05 市場約 5.30%，Trading Economics / Yahoo Finance market data。</div>
+    <div class="source-item"><b>S8｜最新回購授權：</b> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-a-150-Billion-Share-Repurchase-Authorization-Increase/default.aspx">NVIDIA — 2026-09-28 $150B authorization increase</a></div>
+    <div class="source-item"><b>S9｜近期風險檢查：</b> Reuters 2026-10-01（GPU / AI 基建融資）及 2026-10-05（資料中心電力瓶頸）。</div>
+  </div>
+  <div class="footer">本文件為估值研究簡報，不構成投資建議。所有 Forecast / Consensus 都可能在下一次盈利發布、宏觀利率變動或產業事件後快速改變。英文專業名詞首次出現均附中文白話解釋；後續以中文為主。</div>
+</section>
+</main>
+</body></html>
