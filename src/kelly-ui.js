@@ -5,7 +5,7 @@ export function kellyMarkup() {
     <div class="eyebrow"><span></span>KELLY CRITERION · 本金配置試算</div>
     <h1>凱利本金計算器</h1><p class="kelly-intro">把你的投資假設，轉成配置比例與金額。</p>
     <form id="kelly-form" class="kelly-fields" aria-label="凱利本金計算器" novalidate>
-      <label class="kelly-capital" for="kelly-capital">總本金 <span>你的幣別</span><div class="kelly-input"><input id="kelly-capital" name="capital" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="any" value="100000" required /></div></label>
+      <label class="kelly-capital" for="kelly-capital">總本金 <span>你的幣別</span><div class="kelly-input"><input id="kelly-capital" name="capital" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="any" value="${KELLY_DEFAULTS.capital}" required /></div></label>
       <label for="kelly-probability">勝率<div class="kelly-input"><input id="kelly-probability" name="probability" type="number" inputmode="decimal" min="0" max="100" step="any" value="55" required /><span>%</span></div></label>
       <label for="kelly-upside">預期上漲幅<div class="kelly-input"><input id="kelly-upside" name="upside" type="number" inputmode="decimal" min="0.01" max="10000" step="any" value="20" required /><span>%</span></div></label>
       <label for="kelly-downside">預期下跌幅<div class="kelly-input"><input id="kelly-downside" name="downside" type="number" inputmode="decimal" min="0.01" max="100" step="any" value="20" required /><span>%</span></div></label>

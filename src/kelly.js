@@ -1,5 +1,5 @@
 export const KELLY_DEFAULTS = Object.freeze({
-  capital: 100000,
+  capital: 5000,
   probability: 55,
   upside: 20,
   downside: 20,

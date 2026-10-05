@@ -4,22 +4,22 @@ import { calculateKelly, KELLY_DEFAULTS } from "../src/kelly.js";
 
 const close = (actual, expected) =>
   assert.ok(Math.abs(actual - expected) < 1e-8, `${actual} != ${expected}`);
-test("partial-loss Kelly example allocates 25,000 from 100,000 with half Kelly", () => {
+test("partial-loss Kelly example allocates 1,250 from 5,000 with half Kelly", () => {
   const result = calculateKelly(KELLY_DEFAULTS);
   close(result.rawFraction, 0.5);
   close(result.allocation, 0.25);
-  close(result.amount, 25000);
-  close(result.remaining, 75000);
+  close(result.amount, 1250);
+  close(result.remaining, 3750);
 });
 test("quarter and full Kelly apply the chosen multiplier", () => {
-  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 25 }).amount, 12500);
-  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 100 }).amount, 50000);
+  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 25 }).amount, 625);
+  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 100 }).amount, 2500);
 });
 test("negative edge produces no long allocation", () => {
   const result = calculateKelly({ ...KELLY_DEFAULTS, probability: 40 });
   assert.ok(result.rawFraction < 0);
   assert.equal(result.amount, 0);
-  assert.equal(result.remaining, 100000);
+  assert.equal(result.remaining, 5000);
 });
 test("discount theoretical Kelly before capping, rather than capping it first", () => {
   const result = calculateKelly({
@@ -40,7 +40,7 @@ test("discount theoretical Kelly before capping, rather than capping it first", 
     scale: 100,
   });
   assert.equal(full.allocation, 1);
-  assert.equal(full.amount, 100000);
+  assert.equal(full.amount, 5000);
   assert.equal(full.capped, true);
 });
 test("certainty endpoints and zero Kelly multiplier remain bounded", () => {
