@@ -4,16 +4,16 @@ import { calculateKelly, KELLY_DEFAULTS } from "../src/kelly.js";
 
 const close = (actual, expected) =>
   assert.ok(Math.abs(actual - expected) < 1e-8, `${actual} != ${expected}`);
-test("partial-loss Kelly example allocates 1,250 from 5,000 with half Kelly", () => {
+test("classic Kelly example allocates risk capital 250 from 5000 with half Kelly", () => {
   const result = calculateKelly(KELLY_DEFAULTS);
-  close(result.rawFraction, 0.5);
-  close(result.allocation, 0.25);
-  close(result.amount, 1250);
-  close(result.remaining, 3750);
+  close(result.rawFraction, 0.1);
+  close(result.allocation, 0.05);
+  close(result.amount, 250);
+  close(result.remaining, 4750);
 });
 test("quarter and full Kelly apply the chosen multiplier", () => {
-  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 25 }).amount, 625);
-  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 100 }).amount, 2500);
+  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 25 }).amount, 125);
+  close(calculateKelly({ ...KELLY_DEFAULTS, scale: 100 }).amount, 500);
 });
 test("negative edge produces no long allocation", () => {
   const result = calculateKelly({ ...KELLY_DEFAULTS, probability: 40 });
@@ -21,35 +21,47 @@ test("negative edge produces no long allocation", () => {
   assert.equal(result.amount, 0);
   assert.equal(result.remaining, 5000);
 });
-test("discount theoretical Kelly before capping, rather than capping it first", () => {
-  const result = calculateKelly({
+test("classic Kelly uses gain/loss ratio and applies fractional Kelly", () => {
+  const r = calculateKelly({
     ...KELLY_DEFAULTS,
     probability: 60,
     upside: 30,
     downside: 20,
     scale: 50,
   });
-  close(result.rawFraction, 5 / 3);
-  close(result.allocation, 5 / 6);
-  assert.equal(result.capped, false);
-  const full = calculateKelly({
+  close(r.odds, 1.5);
+  close(r.rawFraction, 1 / 3);
+  close(r.allocation, 1 / 6);
+  close(r.amount, 5000 / 6);
+  const sameRatio = calculateKelly({
     ...KELLY_DEFAULTS,
     probability: 60,
-    upside: 30,
-    downside: 20,
-    scale: 100,
+    upside: 60,
+    downside: 40,
+    scale: 50,
   });
-  assert.equal(full.allocation, 1);
-  assert.equal(full.amount, 5000);
-  assert.equal(full.capped, true);
+  close(sameRatio.amount, r.amount);
 });
 test("certainty endpoints and zero Kelly multiplier remain bounded", () => {
   assert.equal(calculateKelly({ ...KELLY_DEFAULTS, probability: 0 }).amount, 0);
   assert.equal(
     calculateKelly({ ...KELLY_DEFAULTS, probability: 100 }).allocation,
-    1,
+    0.5,
   );
+  assert.equal(calculateKelly({...KELLY_DEFAULTS,probability:100,scale:100}).allocation,1);
   assert.equal(calculateKelly({ ...KELLY_DEFAULTS, scale: 0 }).amount, 0);
+});
+
+test("Stanford loaded-die example uses 20% win chance and 5:1 payout for 4% Kelly", () => {
+  const r = calculateKelly({
+    ...KELLY_DEFAULTS,
+    probability: 20,
+    upside: 500,
+    downside: 100,
+    scale: 100,
+  });
+  close(r.rawFraction, 0.04);
+  close(r.amount, 200);
 });
 test("invalid input, impossible losses and zero returns are rejected", () => {
   for (const input of [
@@ -69,8 +81,7 @@ test("invalid input, impossible losses and zero returns are rejected", () => {
 });
 test("theoretical fraction maximizes the independent two-outcome log objective", () => {
   const result = calculateKelly(KELLY_DEFAULTS);
-  const growth = (f) =>
-    0.55 * Math.log(1 + f * 0.2) + 0.45 * Math.log(1 - f * 0.2);
-  assert.ok(growth(result.rawFraction) > growth(result.rawFraction - 0.05));
-  assert.ok(growth(result.rawFraction) > growth(result.rawFraction + 0.05));
+  const growth = (f) => 0.55 * Math.log(1 + f) + 0.45 * Math.log(1 - f);
+  assert.ok(growth(result.rawFraction) > growth(result.rawFraction - 0.02));
+  assert.ok(growth(result.rawFraction) > growth(result.rawFraction + 0.02));
 });
