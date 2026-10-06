@@ -1,6 +1,8 @@
 # 左側股票優先順序，一行一個代碼。未列出的新股票會排在後面。
+AMZN
 NVDA
 AVGO
 QCOM
 ON
+GFS
 RDDT
