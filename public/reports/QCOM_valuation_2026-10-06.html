@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QCOM Qualcomm｜估值決策簡報｜2026-10-06</title>
+<style>
+:root{
+  --navy:#07182d; --navy2:#0c2745; --blue:#2b78e4; --sky:#68b7ff; --cyan:#68d9e8;
+  --red:#e85e62; --orange:#f2a65a; --green:#36a176; --ink:#122033; --muted:#66768b;
+  --bg:#eef4f9; --paper:#f9fbfd; --line:#dbe5ef; --white:#fff; --shadow:0 18px 45px rgba(19,45,76,.12);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC",Segoe UI,sans-serif;line-height:1.55}
+a{color:inherit}.nav{position:fixed;top:0;left:0;right:0;height:64px;z-index:1000;background:rgba(7,24,45,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:18px;padding:0 28px;overflow:auto;white-space:nowrap}.nav .brand{font-weight:800;color:#fff;letter-spacing:.08em;margin-right:8px}.nav a{font-size:13px;text-decoration:none;color:#cbd8e8;padding:8px 0;border-bottom:2px solid transparent}.nav a:hover{color:#fff;border-color:var(--sky)}
+main{padding-top:64px}.slide{position:relative;min-height:calc(100vh - 64px);padding:56px clamp(28px,6vw,90px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}.slide.light{background:linear-gradient(180deg,#f9fbfd,#eef4f9)}.slide.white{background:#fff}.slide.dark{background:radial-gradient(circle at 80% 15%,#164c7d 0,#0b2d50 27%,#07182d 65%);color:#fff}.slide::after{content:"";position:absolute;inset:auto -10% -30% 35%;height:55%;background:radial-gradient(circle,rgba(104,183,255,.12),transparent 60%);pointer-events:none}.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:9px}.dark .kicker{color:#9bd1ff}.h1{font-size:clamp(44px,6vw,82px);line-height:1.03;margin:0 0 18px;font-weight:850;letter-spacing:-.04em}.h2{font-size:clamp(30px,3.4vw,48px);line-height:1.14;margin:0 0 12px;letter-spacing:-.03em}.h3{font-size:20px;margin:0 0 10px}.lede{font-size:clamp(18px,1.7vw,24px);max-width:1050px;color:#d5e1ef}.light .lede,.white .lede{color:#506177}.em{color:var(--sky)}.light .em,.white .em{color:var(--blue)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}.card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow);position:relative;z-index:1}.dark .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);box-shadow:none;backdrop-filter:blur(8px)}.metric{font-size:34px;font-weight:850;letter-spacing:-.03em}.metric small{font-size:14px;font-weight:650;color:var(--muted)}.dark .metric small{color:#b9c8d8}.label{font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}.dark .label{color:#b8c9dc}.sub{font-size:14px;color:var(--muted)}.dark .sub{color:#c7d5e4}.good{color:var(--green)}.bad{color:var(--red)}.warn{color:#c77a16}.dark .good{color:#7ee0b6}.dark .bad{color:#ff9da1}.dark .warn{color:#ffd08b}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:800;margin:3px 4px 3px 0;background:#e8f1ff;color:#245fae}.badge.a{background:#e5f5ef;color:#207256}.badge.b{background:#e8f1ff;color:#245fae}.badge.c{background:#fff1dc;color:#9a5d06}.badge.d{background:#f6e7ea;color:#9d3340}.dark .badge{border:1px solid rgba(255,255,255,.16)}
+.table-wrap{overflow:auto;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);margin-top:20px;position:relative;z-index:2}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px 14px;border-bottom:1px solid #e7edf4;text-align:left;vertical-align:top}th{background:#eff5fa;color:#30445f;font-weight:800;position:sticky;top:0}tr:last-child td{border-bottom:0}.num{text-align:right;font-variant-numeric:tabular-nums}.table-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);box-shadow:none}.table-dark th{background:rgba(255,255,255,.10);color:#eef5fc}.table-dark td{border-color:rgba(255,255,255,.10)}
+.callout{border-left:4px solid var(--blue);padding:14px 18px;background:#edf5ff;border-radius:0 14px 14px 0;margin:18px 0;color:#24415f}.dark .callout{background:rgba(104,183,255,.11);color:#e7f3ff;border-color:var(--sky)}
+.chart-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 12px;box-shadow:var(--shadow);position:relative;z-index:1}.dark .chart-card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);box-shadow:none}.chart-title{font-weight:800;margin-bottom:8px}.chart-note{font-size:12px;color:var(--muted);margin-top:8px}.dark .chart-note{color:#bdcede}.svgchart{width:100%;height:300px;display:block}.mini{height:220px}.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin-top:8px}.legend i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:5px}
+.org{display:grid;grid-template-columns:1fr 1.4fr;gap:18px;align-items:stretch}.node{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px}.node strong{display:block;font-size:18px;margin-bottom:5px}.node.primary{border-color:#9cc9ff;background:linear-gradient(135deg,#eef6ff,#fff)}
+.donut{width:180px;height:180px;border-radius:50%;background:conic-gradient(var(--blue) 0 59.8%,var(--green) 59.8% 78.5%,var(--orange) 78.5% 100%);position:relative;margin:auto}.donut:after{content:"QCT\A 第三季2026財年";white-space:pre;display:grid;place-items:center;position:absolute;inset:31px;border-radius:50%;background:#fff;font-weight:850;text-align:center;color:#234}.dark .donut:after{background:#0b2d50;color:#fff}
+.timeline{position:relative;margin:26px 0 0;padding-left:22px}.timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:8px;width:2px;background:#b8cee3}.titem{position:relative;padding:0 0 18px 18px}.titem:before{content:"";position:absolute;left:-20px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #e9f3ff}.dark .titem:before{box-shadow:0 0 0 4px rgba(104,183,255,.14)}
+.price-map{display:grid;grid-template-columns:1.15fr repeat(5,1fr);gap:2px;margin-top:24px;border-radius:16px;overflow:hidden}.price-map>div{padding:18px 10px;text-align:center;font-size:13px}.zone0{background:#e7edf3}.zone1{background:#d8f1e8}.zone2{background:#e9f6ee}.zone3{background:#eef4ff}.zone4{background:#fff2df}.zone5{background:#fbe6e8}.price-pin{position:relative}.price-pin:after{content:"現價 180.79";position:absolute;top:-34px;left:50%;transform:translateX(-50%);background:#07182d;color:#fff;padding:5px 8px;border-radius:8px;font-size:11px;white-space:nowrap}.price-pin:before{content:"";position:absolute;top:-8px;left:50%;width:2px;height:16px;background:#07182d}
+.funnel{display:flex;align-items:flex-end;gap:10px;height:245px;margin-top:18px}.fbar{flex:1;min-width:52px;border-radius:12px 12px 2px 2px;background:linear-gradient(180deg,var(--sky),var(--blue));display:flex;align-items:flex-start;justify-content:center;padding-top:8px;color:#fff;font-weight:800;position:relative}.fbar span{position:absolute;bottom:-26px;color:var(--muted);font-size:12px;white-space:nowrap}.fbar b{font-size:12px}.dark .fbar span{color:#c4d2df}
+.source-list{font-size:13px;color:#53667d}.source-list li{margin:8px 0}.source-list a{color:#1f65b8;word-break:break-all}.dark .source-list{color:#c9d7e5}.dark .source-list a{color:#9bd1ff}
+.foot{font-size:11px;color:#8391a2;margin-top:14px}.dark .foot{color:#9fb1c4}.chip{display:inline-flex;padding:7px 10px;border-radius:999px;background:#edf4fb;border:1px solid #d9e6f2;font-size:12px;font-weight:700;margin:3px}.dark .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.13)}
+@media(max-width:980px){.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr}.grid2,.org{grid-template-columns:1fr}.slide{padding:44px 24px;min-height:auto}.h1{font-size:48px}.nav{padding:0 16px}.price-map{grid-template-columns:1fr}.price-pin:after,.price-pin:before{display:none}}
+@media(max-width:640px){.grid4,.grid3{grid-template-columns:1fr}.metric{font-size:30px}.table-wrap{margin-left:-8px;margin-right:-8px}.nav .brand{display:none}.svgchart{height:250px}}
+@media print{.nav{display:none}main{padding-top:0}.slide{min-height:100vh;page-break-after:always}.card,.chart-card,.table-wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">QCOM · QUALCOMM</div>
+  <a href="#valuation">估值結論</a><a href="#outlook">管理層展望</a><a href="#structure">公司結構</a><a href="#growth">收入與人工智能（AI）增長</a><a href="#normalization">盈利正常化</a><a href="#matrix">估值矩陣</a><a href="#fcf">現金流/股權薪酬（SBC）</a><a href="#balance">資產負債表</a><a href="#reverse">反向估值</a><a href="#risk">風險</a><a href="#map">價格地圖</a><a href="#recon">估值對帳</a>
+</nav>
+<main>
+
+<section class="slide dark" id="valuation">
+  <div class="kicker">QCOM · Qualcomm Incorporated · 2026-10-06</div>
+  <h1 class="h1">從手機晶片，走向<br><span class="em">Edge → Cloud 的運算平台</span></h1>
+  <p class="lede">核心判斷：現價 <b>$180.79</b> 已反映相當一部分資料中心轉型成功，但尚未支付 30 倍 溢價估值制度（溢價估值制度（溢價（Premium） regime））。基準合理價值（基準（Base） 合理（Fair） Value） 約 <b>$184</b>，因此目前屬於「大致合理」，真正安全邊際大約從 $160 左右開始。</p>
+  <div class="grid4">
+    <div class="card"><div class="label">現價</div><div class="metric">$180.79</div><div class="sub">2026/10/05 收市 <span class="badge a">已報告（Reported）· A級</span></div></div>
+    <div class="card"><div class="label">基準合理價值（基準（Base） 合理（Fair） Value）</div><div class="metric">$184</div><div class="sub"><span class="good">+1.6%</span> vs 現價 · 2028財年 正常化 EPS × 22x，再折現</div></div>
+    <div class="card"><div class="label">核心合理區間</div><div class="metric">$155–210</div><div class="sub">Conservative–溢價（Premium）；完整 悲觀（Bear）–樂觀（Bull） 約 $143–238</div></div>
+    <div class="card"><div class="label">估值可靠度</div><div class="metric">中等（Medium）</div><div class="sub">資料中心 放量 尚未形成足夠報表證據</div></div>
+  </div>
+  <div class="callout"><b>決策第一屏：</b>最大上行變數是 FY2027 資料中心收入接近 $5B 且 QCT 利潤率不被稀釋；最大下行變數是 Apple 數據機退出 + 新業務 放量 未能抵消，再加上 Arm 法律尾端風險。</div>
+  <div class="grid3">
+    <div class="card"><div class="label">2026財年 分析員正常化每股盈利（Analyst Normalized EPS）</div><div class="metric">~$7.70</div><div class="sub">公司調整後盈利扣回經濟股權薪酬（SBC） 等反覆成本</div></div>
+    <div class="card"><div class="label">2027財年 分析員正常化每股盈利（Analyst Normalized EPS）</div><div class="metric">~$7.40</div><div class="sub">過渡年：非手機加速、但手機/成本拖累</div></div>
+    <div class="card"><div class="label">2028財年 基準（Base） Normalized EPS</div><div class="metric">~$10.10</div><div class="sub">模型情境，不是市場共識 <span class="badge d">分析員假設（Analyst）D級</span></div></div>
+  </div>
+</section>
+
+<section class="slide light" id="outlook">
+  <div class="kicker">管理層展望增長（Management Outlook Growth）</div><h2 class="h2">管理層展望先放在估值前面：<span class="em">非手機正在成為第二條盈利曲線</span></h2>
+  <p class="lede">管理層展望（管理層指引／目標（Guidance / Target））與市場共識分開展示。Qualcomm 對 FY2029 給的是業務目標，不代表市場已經把它當成確定收入。</p>
+  <div class="grid2">
+    <div class="chart-card">
+      <div class="chart-title">非手機收入：增長「加速」而非線性延伸</div>
+      <svg class="svgchart" id="outlookChart"></svg>
+      <div class="chart-note">2026財年 / 2027財年 是管理層同比增速展望；2029財年 是管理層收入目標。不同單位刻度以標籤呈現，重點是 增長拐點（inflection）。</div>
+    </div>
+    <div class="card">
+      <div class="h3">管理層展望增長</div>
+      <table>
+        <tr><th>業務</th><th class="num">基準</th><th class="num">管理層目標</th><th>含義</th></tr>
+        <tr><td>非手機 QCT</td><td class="num">2026財年 +24% 同比（YoY）</td><td class="num">2027財年 &gt;60% 同比（YoY）</td><td><span class="badge c">管理層展望（Guided）· C級</span> 加速</td></tr>
+        <tr><td>資料中心</td><td class="num">2027財年 $5B</td><td class="num">2029財年 &gt;$15B</td><td>約 73% 兩年 年複合增長率（CAGR） <span class="badge c">管理層展望（Guided）· C級</span></td></tr>
+        <tr><td>汽車</td><td class="num">2025財年 $3.96B</td><td class="num">2029財年 $10B</td><td>約 26% 年複合增長率（CAGR） <span class="badge c">管理層展望（Guided）· C級</span></td></tr>
+        <tr><td>IoT</td><td class="num">2025財年 $6.62B</td><td class="num">2029財年 &gt;$14B</td><td>&gt;20% 年複合增長率（CAGR） <span class="badge c">管理層展望（Guided）· C級</span></td></tr>
+        <tr><td>公司調整後每股盈利（公司調整後（Non-GAAP） EPS）</td><td class="num">2026財年 共識 ~$10.48</td><td class="num">2029財年 &gt;$18</td><td>公司口徑，主要排除 股權薪酬（SBC）</td></tr>
+      </table>
+      <div class="callout"><b>市場共識不是管理層指引：</b>Alpha Vantage 共識 2026財年 收入約 $42.88B、2027財年 約 $44.91B，僅約 +4.8%；2027財年 EPS 共識約 $10.20，較 2026財年 約 -2.7%。這代表市場仍把 2027財年 視為「轉型投資年」。</div>
+    </div>
+  </div>
+  <div class="grid4">
+    <div class="card"><div class="label">2029財年 非手機</div><div class="metric">$40B</div><div class="sub">約為 2024 投資者日（Investor Day） 舊目標兩倍</div></div>
+    <div class="card"><div class="label">2029財年 資料中心</div><div class="metric">&gt;$15B</div><div class="sub">中央處理器（CPU）＋人工智能加速器（AI Accelerator）＋客製化晶片（Custom Silicon）＋連接產品（Connectivity）</div></div>
+    <div class="card"><div class="label">2029財年 汽車 設計定點管線（Design-win Pipeline）</div><div class="metric">$65B</div><div class="sub">非收入；是未來專案管線</div></div>
+    <div class="card"><div class="label">2029財年 手機佔 QCT</div><div class="metric">~1/3</div><div class="sub">若非手機 $40B≈2/3，則 QCT 總收入約 $60B、手機約 $20B（推導 推導（Derived））</div></div>
+  </div>
+</section>
+
+<section class="slide white" id="structure">
+  <div class="kicker">公司結構</div><h2 class="h2">公司結構：<span class="em">晶片產品 + 專利授權 + 非核心投資</span></h2>
+  <p class="lede">QCOM 不是單一「手機晶片股」。股東盈利同時來自 QCT 的晶片／平台產品、QTL 的高利潤專利授權，以及不應乘營運本益比（P/E） 的 QSI 投資損益。</p>
+  <div class="org">
+    <div class="node primary"><strong>Qualcomm Incorporated</strong><div class="sub">母公司；擁有 QTL 與絕大多數專利組合</div><div style="margin-top:12px"><span class="chip">NASDAQ: QCOM</span><span class="chip">財年結束日約在9月底</span></div></div>
+    <div class="grid3" style="margin:0">
+      <div class="node"><strong>QCT</strong><div class="sub">Qualcomm CDMA Technologies：晶片、平台、服務。由 Qualcomm Technologies, Inc. 及其子公司經營。</div><hr style="border:0;border-top:1px solid #e5edf4"><b>2026財年第三季收入 $8.504B</b><br><span class="sub">稅前盈利率（EBT margin） 26%</span></div>
+      <div class="node"><strong>QTL</strong><div class="sub">Qualcomm Technology Licensing：專利授權與權利金。資本輕、利潤率極高。</div><hr style="border:0;border-top:1px solid #e5edf4"><b>2026財年第三季收入 $1.278B</b><br><span class="sub">稅前盈利率（EBT margin） 69%</span></div>
+      <div class="node"><strong>QSI / 投資</strong><div class="sub">策略投資的公允價值、股權法收益等。波動大，應從核心正常化 EPS 剝離。</div><hr style="border:0;border-top:1px solid #e5edf4"><b>2026財年第三季稅前盈利（EBT） $768M</b><br><span class="sub">主要受投資 IPO / 市價變動影響</span></div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card"><div class="h3">估值路徑</div><p><b>主要採 股權本益比（Equity P/E）：</b>只用 扣除利息後、正常化稅後、歸屬普通股股東的正常化 EPS。既然利息已經留在 EPS 裡，就不再把同一筆債務本金機械扣第二次。</p><p><b>QSI：</b>投資收益不視為核心營運盈利；若未來另做 NAV，只能與對應收益二選一，避免「收益 × 本益比（P/E） + NAV」雙計。</p></div>
+    <div class="card"><div class="h3">公司正在變成什麼？</div><p>舊模式是 <b>手機 Snapdragon + 5G 數據機（modem） + QTL 權利金</b>；新模式是 <b>手機／個人電腦（PC）／延展實境（XR）／汽車 / 工業與機器人 / 資料中心</b>共享低功耗中央處理器（CPU）、人工智能（AI）、連接、軟體與 知識產權（IP）與軟體組成的運算平台。</p><p>真正改變估值制度的不是「人工智能（AI）」標籤，而是非手機收入能否提升 <b>增長持續期、客戶分散、增量投入資本回報率（ROIC）與每股自由現金流</b>。</p></div>
+  </div>
+</section>
+
+<section class="slide light" id="growth">
+  <div class="kicker">收入結構與增長</div><h2 class="h2">收入增長不是一條線：<span class="em">手機下滑，汽車高速上行，IoT溫和加速</span></h2>
+  <div class="grid2">
+    <div class="chart-card"><div class="chart-title">QCT 年度收入趨勢（$B）</div><svg class="svgchart" id="annual收入"></svg><div class="chart-note">2023財年–2025財年 為 已報告（Reported）；2029財年 為 management target / derived。資料中心 2025財年 基數近乎尚未形成，故另列。</div></div>
+    <div class="chart-card"><div class="chart-title">2026財年季度動能（$B）</div><svg class="svgchart" id="quarter收入"></svg><div class="chart-note">Q1→第三季：手機 -35%，汽車 +44%，IoT +8%。真正的組合變化已經在季度數據中出現。</div></div>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="label">手機 第三季2026財年</div><div class="metric bad">$5.09B</div><div class="sub">同比（YoY） -19.6% · 環比（QoQ） -15.6%；記憶體供應/價格與 OEM 降庫存拖累</div></div>
+    <div class="card"><div class="label">汽車 第三季2026財年</div><div class="metric good">$1.59B</div><div class="sub">同比（YoY） +61.4% · 環比（QoQ） +19.8%；新車型 + 單車內容價值提升</div></div>
+    <div class="card"><div class="label">IoT 第三季2026財年</div><div class="metric good">$1.83B</div><div class="sub">同比（YoY） +8.9% · 環比（QoQ） +6.0%；mix 改善，增長較汽車溫和</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><div class="h3">2025財年 → 2029財年 管理層增量</div><div class="funnel">
+      <div class="fbar" style="height:80px;background:linear-gradient(180deg,#88c5ff,#2b78e4)"><b>+~$6.0B</b><span>汽車</span></div>
+      <div class="fbar" style="height:100px;background:linear-gradient(180deg,#74d7c1,#36a176)"><b>+&gt;$7.4B</b><span>IoT</span></div>
+      <div class="fbar" style="height:205px;background:linear-gradient(180deg,#ffbd7d,#ef8a2f)"><b>+&gt;$15B</b><span>資料中心</span></div>
+    </div><div class="foot">增量相對 2025財年 已報告基準；資料中心 2025財年 接近尚未形成收入規模，故可視為近乎純新增量。</div></div>
+    <div class="card"><div class="h3">QCT 利潤率的代價</div><p>收入多元化不是免費。QCT 稅前利潤率 2026財年第一季 約 <b>31%</b>、第二季 <b>27%</b>、第三季 <b>26%</b>。公司指出原因包括更高產品成本、研發與銷管費、以及收入下降。</p><div class="callout">因此 基準情境（基準（Base） Case） 不把資料中心收入成功直接等同於 30x 本益比（P/E）。新收入必須先證明其毛利率、軟體堆棧成本與資本投入不會把股東回報稀釋。</div></div>
+  </div>
+</section>
+
+<section class="slide dark" id="ai">
+  <div class="kicker">人工智能（AI）／資料中心增量</div><h2 class="h2">資料中心是估值最大的選擇權：<span class="em">但 2027財年 $5B 是執行門檻，不是故事</span></h2>
+  <div class="grid2">
+    <div class="chart-card"><div class="chart-title">資料中心收入 放量（管理層）</div><svg class="svgchart" id="dcRamp"></svg><div class="chart-note">2027財年 $5B；2029財年 &gt;$15B。2028財年 圖中 $8.7B 為簡化中點示意，不是公司指引，故以虛線/推導（Derived） 顯示。</div></div>
+    <div class="card"><div class="h3">產品層疊順序</div><div class="timeline">
+      <div class="titem"><b>2027財年 Q1：</b>客製化晶片（Custom Silicon）（客製化晶片）開始 放量；兩個 超大型雲端客戶（hyperscaler） 客戶合計至少貢獻 $1B。</div>
+      <div class="titem"><b>2027財年 H2：</b>人工智能加速器（AI Accelerator）（人工智能（AI） 推論加速器）開始放量。</div>
+      <div class="titem"><b>2028財年 H2：</b>Dragonfly CPU 開始 放量。</div>
+      <div class="titem"><b>2029財年：</b>CPU + Accelerator + 客製化晶片（Custom Silicon） + Connectivity 四條產品線疊加，管理層目標 &gt;$15B。</div>
+    </div></div>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="label">AWS</div><div class="metric">≤$60B</div><div class="sub">長期採購潛在上限；不是 booked revenue。另有約 2,500 萬股 認股權證（warrant），$161.26 行使價。</div></div>
+    <div class="card"><div class="label">Meta</div><div class="metric">CPU</div><div class="sub">多世代資料中心 CPU 合作，提供初步客戶驗證。</div></div>
+    <div class="card"><div class="label">軟體補強</div><div class="metric">Modular</div><div class="sub">Mojo / MAX / Modular Cloud：試圖補齊 CUDA 類軟體生態差距。</div></div>
+  </div>
+  <div class="callout"><b>人工智能雙重計價規則（AI Double-Count Rule）：</b>若資料中心成功已經進 FY2028 每股盈利，不能再因「人工智能（AI）成功」本身額外把 本益比（P/E） 從 22x 直接升到 30x。只有它進一步證明更長增長持續期、更高 ROIC、更低 資本強度 或更高 預測確定性，才有獨立 估值重評 價值。</div>
+</section>
+
+<section class="slide white" id="normalization">
+  <div class="kicker">盈利正常化</div><h2 class="h2">盈利正常化：<span class="em">公司 公司調整後（Non-GAAP） 更接近營運，但仍不是股東經濟</span></h2>
+  <div class="grid2">
+    <div class="card"><div class="h3">四層 EPS 與經濟現金流</div>
+      <table><tr><th>口徑</th><th>作用</th><th>QCOM 的問題</th></tr>
+      <tr><td>法定會計每股盈利（GAAP EPS）</td><td>法定結果</td><td>2026財年 第二季 受 $5.7B 稅務 估值備抵（valuation allowance） reversal 扭曲</td></tr>
+      <tr><td>公司調整後每股盈利（Company 公司調整後（Non-GAAP） EPS）</td><td>公司調整核心盈利</td><td>大量排除 股權薪酬（SBC）；2029財年 &gt;$18 目標與 GAAP &gt;$14.5 的差距，管理層稱主要來自 股權薪酬（SBC）</td></tr>
+      <tr><td><b>分析員正常化每股盈利（Analyst Normalized EPS）</b></td><td>主要 本益比（P/E） 分母</td><td>重新放回持續性的經濟股權薪酬（SBC）、整合等成本</td></tr>
+      <tr><td>核心正常化股權每股盈利（Core Normalized Equity EPS）</td><td>剝離 QSI / 非核心投資</td><td>避免投資市場波動污染營運盈利</td></tr>
+      <tr><td>每股經濟自由現金流（Economic FCF/share）</td><td>驗證股東真正拿到的現金</td><td>需調整 庫存、稅務時點與 維持性投資</td></tr></table>
+    </div>
+    <div class="chart-card"><div class="chart-title">2026財年 盈利正常化示意（每股美元）</div><svg class="svgchart" id="epsBridge"></svg><div class="chart-note">$10.48 為 2026財年 市場調整後 EPS 共識；~$7.7 為分析員正常化假設。經濟股權薪酬（SBC） 約 -$2.6/股為模型假設，並非公司報告口徑。</div></div>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="label">2026財年 公司調整後每股盈利（公司調整後（Non-GAAP） EPS）共識</div><div class="metric">$10.48</div><div class="sub"><span class="badge c">市場共識（Consensus）· C級</span></div></div>
+    <div class="card"><div class="label">2026財年 分析員正常化每股盈利</div><div class="metric">~$7.70</div><div class="sub"><span class="badge d">分析員假設（Analyst）D級</span> 主要差異是 股權薪酬（SBC）</div></div>
+    <div class="card"><div class="label">股權薪酬主要處理路徑</div><div class="metric">路徑 A（Route A）</div><div class="sub">直接留在正常化盈利內；因此不再用 稀釋／回購／估值倍數 四重懲罰</div></div>
+  </div>
+</section>
+
+<section class="slide light" id="matrix">
+  <div class="kicker">固定本益比（P/E）估值矩陣</div><h2 class="h2">20x / 25x / 30x 是共同尺；<span class="em">22x 是模型推導的 基準（Base），而不是從股價倒推</span></h2>
+  <div class="table-wrap"><table>
+    <tr><th>EPS 基準</th><th class="num">分析員正常化每股盈利（Analyst Normalized EPS）</th><th class="num">20x</th><th class="num">25x</th><th class="num">30x</th><th class="num">選定 22x</th><th>時間註記</th></tr>
+    <tr><td>2026財年預估</td><td class="num">$7.70</td><td class="num">$154</td><td class="num">$193</td><td class="num">$231</td><td class="num">$169</td><td>接近今天</td></tr>
+    <tr><td>2027財年預估 未折現</td><td class="num">$7.40</td><td class="num">$148</td><td class="num">$185</td><td class="num">$222</td><td class="num">$163</td><td>遠期條件價值</td></tr>
+    <tr><td>2027財年預估 折現值 @10%</td><td class="num">$7.40</td><td class="num">$135</td><td class="num">$168</td><td class="num">$202</td><td class="num">$148</td><td>折回今天</td></tr>
+    <tr><td>2028財年預估 未折現</td><td class="num">$10.10</td><td class="num">$202</td><td class="num">$253</td><td class="num">$303</td><td class="num">$222</td><td>遠期條件價值</td></tr>
+    <tr><td><b>2028財年預估 折現值 @10%</b></td><td class="num"><b>$10.10</b></td><td class="num"><b>$167</b></td><td class="num"><b>$209</b></td><td class="num"><b>$250</b></td><td class="num"><b>$184</b></td><td><b>基準估值錨</b></td></tr>
+  </table></div>
+  <div class="grid2">
+    <div class="card"><div class="h3">悲觀（Bear） / 基準（Base） / 樂觀（Bull）</div><table><tr><th>情境</th><th class="num">FY2028 每股盈利</th><th class="num">退出本益比</th><th class="num">折現率</th><th class="num">今天合理價值</th></tr><tr><td>悲觀（Bear）</td><td class="num">$8.80</td><td class="num">20x</td><td class="num">11%</td><td class="num bad">$143</td></tr><tr><td>基準（Base）</td><td class="num">$10.10</td><td class="num">22x</td><td class="num">10%</td><td class="num"><b>$184</b></td></tr><tr><td>樂觀（Bull）</td><td class="num">$11.50</td><td class="num">25x</td><td class="num">10%</td><td class="num good">$238</td></tr></table></div>
+    <div class="card"><div class="h3">為什麼不是更低 / 更高？</div><p><b>不是 20x：</b>QTL 69% 級 稅前盈利率（EBT margin）、高 IP 壁壘；汽車已連續 23 季雙位數 同比（YoY） 增長；資料中心已有 Meta / AWS 等客戶驗證。</p><p><b>不是 30x：</b>手機收入正在快速收縮、QCT利潤率已從 Q1 31% 降至 第三季 26%、2027財年 EPS 共識下修，而且資料中心 $5B 尚未變成已報告收入。</p><p><b>升檔條件：</b>2027財年 資料中心接近 $5B + QCT利潤率止跌 + 每股經濟自由現金流（Economic FCF/share） 跟上 EPS。</p><p><b>降檔條件：</b>2027財年 資料中心明顯未達標、手機壓力延長、或新業務帶來結構性低毛利/高資本強度。</p></div>
+  </div>
+</section>
+
+<section class="slide dark" id="fcf">
+  <div class="kicker">經濟自由現金流（Economic FCF）／股權薪酬（SBC）／回購</div><h2 class="h2">現金流看起來很強，但要問：<span class="em">多少現金只是抵消稀釋與營運資金時點？</span></h2>
+  <div class="grid4">
+    <div class="card"><div class="label">9M 2026財年 營運現金流（OCF）</div><div class="metric">$8.41B</div><div class="sub">較去年同期 $10.02B 下降</div></div>
+    <div class="card"><div class="label">9M 2026財年 資本支出（CapEx）</div><div class="metric">~$1.6B</div><div class="sub">表面自由現金流（Headline FCF） 約 $6.8B，但需正常化</div></div>
+    <div class="card"><div class="label">9M 2026財年 回購現金</div><div class="metric">$6.81B</div><div class="sub">回購 42M 股；包含抵消 Alphawave 換股</div></div>
+    <div class="card"><div class="label">9M 2026財年 股權薪酬</div><div class="metric">$2.67B</div><div class="sub">損益表股權薪酬 <span class="badge a">已報告（Reported）· A級</span></div></div>
+  </div>
+  <div class="grid2">
+    <div class="chart-card"><div class="chart-title">現金用途：回購 vs 股息 vs 資本支出（CapEx）（9M 2026財年, $B）</div><svg class="svgchart" id="cashUses"></svg><div class="chart-note">大額回購不是天然利好；需同時看淨股數、股權薪酬（SBC）、收購換股與回購價格。</div></div>
+    <div class="card"><div class="h3">經濟自由現金流正常化重點</div><p><b>庫存：</b>由 2025財年 年末 $6.53B 升至 $8.38B，對營運現金流形成壓力。公司明確指出與記憶體供應約束下的客戶需求變化有關。</p><p><b>稅：</b>2026財年 有一次性 遞延稅資產估值備抵轉回，法定會計每股盈利（GAAP EPS）與現金稅不宜直接年化。</p><p><b>回購：</b>9M 2026財年 花 $6.8B，但公司同時有員工股權、Alphawave 換股與稅項 代扣稅；因此股東真正得到的是「淨股數下降 + 每股自由現金流（FCF/share）」而不是 表面回購金額。</p><div class="callout">基準（Base） 暫把 每股經濟自由現金流（Economic FCF/share） 看作約 $8–9 區間，只作 交叉檢驗；資料不足以在不重建完整 營運資金實際影響反轉＋正常化替代 前給假精確。</div></div>
+  </div>
+</section>
+
+<section class="slide white" id="balance">
+  <div class="kicker">資產負債表／融資／優先請求權</div><h2 class="h2">資產負債表不是生存問題，<span class="em">但也已不是淨現金故事</span></h2>
+  <div class="grid4">
+    <div class="card"><div class="label">現金</div><div class="metric">$4.53B</div><div class="sub">2026/6/28</div></div>
+    <div class="card"><div class="label">有價證券</div><div class="metric">$3.77B</div><div class="sub">現金 + 有價證券 = $8.30B</div></div>
+    <div class="card"><div class="label">債務</div><div class="metric">$15.27B</div><div class="sub">其中 $2.0B 於 2027/5 到期</div></div>
+    <div class="card"><div class="label">淨負債</div><div class="metric">~$6.97B</div><div class="sub">商業票據 $498M；循環信貸未動用</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><div class="h3">融資重要性檢查（Financing 重大ity Gate）</div><p>目前未觸發「生存／再融資依賴」。公司表示現有現金、營運現金流與融資活動足以支持未來 12 個月及其後可預見期間的需求。</p><p>但 2027財年 同時要面對 <b>$2B 到期債、資料中心 放量、先進封裝與記憶體供應、Modular/Alphawave 整合</b>。若新業務資本需求上升，要求報酬率與倍數都會受到壓力。</p></div>
+    <div class="card"><div class="h3">優先請求權／稀釋清單</div><table><tr><th>項目</th><th>處理位置</th></tr><tr><td>既有債務</td><td>利息已進 扣除利息後 EPS；本金不在 本益比（P/E） route 再扣一次</td></tr><tr><td>AWS 認股權證（warrants）</td><td>放在 稀釋／股數路徑；不預先全額扣除</td></tr><tr><td>經營租賃／採購承諾</td><td>如屬重大，需與 經濟自由現金流／請求權帳本單一計價</td></tr><tr><td>Arm 訴訟</td><td>尾端／法律情境，不塞進 一般化加權資金成本（WACC） 三次懲罰</td></tr></table></div>
+  </div>
+</section>
+
+<section class="slide light" id="reverse">
+  <div class="kicker">反向估值</div><h2 class="h2">$180.79 到底在定價什麼？<span class="em">市場其實接近在押注「2028財年 $10 EPS + 22x」</span></h2>
+  <div class="grid2">
+    <div class="chart-card"><div class="chart-title">現價反推 2028財年正常化每股盈利（10%要求報酬率）</div><svg class="svgchart" id="reverseChart"></svg><div class="chart-note">公式：現價 × 1.10² ÷ 未來退出本益比（Future Exit P/E）。越低的未來倍數，需要越高 EPS 才能合理化今天價格。</div></div>
+    <div class="card"><div class="h3">反向估值讀法</div><table><tr><th>2028財年 退出本益比</th><th class="num">現價要求 EPS</th><th>難度</th></tr><tr><td>20x</td><td class="num">~$10.94</td><td>需要比 基準（Base） 更強盈利</td></tr><tr><td><b>22x</b></td><td class="num"><b>~$9.95</b></td><td>接近 基準（Base） $10.1</td></tr><tr><td>25x</td><td class="num">~$8.75</td><td>需要較高品質 /增長持續期</td></tr><tr><td>30x</td><td class="num">~$7.29</td><td>市場需接受 溢價估值制度（溢價估值制度（溢價（Premium） regime））</td></tr></table><div class="callout">因此今天不是「便宜到不用成功」；它是「只要轉型大致成功就合理」。安全邊際主要來自買入價格，而不是目前倍數本身。</div></div>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="label">要求報酬率（Required Return）</div><div class="metric">~10%</div><div class="sub">5.24% 美國10年期國債殖利率 + ~4.2% 股權風險溢價 + ~0.5% 剩餘公司特定風險</div></div>
+    <div class="card"><div class="label">美國10年期國債殖利率</div><div class="metric">5.24%</div><div class="sub">2026/10/01 最新可得 Alpha Vantage 日值</div></div>
+    <div class="card"><div class="label">±100bp 敏感度</div><div class="metric">重大</div><div class="sub">利率已高，溢價估值倍數的門檻 明顯提高</div></div>
+  </div>
+</section>
+
+<section class="slide dark" id="news">
+  <div class="kicker">最新戰略更新</div><h2 class="h2">最近三個事件，分別改變<span class="em">需求證據、授權確定性、尾端風險</span></h2>
+  <div class="grid3">
+    <div class="card"><div class="label">2026/09/08 · AWS</div><div class="metric">≤$60B</div><div class="sub">長期 人工智能（AI）資料中心產品潛在採購上限；強化 2027財年/2029財年 資料中心路線可信度。AWS 同時獲 認股權證（warrant），形成條件式稀釋。</div></div>
+    <div class="card"><div class="label">2026/10/05 · Huawei</div><div class="metric">多年期</div><div class="sub">多年專利授權協議，涵蓋 人工智能（AI）、5G、運算、網絡。對 QTL 長期授權現金流是正面證據，財務條款未披露。</div></div>
+    <div class="card"><div class="label">2026/10/05 · Arm</div><div class="metric bad">Trial</div><div class="sub">新一輪訴訟開庭，可能牽涉未來 royalty 經濟利益與商業合作。屬非線性 法律尾端風險，而不是普通季度 EPS 波動。</div></div>
+  </div>
+  <div class="callout"><b>同日出現一正一負：</b>Huawei 協議提升 QTL 的增長持續期/可見度，Arm 訴訟增加尾端不確定性。兩者不能簡單相抵，更不能把 Arm 風險同時在 EPS、WACC、本益比（P/E） 三個位置完整扣三次。</div>
+</section>
+
+<section class="slide white" id="risk">
+  <div class="kicker">風險主要放置帳本（風險主要放置帳本（風險主要放置帳本（Risk Placement Ledger）））</div><h2 class="h2">風險不是列清單；<span class="em">每個重大風險只能有一個主要估值位置</span></h2>
+  <div class="table-wrap"><table>
+    <tr><th>重大風險</th><th>主要風險放置位置</th><th>主要量化方式</th><th>禁止重複位置</th><th>殘餘風險</th></tr>
+    <tr><td>Apple 自研數據機（modem） 替代</td><td>2027財年 收入／每股盈利情境</td><td>壓低手機收入與毛利</td><td>不再全額同時加 WACC + 砍 本益比（P/E）</td><td>若客戶集中度/生態位永久下降，可有小幅 倍數殘餘調整</td></tr>
+    <tr><td>資料中心未達 $5B</td><td>2027財年/28 收入＋利潤率</td><td>悲觀情境每股盈利</td><td>不再額外用「人工智能（AI）失敗」做獨立 折價處理</td><td>若失敗揭示護城河/軟體弱，才影響增長持續期</td></tr>
+    <tr><td>記憶體/先進封裝成本</td><td>毛利率／每股盈利</td><td>QCT 利潤率路徑</td><td>不作 尾端情境</td><td>若供應長期結構性稀缺才改 本益比（P/E）</td></tr>
+    <tr><td>Arm 訴訟</td><td>尾端情境 / Legal state</td><td>條件式 downside</td><td>不把同事件完整塞入 悲觀情境每股盈利 + WACC + compression</td><td>判決後再改 請求權 / cash-flow route</td></tr>
+    <tr><td>股權薪酬（SBC） / 股份稀釋</td><td>正常化每股盈利路徑 A（Route A）</td><td>留經濟股權薪酬（SBC）</td><td>不再 盈利＋稀釋＋回購＋估值倍數 四重扣</td><td>若 授予政策 改變，做 敏感度</td></tr>
+    <tr><td>AWS 認股權證（warrants）</td><td>Diluted share 路徑</td><td>達成條件時反映</td><td>不今天一次性扣 full 認股權證（warrant） value</td><td>股價越高/里程碑越快，稀釋越 material</td></tr>
+  </table></div>
+  <div class="grid3">
+    <div class="card"><div class="label">最大 EPS 風險</div><div class="metric">手機 → DC</div><div class="sub">新收入 放量 時點若晚於 Apple 流失，會形成過渡盈利谷底。</div></div>
+    <div class="card"><div class="label">最大估值倍數風險</div><div class="metric">利潤率</div><div class="sub">如果高增長新業務是低毛利、高資本強度，市場不會因 人工智能（AI） 自動給 溢價（Premium）。</div></div>
+    <div class="card"><div class="label">尾端／失敗情境（尾端情境 State）</div><div class="metric">Arm</div><div class="sub">法律/授權關係若非線性惡化，普通 悲觀情境每股盈利 ×20x 可能不足以表達。</div></div>
+  </div>
+</section>
+
+<section class="slide light" id="map">
+  <div class="kicker">估值導出的價格地圖</div><h2 class="h2">價格地圖：<span class="em">不是技術線，而是每個價位要求什麼基本面</span></h2>
+  <div style="position:relative;margin-top:46px">
+    <div class="price-map">
+      <div class="zone0"><b>基本面失效</b><br><span class="sub">方法失效</span></div>
+      <div class="zone1"><b>&lt;$160</b><br>吸引／累積區（Attractive）</div>
+      <div class="zone2"><b>$160–175</b><br>合理偏低（合理（Fair）-Low）</div>
+      <div class="zone3 price-pin"><b>$175–195</b><br>合理（Fair）</div>
+      <div class="zone4"><b>$195–215</b><br>溢價（Premium）</div>
+      <div class="zone5"><b>&gt;$215</b><br>樂觀成功區（樂觀（Bull）-success）</div>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="h3">吸引／累積區（Attractive / Accumulation）</div><p><b>&lt;$160：</b>接近 保守合理價值，只要 2027財年 DC 路線仍在、QCT利潤率未結構性破壞、Arm 未形成重大 請求權，風險報酬開始明顯改善。</p></div>
+    <div class="card"><div class="h3">合理（Fair）</div><p><b>$175–195：</b>現價所在。需要 基準（Base） earnings 大致成立，但不要求 30x 溢價（Premium）。這是「合理價格買轉型」，不是明顯錯價。</p></div>
+    <div class="card"><div class="h3">溢價／樂觀成功區（溢價（Premium） / Bull-success）</div><p><b>&gt;$215：</b>開始提前定價 2027財年 DC $5B、2028財年 盈利加速、利潤率修復與長增長持續期 同時成立；如果證據不足，這區域安全邊際快速下降。</p></div>
+  </div>
+  <div class="callout"><b>失效條件（Invalidation） 不是某個股價：</b>若 2027財年 資料中心明顯低於 $5B、FY2028 正常化每股盈利 無法接近 $8.5–9、QCT利潤率長期低於中20%、或法律/授權結構發生重大破壞，應先重做盈利與估值方法，而不是因股價更低就機械「越跌越買」。</div>
+</section>
+
+<section class="slide dark" id="recon">
+  <div class="kicker">估值審計與對帳</div><h2 class="h2">估值對帳：<span class="em">另一位分析員可以從這張表重建 基準合理價值（基準（Base） 合理（Fair） Value）</span></h2>
+  <div class="table-wrap table-dark"><table>
+    <tr><th>步驟</th><th class="num">數值</th><th>來源類型</th><th>說明</th></tr>
+    <tr><td>FY2028 基準（Base） 分析員正常化每股盈利（Analyst Normalized EPS）</td><td class="num">$10.10</td><td><span class="badge d">分析員假設（分析員假設（Analyst Assumption））</span></td><td>資料中心 放量 + 汽車/IoT 增長，並保留經濟股權薪酬（SBC）</td></tr>
+    <tr><td>未來退出本益比（Future Exit P/E）</td><td class="num">22x</td><td><span class="badge d">分析員假設（分析員假設（Analyst Assumption））</span></td><td>介於 20x compression 與 25x core/premium reference；Grid 僅 交叉檢驗</td></tr>
+    <tr><td>FY2028 未折現股權價值</td><td class="num">$222.20</td><td>推導（Derived）</td><td>$10.10 × 22</td></tr>
+    <tr><td>Equity 要求報酬率（Required Return）</td><td class="num">10.0%</td><td>推導（Derived）</td><td>5.24% Treasury + 市場股權風險 + 剩餘公司特定風險</td></tr>
+    <tr><td>折現期</td><td class="num">2 years</td><td>推導（Derived）</td><td>把 2028財年 條件價值 折回今天</td></tr>
+    <tr><td>折現後股權價值</td><td class="num"><b>$183.64</b></td><td>推導（Derived）</td><td>$222.20 ÷ 1.10²</td></tr>
+    <tr><td>債務 principal adjustment</td><td class="num">$0</td><td>估值路徑一致性</td><td>扣除利息後 EPS × 股權本益比（Equity P/E），不再扣同一筆 debt principal</td></tr>
+    <tr><td>非核心資產淨值（NAV） adjustment</td><td class="num">$0 基準（Base）</td><td>單一計價</td><td>不把 QSI 投資收益乘 本益比（P/E） 後又加完整 NAV</td></tr>
+    <tr><td><b>基準合理價值（基準（Base） 合理（Fair） Value）</b></td><td class="num"><b>≈$184</b></td><td>最終</td><td>相對 2026/10/05 收市 $180.79 約 +1.6%</td></tr>
+  </table></div>
+  <div class="grid3">
+    <div class="card"><div class="label">固定倍數網格相關性（固定倍數網格相關性（Grid Relevance））</div><div class="metric">交叉檢驗</div><div class="sub">20/25/30 顯示，但不讓固定檔位覆蓋 fundamental-implied 22x</div></div>
+    <div class="card"><div class="label">隱含回報測試（隱含回報測試（Implied Return Test））</div><div class="metric">Mixed / 通過</div><div class="sub">22x 需要 2028財年 ~$10 正常化 EPS，與 基準（Base） 大致一致；但對 DC 放量 敏感</div></div>
+    <div class="card"><div class="label">反向估值</div><div class="metric">通過</div><div class="sub">現價沒有要求 30x；但已要求轉型「大致成功」</div></div>
+  </div>
+</section>
+
+<section class="slide white" id="sources">
+  <div class="kicker">資料來源與假設來源追蹤（Assumption Lineage）</div><h2 class="h2">資料來源與假設標記</h2>
+  <div class="grid2">
+    <div class="card"><div class="h3">重大假設證據等級</div><table><tr><th>假設</th><th>值</th><th>類型</th><th>證據</th></tr>
+      <tr><td>第三季2026財年 財務與分部數據</td><td>SEC / Qualcomm</td><td>已報告（Reported）</td><td><span class="badge a">A</span></td></tr>
+      <tr><td>2029財年 非手機 / Auto / IoT / DC 目標</td><td>$40B / $10B / &gt;$14B / &gt;$15B</td><td>管理層展望（Guided）</td><td><span class="badge c">C</span></td></tr>
+      <tr><td>2027財年 DC $5B</td><td>$5B</td><td>管理層展望（Guided）</td><td><span class="badge c">C</span></td></tr>
+      <tr><td>2026財年/2027財年 每股盈利與收入共識</td><td>Alpha Vantage 市場共識</td><td>市場共識（Consensus）</td><td><span class="badge c">C</span></td></tr>
+      <tr><td>FY2028 正常化每股盈利</td><td>$10.1 基準（Base）</td><td>分析員假設（分析員假設（Analyst Assumption））</td><td><span class="badge d">D</span></td></tr>
+      <tr><td>Selected 本益比（P/E）</td><td>22x</td><td>分析員假設（分析員假設（Analyst Assumption））</td><td><span class="badge d">D</span></td></tr>
+      <tr><td>Required return</td><td>10%</td><td>推導（Derived） + Analyst</td><td><span class="badge c">C/D</span></td></tr>
+    </table></div>
+    <div class="card"><div class="h3">主要公開來源</div><ol class="source-list">
+      <li>Qualcomm 第三季 FY2026 Results, 2026-07-29：<a href="https://www.qualcomm.com/news/releases/2026/07/qualcomm-announces-third-quarter-fiscal-2026-results">qualcomm.com</a></li>
+      <li>Qualcomm 第三季 FY2026 Form 10-Q, period ended 2026-06-28：<a href="https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm">sec.gov</a></li>
+      <li>Qualcomm Investor Day 2026 / FY2029 targets：<a href="https://investor.qualcomm.com/news-events/press-releases/news-details/2026/Qualcomm-Accelerates-Diversification-with-Comprehensive-Strategy-for-Data-Center-and-Sees-Multiple-Inflection-Points-Over-the-Next-3-to-5-Years/default.aspx">investor.qualcomm.com</a></li>
+      <li>Qualcomm FY2025 10-K（QCT 2023財年–2025財年 revenue streams）：<a href="https://www.sec.gov/Archives/edgar/data/804328/000080432825000085/qcom-20250928.htm">sec.gov</a></li>
+      <li>Reuters 2026-09-08：Qualcomm / Amazon 人工智能（AI）資料中心 deal。</li>
+      <li>Reuters 2026-10-05：Huawei 多年期專利授權協議。</li>
+      <li>Reuters 2026-10-05：Qualcomm／Arm 訴訟開庭。</li>
+      <li>Alpha Vantage：QCOM 2026-10-05 收市價 $180.79、2026財年/2027財年 市場共識、2026-10-01 美國10年期國債殖利率 5.24%。</li>
+    </ol></div>
+  </div>
+  <div class="callout"><b>閱讀方式：</b>這是一份估值決策簡報，不是公司宣傳材料。管理層目標 一律視為條件式展望；市場共識不當作 management guidance；重大風險按 風險主要放置帳本（風險主要放置帳本（風險主要放置帳本（Risk Placement Ledger））） 只在一個主要位置完整計價。</div>
+  <div class="foot">資料截至 2026-10-06（市場價格截至 2026-10-05 收市；美國10年期國債殖利率 使用 2026-10-01 最新可得 Alpha Vantage 日值）。本材料僅作研究與估值框架展示，不構成投資建議。</div>
+</section>
+
+</main>
+<script>
+const NS='http://www.w3.org/2000/svg';
+function svgEl(tag,attrs={}){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e}
+function txt(svg,x,y,t,opts={}){const el=svgEl('text',{x,y,'font-size':opts.size||12,fill:opts.fill||'#5c6e82','text-anchor':opts.anchor||'middle','font-weight':opts.weight||600});el.textContent=t;svg.appendChild(el);return el}
+function bars(id,labels,series,opt={}){
+ const svg=document.getElementById(id); if(!svg)return; svg.innerHTML=''; const W=800,H=300,p={l:52,r:20,t:24,b:52};svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+ const max=opt.max||Math.max(...series.flatMap(s=>s.data))*1.18; const plotW=W-p.l-p.r, plotH=H-p.t-p.b;
+ [0,.25,.5,.75,1].forEach(q=>{const y=p.t+plotH*(1-q);svg.appendChild(svgEl('line',{x1:p.l,x2:W-p.r,y1:y,y2:y,stroke:'#dfe8f1','stroke-width':1}));txt(svg,p.l-8,y+4,(max*q).toFixed(opt.dec||0),{anchor:'end',size:10});});
+ const groupW=plotW/labels.length, gap=7, barW=Math.min(42,(groupW-18)/series.length-gap);
+ labels.forEach((lab,i)=>{txt(svg,p.l+groupW*(i+.5),H-20,lab,{size:11,weight:700});series.forEach((s,j)=>{const v=s.data[i]||0,h=v/max*plotH,x=p.l+i*groupW+(groupW-series.length*(barW+gap)+gap)/2+j*(barW+gap),y=p.t+plotH-h;svg.appendChild(svgEl('rect',{x,y,width:barW,height:h,rx:6,fill:s.color||'#2b78e4',opacity:s.opacity||1}));if(v>0)txt(svg,x+barW/2,Math.max(14,y-6),opt.format?opt.format(v):v.toFixed(opt.dec||1),{size:10,fill:s.text||'#30445f',weight:800});});});
+ if(opt.legend!==false){series.forEach((s,i)=>{const x=p.l+i*145;svg.appendChild(svgEl('rect',{x,y:5,width:10,height:10,rx:2,fill:s.color}));txt(svg,x+16,14,s.name,{anchor:'start',size:10,fill:'#60748b'});});}
+}
+function lineBars(id,labels,vals,opt={}){bars(id,labels,[{name:opt.name||'',data:vals,color:opt.color||'#2b78e4'}],{max:opt.max,dec:opt.dec||0,legend:false,format:opt.format});}
+
+bars('annual收入',['2023財年','2024財年','2025財年','2029財年目標'],[
+ {name:'手機',data:[22.57,24.863,27.793,20],color:'#2b78e4'},
+ {name:'汽車',data:[1.872,2.910,3.957,10],color:'#36a176'},
+ {name:'IoT',data:[5.940,5.423,6.617,14],color:'#f2a65a'},
+ {name:'資料中心',data:[0,0,0,15],color:'#8b5cf6'}
+],{max:31,dec:0,format:v=>v.toFixed(1)});
+
+bars('quarter收入',['Q1 2026財年','第二季 2026財年','第三季 2026財年'],[
+ {name:'手機',data:[7.824,6.024,5.086],color:'#2b78e4'},
+ {name:'汽車',data:[1.101,1.326,1.588],color:'#36a176'},
+ {name:'IoT',data:[1.688,1.726,1.830],color:'#f2a65a'}
+],{max:9,dec:0,format:v=>v.toFixed(2)});
+
+lineBars('dcRamp',['2027財年','2028財年*','2029財年'],[5,8.7,15],{max:17,dec:0,color:'#68b7ff',format:v=>v.toFixed(1)});
+
+// Outlook mixed-unit visual: index bars communicate acceleration/scale, labels carry exact units.
+const out=document.getElementById('outlookChart');out.setAttribute('viewBox','0 0 800 300');
+const olabs=['2026財年 非手機','2027財年 非手機','2029財年 非手機','2029財年 資料中心','2029財年 汽車','2029財年 物聯網'];
+const ovals=[24,60,40,15,10,14], ounit=['+24% 同比（YoY）','>+60% 同比（YoY）','$40B','>$15B','$10B','>$14B'];
+const colors=['#93bdf5','#2b78e4','#173f72','#8b5cf6','#36a176','#f2a65a'];
+const maxO=65,p={l:42,r:20,t:24,b:64},PW=738,PH=212;
+[0,.25,.5,.75,1].forEach(q=>{let y=p.t+PH*(1-q);out.appendChild(svgEl('line',{x1:p.l,x2:780,y1:y,y2:y,stroke:'#dfe8f1'}));});
+olabs.forEach((lab,i)=>{const gw=PW/olabs.length,x=p.l+i*gw+20,w=gw-40,h=ovals[i]/maxO*PH,y=p.t+PH-h;out.appendChild(svgEl('rect',{x,y,width:w,height:h,rx:8,fill:colors[i]}));txt(out,x+w/2,y-7,ounit[i],{size:11,weight:800});txt(out,x+w/2,286,lab,{size:10,weight:700});});
+
+// EPS bridge
+const eb=document.getElementById('epsBridge');eb.setAttribute('viewBox','0 0 800 300');
+const baseY=245,scale=18,xs=[90,260,430,600],vals=[10.48,-2.60,-0.18,7.70],labs=['公司調整後 EPS','經濟股權薪酬（SBC）','整合/其他','Analyst Normalized'];
+let cum=10.48; vals.forEach((v,i)=>{let h=Math.abs(v)*scale,y;if(i===0){y=baseY-h}else if(i<3){y=baseY-cum*scale;cum+=v}else{h=v*scale;y=baseY-h}; const col=i===0?'#2b78e4':(i===3?'#36a176':'#e85e62');eb.appendChild(svgEl('rect',{x:xs[i],y,width:100,height:h,rx:8,fill:col}));txt(eb,xs[i]+50,y-7,(v>0?'+':'')+v.toFixed(2),{size:12,weight:800});txt(eb,xs[i]+50,270,labs[i],{size:11,weight:700});});eb.appendChild(svgEl('line',{x1:50,x2:750,y1:baseY,y2:baseY,stroke:'#b9c7d6'}));
+
+lineBars('cashUses',['回購','股息','資本支出（CapEx）','收購/投資'],[6.806,2.868,1.6,1.6],{max:8,dec:0,color:'#2b78e4',format:v=>'$'+v.toFixed(1)});
+
+const price=180.79, rr=1.10*1.10;const pe=[20,22,25,30],req=pe.map(p=>price*rr/p);
+lineBars('reverseChart',pe.map(x=>x+'x'),req,{max:13,dec:0,color:'#173f72',format:v=>'$'+v.toFixed(2)});
+</script>
+</body>
+</html>
