@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CSCO｜Cisco Systems V5.1 估值決策簡報｜2026-10-06</title>
+<style>
+:root{
+  --cisco:#049fd9; --cisco2:#00bceb; --navy:#0b1f33; --ink:#102a43; --muted:#627d98;
+  --paper:#f5f9fc; --card:#ffffff; --line:#d9e7f1; --green:#16836b; --amber:#b56a12; --red:#b94040;
+  --soft:#eaf5fb; --shadow:0 16px 40px rgba(11,31,51,.10); --radius:24px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eef7fb 0,#f9fbfd 34%,#eef6fb 100%);line-height:1.55}
+a{color:var(--cisco);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;height:58px;background:rgba(11,31,51,.94);backdrop-filter:blur(14px);display:flex;align-items:center;gap:18px;padding:0 22px;border-bottom:1px solid rgba(255,255,255,.12);overflow-x:auto;white-space:nowrap}
+.brand{font-weight:800;letter-spacing:.08em;color:#fff;margin-right:8px}.brand b{color:var(--cisco2)}
+.topbar a{color:#cfeaf6;font-size:13px;padding:18px 2px 16px;border-bottom:2px solid transparent}.topbar a:hover{color:#fff;text-decoration:none;border-color:var(--cisco2)}
+.progress{position:fixed;z-index:60;left:0;top:58px;height:3px;background:var(--cisco2);width:0}
+.slide{position:relative;min-height:min(56.25vw,900px);padding:98px clamp(22px,5vw,76px) 64px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(4,159,217,.12)}
+.slide .inner{width:min(1500px,100%);margin:auto}.slide.dark{background:radial-gradient(circle at 76% 18%,rgba(0,188,235,.22),transparent 30%),linear-gradient(135deg,#071827 0%,#0b2f4b 58%,#073a5d 100%);color:#f5fbff}.slide.dark .muted{color:#b5d5e4}.slide.dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:#fff}.slide.dark table{color:#f7fcff}.slide.dark th{color:#bfe7f7;background:rgba(255,255,255,.06)}
+.slide:before,.slide:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.slide:before{width:420px;height:420px;right:-200px;top:-130px;border:1px solid rgba(4,159,217,.18)}.slide:after{width:240px;height:240px;right:-80px;top:-25px;border:1px solid rgba(4,159,217,.25)}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800;color:var(--cisco)}
+.dark .kicker{color:#74ddff}h1{font-size:clamp(46px,6vw,92px);line-height:.95;margin:16px 0 22px;letter-spacing:-.04em}h2{font-size:clamp(31px,3.1vw,52px);line-height:1.08;margin:10px 0 18px;letter-spacing:-.03em}h3{font-size:20px;margin:0 0 10px}.lead{font-size:clamp(18px,1.55vw,25px);max-width:1100px;color:#34536b}.dark .lead{color:#d8eef7}.muted{color:var(--muted)}.small{font-size:12px}.tiny{font-size:11px}.em{color:var(--cisco);font-weight:800}.dark .em{color:#76e2ff}.num{font-variant-numeric:tabular-nums;font-weight:800}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}.metric{min-height:150px;display:flex;flex-direction:column;justify-content:space-between}.metric .value{font-size:clamp(26px,3vw,46px);line-height:1;font-weight:850;letter-spacing:-.04em}.metric .label{font-size:13px;color:var(--muted);font-weight:700}.metric .note{font-size:12px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;background:#edf5f9;color:#315870;border:1px solid #d9eaf2}.pill.g{background:#eaf7f3;color:#176c59;border-color:#cbece2}.pill.a{background:#fff4df;color:#8a5712;border-color:#f5ddad}.pill.r{background:#ffeded;color:#9d3030;border-color:#f3c5c5}.pill.b{background:#eaf6fb;color:#0a6f9c;border-color:#cce9f5}
+.heroRow{display:flex;gap:22px;align-items:flex-start;justify-content:space-between}.heroText{max-width:950px}.heroBadge{display:flex;flex-direction:column;align-items:flex-end;gap:8px}.price{font-size:clamp(44px,7vw,96px);font-weight:900;letter-spacing:-.055em;line-height:.9}.subprice{font-size:14px;color:#bfe2ef}
+.outlookRibbon{margin-top:30px;padding:18px 20px;border:1px solid rgba(116,221,255,.26);border-radius:20px;background:linear-gradient(90deg,rgba(0,188,235,.12),rgba(255,255,255,.04));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.outlookRibbon .x{font-size:12px;color:#b9dce9}.outlookRibbon .y{font-size:24px;font-weight:900}.outlookRibbon .z{font-size:11px;color:#95bfd0}
+.tableWrap{overflow:auto;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.76)}table{width:100%;border-collapse:collapse;min-width:720px;font-size:13px}th,td{padding:11px 12px;border-bottom:1px solid #e6eef4;text-align:left;vertical-align:top}th{background:#eff7fb;color:#315870;font-size:11px;text-transform:uppercase;letter-spacing:.05em}tr:last-child td{border-bottom:0}.right{text-align:right}.center{text-align:center}.heat1{background:#eef9f5}.heat2{background:#eef6fb}.heat3{background:#fff4df}.heat4{background:#ffeded}.dark .heat1,.dark .heat2,.dark .heat3,.dark .heat4{color:#102a43}
+.chart{width:100%;height:330px}.chart svg{width:100%;height:100%;overflow:visible}.legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:8px;font-size:11px;color:var(--muted)}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}.barLabel{font-size:11px;fill:#486581}.axis{stroke:#d7e5ee;stroke-width:1}.line{fill:none;stroke:var(--cisco);stroke-width:3}.future{fill:#9dddf4}.actual{fill:#049fd9}.consensus{fill:#bfe8f7}.guidance{fill:#25b5e5}.accent{fill:#7bd3a8}
+.donut{display:flex;align-items:center;gap:28px}.donut svg{width:250px;height:250px}.donutList{flex:1}.donutList div{display:flex;justify-content:space-between;border-bottom:1px dashed #d6e5ed;padding:8px 0}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch}.flow .step{padding:16px 12px;border-radius:18px;background:white;border:1px solid var(--line);font-size:12px;position:relative}.flow .step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:38%;font-size:20px;color:var(--cisco);z-index:2}.flow .step b{display:block;color:var(--cisco);font-size:13px;margin-bottom:6px}
+.callout{border-left:4px solid var(--cisco);padding:14px 16px;background:#eef8fc;border-radius:0 16px 16px 0;margin-top:16px}.dark .callout{background:rgba(255,255,255,.07);border-color:#74ddff}.warning{border-left-color:var(--amber);background:#fff7e8}.danger{border-left-color:var(--red);background:#fff0f0}.dark .warning,.dark .danger{background:rgba(255,255,255,.07)}
+.tagline{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 22px}.tag{padding:7px 10px;border-radius:12px;background:#edf5f9;border:1px solid #d9e7f0;font-size:11px;font-weight:700}.dark .tag{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:#d9eef7}
+.waterfall{display:flex;gap:10px;align-items:flex-end;height:250px;padding-top:20px}.wf{flex:1;position:relative;text-align:center}.wf .bar{border-radius:12px 12px 4px 4px;background:var(--cisco);min-height:6px}.wf.neg .bar{background:#d76767}.wf.pos .bar{background:#54b88f}.wf .v{font-size:12px;font-weight:800;margin:6px 0}.wf .l{font-size:11px;color:var(--muted)}
+.zone{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1px;background:#cfe0e9;border:1px solid #cfe0e9;border-radius:18px;overflow:hidden}.zone>div{background:#fff;padding:14px}.zone .z1{border-left:6px solid #2a9d77}.zone .z2{border-left:6px solid #75b86b}.zone .z3{border-left:6px solid #e2a13a}.zone .z4{border-left:6px solid #d46855}.zone .z5{border-left:6px solid #8a5a9e}
+.sourceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.source{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:white;font-size:11px}.source strong{display:block;margin-bottom:3px}.foot{margin-top:22px;padding-top:15px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}
+.stickyHint{position:absolute;right:26px;bottom:18px;font-size:10px;color:rgba(98,125,152,.7)}
+@media(max-width:980px){.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}.heroRow{flex-direction:column}.heroBadge{align-items:flex-start}.outlookRibbon{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:1fr}.flow .step:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-20px}.sourceGrid{grid-template-columns:1fr}.slide{min-height:auto;padding-top:92px}.zone{grid-template-columns:1fr}.donut{flex-direction:column;align-items:flex-start}}
+@media print{.topbar,.progress,.stickyHint{display:none}.slide{page-break-after:always;min-height:auto;padding:40px;background:white!important;color:#102a43!important}.slide.dark .muted,.slide.dark .lead{color:#486581}.slide.dark .card{background:#fff;color:#102a43;border-color:#d9e7f1}.slide.dark table{color:#102a43}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand"><b>CSCO</b> · V5.1</div>
+  <a href="#conclusion">估值結論</a><a href="#outlook">管理層展望</a><a href="#structure">公司結構</a><a href="#growth">收入與 AI 增長</a><a href="#earnings">盈利正常化</a><a href="#matrix">估值矩陣</a><a href="#cashflow">現金流 / SBC</a><a href="#balance">資產負債表</a><a href="#reverse">反向估值</a><a href="#risk">風險</a><a href="#zones">價格地圖</a><a href="#audit">估值對帳</a>
+</div><div class="progress" id="progress"></div>
+
+<section class="slide dark" id="conclusion"><div class="inner">
+  <div class="heroRow">
+    <div class="heroText">
+      <div class="kicker">Cisco Systems · NASDAQ: CSCO · V5.1 估值決策輸出</div>
+      <h1>基本面很強，<br>但價格已不便宜。</h1>
+      <p class="lead">主估值採 <b>普通股前瞻本益比（Forward P/E）</b>，即用未來 12 個月正常化每股盈利衡量今天股權價值。Base 使用 FY2027 分析師正常化 EPS <span class="em">$4.40</span> × <span class="em">25x</span>，得到約 <span class="em">$110</span>；合理區間約 <span class="em">$95–125</span>。目前價格 <span class="em">$112.82</span> 接近 Base 上方，屬「大致合理、略偏高」。</p>
+      <div class="tagline"><span class="tag">主估值：Equity P/E</span><span class="tag">盈利品質：Good</span><span class="tag">估值可靠度：Medium</span><span class="tag">Multiple：25x / Conditional Up</span><span class="tag">P/E Stop-Signal：未觸發</span></div>
+    </div>
+    <div class="heroBadge"><div class="price">$112.82</div><div class="subprice">2026/10/05 正常交易時段收盤 · 已報告市場價格</div><span class="pill b">相對 $110 Base：+2.6%</span></div>
+  </div>
+  <div class="outlookRibbon">
+    <div><div class="x">FY2027 收入指引中點</div><div class="y">$72.8B</div><div class="z">管理層指引 · 隱含 +15.0% YoY</div></div>
+    <div><div class="x">FY2027 非 GAAP EPS 中點</div><div class="y">$5.08</div><div class="z">管理層指引 · +17.3% YoY</div></div>
+    <div><div class="x">FY2027 AI 基礎設施收入</div><div class="y">$7.5B</div><div class="z">管理層指引 · 約 +87.5% YoY</div></div>
+    <div><div class="x">Q4 FY2026 Networking 訂單</div><div class="y">+40%</div><div class="z">已報告 · 連續第 8 季雙位數增長</div></div>
+  </div>
+  <div class="grid g4" style="margin-top:18px">
+    <div class="card metric"><div class="label">FY2027 正常化 EPS</div><div class="value">$4.40</div><div class="note"><span class="pill a">分析師假設</span> SBC Route A</div></div>
+    <div class="card metric"><div class="label">目前正常化 FY2027 P/E</div><div class="value">25.6x</div><div class="note">$112.82 ÷ $4.40</div></div>
+    <div class="card metric"><div class="label">Base Fair Value</div><div class="value">$110</div><div class="note">25x × $4.40</div></div>
+    <div class="card metric"><div class="label">合理區間</div><div class="value">$95–125</div><div class="note">保守現金流至 Premium 成功區</div></div>
+  </div>
+  <div class="callout warning"><b>決策重點：</b>市場已不再用傳統 15–18x「老網通股」估 Cisco，而是在支付高品質成熟科技公司的倍數。現在的投資問題不是「Cisco 能否增長」，而是 <b>AI + 網路更新週期能維持多久、以及 5% 以上長債利率是否允許 25x 長期存在</b>。</div>
+  <div class="stickyHint">向下捲動 · 固定頂部目錄可跳轉</div>
+</div></section>
+
+<section class="slide" id="outlook"><div class="inner">
+  <div class="kicker">01 · Management Outlook Growth</div><h2>管理層展望增長：FY2027 是明顯加速年</h2>
+  <p class="lead">「管理層展望增長」與市場共識分開。FY2027 收入中點約 $72.8B，相對 FY2026 的 $63.325B 隱含 <b>+15.0%</b>；公司非 GAAP EPS 中點 $5.08，相對 FY2026 $4.33 隱含 <b>+17.3%</b>。市場共識收入略高於指引中點，因此僅「達標」不足以再推高估值，真正催化劑是 beat-and-raise（超預期並上調指引）。</p>
+  <div class="tableWrap"><table><thead><tr><th>項目</th><th>基準期</th><th>管理層 FY2027 指引</th><th>中點 / 推導</th><th>隱含同比</th><th>市場共識</th><th>來源標籤</th></tr></thead><tbody>
+    <tr><td>總收入</td><td>FY26 $63.325B</td><td>$72.2–73.4B</td><td><b>$72.8B</b></td><td><b>+15.0%</b></td><td>約 $73.17B</td><td><span class="pill g">管理層指引</span> <span class="pill b">市場共識</span></td></tr>
+    <tr><td>非 GAAP EPS</td><td>FY26 $4.33</td><td>$5.05–5.11</td><td><b>$5.08</b></td><td><b>+17.3%</b></td><td>約 $5.15</td><td><span class="pill g">管理層指引</span> <span class="pill b">市場共識</span></td></tr>
+    <tr><td>AI 基礎設施收入</td><td>FY26 約 $4.0B</td><td>約 $7.5B</td><td><b>$7.5B</b></td><td><b>+87.5%</b></td><td>未採用精確共識</td><td><span class="pill g">分部管理層展望</span></td></tr>
+    <tr><td>Q1 FY27 收入</td><td>Q4 FY26 $17.25B</td><td>$18.0–18.2B</td><td><b>$18.1B</b></td><td>約 +21% YoY / +4.9% QoQ</td><td>約 $18.11B</td><td><span class="pill g">季度指引</span> <span class="pill b">市場共識</span></td></tr>
+    <tr><td>Q1 FY27 非 GAAP EPS</td><td>Q4 FY26 $1.22</td><td>$1.32–1.34</td><td><b>$1.33</b></td><td>約 +33% YoY</td><td>約 $1.32–1.33</td><td><span class="pill g">季度指引</span> <span class="pill b">市場共識</span></td></tr>
+  </tbody></table></div>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card"><h3>加速證據</h3><p>Q4 FY2026 產品訂單同比 <b>+35%</b>；排除超大規模雲端客戶仍 +25%。Networking 訂單 +40%，代表增長不完全依賴單一 AI 客戶。</p></div>
+    <div class="card"><h3>共識門檻</h3><p>FY2027 市場收入共識約 $73.17B，已略高於管理層中點；因此市場要求的是 <b>上調指引</b>，不是單純達標。</p></div>
+    <div class="card"><h3>下一個驗證點</h3><p>Q1 FY2027 是否仍維持接近 20% 收入增長、AI 轉收入是否順利、Networking 訂單是否維持雙位數。</p></div>
+  </div>
+</div></section>
+
+<section class="slide" id="structure"><div class="inner">
+  <div class="kicker">02 · Business Structure</div><h2>公司結構：Cisco 正在升級，但仍不是純軟體公司</h2>
+  <p class="lead">Cisco 正從交換器／路由器供應商，轉向「AI 網路基礎設施 + Silicon One 晶片與光學 + 資安 + Splunk 可觀測性」平台。不過 FY2026 的 Networking 仍佔總收入約 <b>55%</b>，硬體週期與供應鏈仍然重要，因此不能直接用 SaaS 軟體估值框架。</p>
+  <div class="grid g2">
+    <div class="card"><h3>FY2026 收入組成</h3><div class="donut"><svg id="donut"></svg><div class="donutList" id="donutList"></div></div></div>
+    <div class="card"><h3>區域結構</h3><div class="chart" id="geoChart"></div><div class="legend"><span><i class="dot" style="background:#049fd9"></i>Americas 美洲</span><span><i class="dot" style="background:#25b5e5"></i>EMEA 歐洲中東非洲</span><span><i class="dot" style="background:#9dddf4"></i>APJC 亞太日本中國</span></div></div>
+  </div>
+  <div class="flow" style="margin-top:20px">
+    <div class="step"><b>傳統網路</b>交換器、路由器、無線與企業網路；仍是最大現金與收入來源。</div>
+    <div class="step"><b>AI 基礎設施</b>Silicon One、資料中心交換、光學互連；FY27 目標 $7.5B。</div>
+    <div class="step"><b>Security 資安</b>SASE、身份、網路安全；FY26 僅 +2%，Q4 已加速至 +14%。</div>
+    <div class="step"><b>Observability 可觀測性</b>Splunk 為核心資產，讓客戶看到、分析與追蹤系統狀態。</div>
+    <div class="step"><b>平台化</b>若跨網路、資安、可觀測性真正形成黏性，才有資格提升增長 duration 與估值倍數。</div>
+  </div>
+  <div class="callout"><b>估值含義：</b>AI 成功已經直接進入 FY2027 收入與 EPS；要再支持 25x→30x，必須證明它還額外提高續約／平台黏性、資本回報率、可預測性或增長持續時間，而不能把同一 AI 收入成功算兩次。</div>
+</div></section>
+
+<section class="slide dark" id="growth"><div class="inner">
+  <div class="kicker">03 · Revenue & AI Growth</div><h2>收入重新加速：FY2027 是高增長，FY2028 後要看能否續航</h2>
+  <p class="lead">歷史上 Cisco 收入增長並不穩定：FY2024 曾 -5.6%，Splunk 併購與網路週期帶動 FY2026 +11.8%，管理層 FY2027 中點再加速至 +15.0%。但市場共識 FY2028 / FY2029 約回落到 6–7%，所以目前高倍數的核心問題是 <b>duration（增長能維持多久）</b>。</p>
+  <div class="card"><h3>總收入與增速：歷史 + 指引 + 共識</h3><div class="chart" id="revChart"></div><div class="legend"><span><i class="dot" style="background:#049fd9"></i>已報告</span><span><i class="dot" style="background:#25b5e5"></i>管理層指引中點</span><span><i class="dot" style="background:#9dddf4"></i>市場共識</span><span><i class="dot" style="background:#7bd3a8"></i>同比增速線</span></div></div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>FY2026 產品業務增量</h3><div class="chart" id="productChart"></div></div>
+    <div class="card"><h3>AI 收入：從可選項變成核心增量</h3><div class="grid g3"><div class="metric"><div class="label">FY2026 AI 收入</div><div class="value">~$4.0B</div><div class="note">約佔 FY26 收入 6%</div></div><div class="metric"><div class="label">FY2026 AI 訂單</div><div class="value">$9.3B</div><div class="note">Q4 單季 $4B</div></div><div class="metric"><div class="label">FY2027 AI 收入目標</div><div class="value">$7.5B</div><div class="note">約 +87.5% YoY</div></div></div><div class="callout warning"><b>不能只看 AI revenue：</b>AI 基建往往比軟體更資本密集、客戶集中度更高，也可能壓低混合毛利率。Premium 必須由新增毛利、FCF、ROIC 與 duration 證明。</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="earnings"><div class="inner">
+  <div class="kicker">04 · Earnings Normalization</div><h2>盈利正常化：不用公司 $5.08 直接乘 P/E</h2>
+  <p class="lead">Cisco 的非 GAAP EPS（公司調整後每股盈利）對營運比較很有用，但會剔除股權薪酬（SBC，即用股票支付員工薪酬）。V5.1 在 Cisco 採 <b>SBC Route A</b>：把正常化 SBC 保留在估值盈利中，因為持續留才需要真實經濟成本；後面就不再用稀釋、回購負擔和 P/E 折價把同一 SBC 重複懲罰。</p>
+  <div class="grid g2">
+    <div class="card"><h3>FY2027 EPS 正常化橋</h3><div class="waterfall">
+      <div class="wf"><div class="bar" style="height:220px"></div><div class="v">$5.08</div><div class="l">公司 Non-GAAP 指引中點</div></div>
+      <div class="wf neg"><div class="bar" style="height:92px"></div><div class="v">−$0.60</div><div class="l">正常化 SBC</div></div>
+      <div class="wf neg"><div class="bar" style="height:24px"></div><div class="v">−$0.08</div><div class="l">重複性重組 / 併購負擔</div></div>
+      <div class="wf pos"><div class="bar" style="height:190px"></div><div class="v">$4.40</div><div class="l">Analyst Normalized EPS</div></div>
+    </div><div class="small muted">$4.40 為分析師假設，並非公司或市場共識。收購無形資產會計攤銷不被視為等額現金成本；Cisco 的持續併購維持成本改在 Economic FCF / ROIC 敏感度檢查，不重複扣減。</div></div>
+    <div class="card"><h3>盈利口徑集中比較</h3><div class="tableWrap"><table><thead><tr><th>口徑</th><th>FY2026</th><th>FY2027E</th><th>估值用途</th></tr></thead><tbody>
+      <tr><td>GAAP EPS 法定會計 EPS</td><td>$3.33</td><td>$4.00–4.06</td><td>看真實報表與會計差異</td></tr>
+      <tr><td>Company Non-GAAP EPS 公司調整 EPS</td><td>$4.33</td><td>$5.05–5.11</td><td>營運比較起點，不直接當估值分母</td></tr>
+      <tr><td><b>Analyst Normalized EPS 分析師正常化 EPS</b></td><td>約 $3.45</td><td><b>$4.40</b></td><td>普通股 P/E 主分母</td></tr>
+      <tr><td>Core Normalized Equity EPS 核心普通股正常化 EPS</td><td>約 $3.45</td><td>約 $4.40</td><td>目前無重大投資資產需另拆</td></tr>
+      <tr><td>Reported FCF/share 已報告自由現金流/股</td><td>約 $3.24</td><td>—</td><td>現金轉換檢查</td></tr>
+      <tr><td>Tax-normalized FCF/share 稅務正常化現金流/股</td><td>約 $3.82</td><td>—</td><td>加回 $2.3B 一次性過渡稅付款後</td></tr>
+    </tbody></table></div></div>
+  </div>
+  <div class="callout warning"><b>未確認前不二次正常化：</b>FY2027 非 GAAP 與 GAAP 差異中，公司估計約 $0.60 來自 SBC、約 $0.34 來自收購攤銷 / 成本、約 $0.11 來自重組。這些不是全部「免費加回」；本報告只把能與經濟實質對應的部分納入正常化。</div>
+</div></section>
+
+<section class="slide dark" id="matrix"><div class="inner">
+  <div class="kicker">05 · Fixed P/E Matrix</div><h2>20x / 25x / 30x：Base 落在 25x，30x 需要更多證據</h2>
+  <p class="lead">20/25/30 是共同估值座標，不是下限或上限。FY2027 是目前財年 FY0，因此用「今天的前瞻 P/E」可直接作今日股權估值；FY2028 / FY2029 若作未來退出價（Future Exit P/E），必須另折現，不能把遠期 target 當今天價值。</p>
+  <div class="tableWrap"><table><thead><tr><th>EPS 基準</th><th>Analyst Normalized EPS</th><th>20x</th><th>25x</th><th>30x</th><th>時間註記</th></tr></thead><tbody>
+    <tr><td>FY2027E（FY0）</td><td><b>$4.40</b></td><td class="heat1"><b>$88</b></td><td class="heat2"><b>$110</b></td><td class="heat3"><b>$132</b></td><td>今天的前瞻 P/E 座標</td></tr>
+    <tr><td>FY2028E（FY1）</td><td>$4.95</td><td>$99</td><td>$124</td><td>$149</td><td>若當未來退出價，需折現</td></tr>
+    <tr><td>FY2029E（FY2）</td><td>$5.35</td><td>$107</td><td>$134</td><td>$161</td><td>遠期值；預測可靠度下降</td></tr>
+  </tbody></table></div>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card"><h3>Bear</h3><div class="metric"><div class="label">FY2027 正常化 EPS</div><div class="value">$4.10</div><div class="note">20x = <b>$82</b> · AI / Networking 較弱</div></div></div>
+    <div class="card"><h3>Base</h3><div class="metric"><div class="label">FY2027 正常化 EPS</div><div class="value">$4.40</div><div class="note">25x = <b>$110</b> · 指引大致達標</div></div></div>
+    <div class="card"><h3>Bull</h3><div class="metric"><div class="label">FY2027 正常化 EPS</div><div class="value">$4.65</div><div class="note">27–30x = <b>$126–140</b> · 持續 beat-and-raise</div></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>為什麼不是更低？</h3><p>FY27 收入 +15% 指引、AI 收入 +87.5%、Networking orders +40%、資產負債表可控、RPO +7%，代表近期基本面已顯著改善。</p></div>
+    <div class="card"><h3>為什麼不是更高？</h3><p>FY28 收入共識只約 +6–7%，SBC 仍約佔 FY26 收入 6%，AI 硬體週期資本強度較高；更重要的是 10 年期美債約 5.3%，高倍數的機會成本很高。</p></div>
+  </div>
+  <div class="callout"><b>Multiple 升檔條件：</b>AI $7.5B 不是一次性超大規模雲端採購，而是可持續轉成高 ROIC、穩定 FCF；Security / Observability 增速也要明顯加快，並使 FY2028 估值共識持續上修。否則 30x 只適合 Bull，不適合 Base。</div>
+</div></section>
+
+<section class="slide" id="cashflow"><div class="inner">
+  <div class="kicker">06 · Cash Flow / SBC / Buyback</div><h2>現金流被一次性稅款壓低，但 SBC 仍是實質股東成本</h2>
+  <p class="lead">FY2026 營運現金流 $14.177B、公司定義自由現金流 $12.767B，分別約持平與 -3.9%。其中包含 $2.3B 一次性美國過渡稅付款；同時庫存增加約 $2.54B。這使 headline FCF 低估正常化現金能力，但不能因此把所有 working-capital 流出都當一次性。</p>
+  <div class="grid g4">
+    <div class="card metric"><div class="label">FY2026 OCF</div><div class="value">$14.18B</div><div class="note"><span class="pill">已報告</span> 約持平 YoY</div></div>
+    <div class="card metric"><div class="label">FY2026 FCF</div><div class="value">$12.77B</div><div class="note"><span class="pill">已報告</span> OCF − CapEx</div></div>
+    <div class="card metric"><div class="label">FY2026 SBC</div><div class="value">$3.83B</div><div class="note">約佔收入 6.0%</div></div>
+    <div class="card metric"><div class="label">FY2026 正式回購</div><div class="value">$6.11B</div><div class="note">76M 股 · 均價 $80.26</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>Economic FCF 正常化橋</h3><div class="tableWrap"><table><thead><tr><th>項目</th><th>處理</th><th>金額</th></tr></thead><tbody>
+      <tr><td>Reported OCF</td><td>起點</td><td>$14.177B</td></tr>
+      <tr><td>Reported CapEx</td><td>扣除</td><td>−$1.410B</td></tr>
+      <tr><td>Reported FCF</td><td>公司口徑</td><td><b>$12.767B</b></td></tr>
+      <tr><td>一次性過渡稅付款</td><td>作正常化時先 reversal</td><td>+約 $2.3B</td></tr>
+      <tr><td>庫存 / 融資應收增加</td><td>不可全額加回；需判斷 sustaining vs ramp</td><td>未精確正常化</td></tr>
+      <tr><td>稅務正常化 FCF</td><td>僅示意，不等於最終 Economic FCF</td><td>約 $15.1B / ~$3.82 每股</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>SBC 反身性與回購</h3><p>FY2026 SBC $3.83B，較 FY2025 $3.64B 上升；未歸屬股份獎酬尚有約 $4.8B 成本，預計約 1.6 年認列。這意味 SBC 不會突然消失。</p><p>公司 FY2026 正式回購約 76M 股、平均 $80.26。因回購價顯著低於本報告 $110 Base，這部分資本配置有正面價值；但評估回購仍要看完全稀釋股數是否真正下降，而不是只看花了多少錢。</p><div class="callout warning"><b>Primary Risk Location：</b>SBC 已放進 Analyst Normalized EPS（Route A）。因此不再於 P/E、FCF、稀釋、回購四處全額重複扣一次。</div></div>
+  </div>
+</div></section>
+
+<section class="slide dark" id="balance"><div class="inner">
+  <div class="kicker">07 · Balance Sheet / Financing / Claims</div><h2>資產負債表不是 thesis 風險，但高利率會壓縮 equity multiple</h2>
+  <p class="lead">FY2026 年末現金及投資約 $15.92B、總債務約 $29.53B，淨負債約 $13.62B。Cisco 不是 survival / refinancing-dependent 公司，所以普通股 P/E 仍可作主估值；但高利率的經濟影響應主要放在 <b>股權要求報酬率</b>，而不是又把同一風險全額塞進 EPS、債務扣減和 P/E 壓縮。</p>
+  <div class="grid g4">
+    <div class="card metric"><div class="label">現金 + 短期投資</div><div class="value">$15.92B</div><div class="note">已報告 FY2026</div></div>
+    <div class="card metric"><div class="label">總債務</div><div class="value">$29.53B</div><div class="note">最新年報口徑</div></div>
+    <div class="card metric"><div class="label">淨負債</div><div class="value">$13.62B</div><div class="note">Debt − Cash/Investments</div></div>
+    <div class="card metric"><div class="label">RPO 剩餘履約義務</div><div class="value">$46.7B</div><div class="note">+7% YoY · 收入能見度</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>Required Return Ledger 要求報酬率帳本</h3><div class="tableWrap"><table><thead><tr><th>構成</th><th>Base</th><th>Stress</th><th>證據</th></tr></thead><tbody>
+      <tr><td>美國 10 年期無風險利率</td><td><b>~5.29%</b></td><td>~5.3%</td><td>2026/10/06 市場</td></tr>
+      <tr><td>美國隱含股權風險溢價</td><td><b>4.14%</b></td><td>4.14%</td><td>Damodaran 2026/09/01</td></tr>
+      <tr><td>公司特定廣泛剩餘風險</td><td>不另全額加碼</td><td>+1.0%</td><td>主要公司特定風險用情境模型</td></tr>
+      <tr><td><b>Equity Required Return</b></td><td><b>~9.4%</b></td><td><b>~10.4%</b></td><td>同一 equity claim 統一使用</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>融資一致性</h3><p>本報告用的是 <b>after-interest、after-tax、歸屬普通股股東</b> 的正常化 EPS，因此是 Equity P/E route。這個 route 下不再從 P/E 算出的股權價值機械扣一次同一筆 debt principal，否則會把債務利息與本金雙重懲罰。</p><p>若未來出現重大再融資、強制去槓桿或可轉債稀釋的非線性影響，才切換 financing scenario / EV / FCFE。現在沒有觸發。</p></div>
+  </div>
+  <div class="callout danger"><b>利率是估值最大的外部變數：</b>當無風險利率約 5.3% 時，即使公司盈利不變，市場給 25–30x 的機會成本都顯著高於低利率年代。利率不需要讓 Cisco 盈利下降，就能令合理倍數下降。</div>
+</div></section>
+
+<section class="slide" id="reverse"><div class="inner">
+  <div class="kicker">08 · Reverse Valuation / DCF Guardrail</div><h2>市場現在要求什麼？大約 8% 可持續 EPS 增長</h2>
+  <p class="lead">現在 $112.82 ÷ FY2027 正常化 EPS $4.40 = <b>25.6x</b>。若估值倍數長期不變，股價增長近似 EPS 增長；再加約 1.5% 股息率，要達到約 9.4% 股權要求報酬率，市場大致需要 <b>~8% 可持續每股盈利增長</b>。這是 Reverse P/E 的經濟直覺，不是把 1/(r−g) 機械套在高增長公司。</p>
+  <div class="grid g2">
+    <div class="card"><h3>市場隱含條件 vs Base</h3><div class="tableWrap"><table><thead><tr><th>市場隱含條件</th><th>目前價格要求</th><th>本報告 Base</th><th>判斷</th></tr></thead><tbody>
+      <tr><td>FY2027 正常化 EPS</td><td>約 $4.40 若給 25.6x</td><td>$4.40</td><td>已充分反映</td></tr>
+      <tr><td>可持續 EPS 增長</td><td>約 8%</td><td>FY27–FY29 約 10%，之後 fade</td><td>可達但安全邊際不高</td></tr>
+      <tr><td>長期 P/E</td><td>約 25x 不明顯壓縮</td><td>25x Base，長期應逐步 fade</td><td>最敏感</td></tr>
+      <tr><td>AI / Networking</td><td>持續轉收入與 EPS</td><td>FY27 成立；FY28 後待驗證</td><td>中等難度</td></tr>
+      <tr><td>要求報酬率</td><td>市場容忍高倍數</td><td>9.4% Base</td><td>利率不利</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>FCFE DCF 現金流折現敏感度</h3><p class="small muted">FCFE（普通股自由現金流）回答「扣除營運、稅務、再投資與融資後，普通股真正可取得的現金」。由於 FY2026 過渡稅與庫存 ramp 令起始現金流正常化有不確定性，DCF 可靠度只標 Medium / Uncalibrated，而非硬錨。</p><div class="chart" id="dcfChart"></div><div class="legend"><span>起始 FY27 Economic FCF/share 假設 $4.6，5 年增長 10%→4%，終值增長 3%</span></div></div>
+  </div>
+  <div class="callout warning"><b>方法衝突不平均：</b>Base FCFE DCF 約 $88，而 P/E Base 約 $110，差異主要來自「現金流起點 + 5.3% 無風險利率」。因 FY2026 FCF 被一次性稅款與營運資金扭曲，P/E 的 economic fit 較高，DCF 只作偏保守 cross-check；不能把 $88 與 $110 簡單平均成假精確 target。</div>
+  <div class="tableWrap" style="margin-top:16px"><table><thead><tr><th>FY2029 情境</th><th>EPS</th><th>Future Exit P/E</th><th>FY29 Raw Value</th><th>以 9.4% 折現至今天</th><th>角色</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$4.60</td><td>20x</td><td>$92</td><td>約 <b>$72</b></td><td>條件式 downside</td></tr>
+    <tr><td>Base</td><td>$5.35</td><td>23x</td><td>$123</td><td>約 <b>$96</b></td><td>遠期 PV cross-check</td></tr>
+    <tr><td>Bull</td><td>$5.75</td><td>26x</td><td>$150</td><td>約 <b>$116</b></td><td>需要多項成功條件</td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section class="slide dark" id="risk"><div class="inner">
+  <div class="kicker">09 · Risk Placement Ledger</div><h2>風險只算一次：最重要的是週期、duration 與估值壓縮</h2>
+  <p class="lead">V5.1 要求每個重大風險指定一個 Primary Risk Location（主要風險放置位置），避免同一事件同時完整壓低 EPS、概率、要求報酬率、P/E 與 Claims，製造重複悲觀。</p>
+  <div class="tableWrap"><table><thead><tr><th>重大風險</th><th>主要放置位置</th><th>Primary Quantification</th><th>Secondary Sensitivity</th><th>禁止重複位置</th></tr></thead><tbody>
+    <tr><td>AI $7.5B 目標未達</td><td>Revenue / EPS scenario</td><td>Bear EPS $4.10 附近</td><td>若 duration 同時縮短才壓 multiple</td><td>不可再全額加 WACC + probability haircut</td></tr>
+    <tr><td>Networking 更新週期提早見頂</td><td>FY28–FY29 growth / duration</td><td>FY28 共識下修、FY29 EPS fade</td><td>Multiple residual</td><td>不能同時用 Bear EPS + 20x + 高 WACC 全額三重扣</td></tr>
+    <tr><td>長債利率維持 >5%</td><td>Required Return</td><td>9.4% Base / 10.4% stress</td><td>只看 residual multiple sensitivity</td><td>不再重複以債務本金扣一次</td></tr>
+    <tr><td>SBC 維持高位</td><td>Analyst EPS Route A</td><td>FY27 −$0.60/股</td><td>Grant policy sensitivity</td><td>不可 earnings + dilution + buyback + P/E 四重扣</td></tr>
+    <tr><td>Splunk / Security 整合低於預期</td><td>Revenue / margin scenario</td><td>Security / Observability 成長減速</td><td>只有平台黏性惡化才影響 multiple</td><td>不另給全額併購折價</td></tr>
+    <tr><td>重大供應 / 記憶體成本壓力</td><td>Gross margin path</td><td>FY27 GM 下修</td><td>若永久結構性 reset 才壓 multiple</td><td>不重複以 generic risk premium 懲罰</td></tr>
+  </tbody></table></div>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card"><h3>Tail / Failure State</h3><p>若 AI hyperscaler 採購急降、企業網路週期同步反轉，且毛利率因高成本產品 mix 永久下修，普通 Bear EPS ×20x 可能仍低估路徑依賴。條件式 equity downside 約可落入 <b>$60–75</b>；不給虛假精確概率。</p></div>
+    <div class="card"><h3>未被市場充分反映</h3><p>FY2028 之後的 <b>增長 duration</b> 可能比 FY2027 單年盈利更重要。FY27 好數字若只是週期峰值，25x 會比 EPS 更先回落。</p></div>
+    <div class="card"><h3>可能的上行 surpresa</h3><p>若 Security / Observability 在 AI 平台化後同步加速，市場會看到 Cisco 不只是硬體週期，而是 recurring platform economics，這才真正支持 30x。</p></div>
+  </div>
+</div></section>
+
+<section class="slide" id="zones"><div class="inner">
+  <div class="kicker">10 · Price Map</div><h2>價格地圖：現在位於 Fair 區，不是明顯安全邊際區</h2>
+  <p class="lead">這些區域來自估值，而不是技術圖。Invalidation（基本面失效）也不是單一股價，而是核心 EPS、現金流、訂單與資金結構失去原估值依據。</p>
+  <div class="zone">
+    <div class="z1"><b>Attractive / Accumulation</b><div class="num" style="font-size:28px">&lt; $95</div></div><div class="z1">接近保守價值；約 21–22x FY27 normal EPS</div><div class="z1">前提：AI / Networking thesis 未破壞</div>
+    <div class="z2"><b>Fair-Low</b><div class="num" style="font-size:28px">$95–105</div></div><div class="z2">低於 Base，但未進 distressed</div><div class="z2">Base earnings 大致成立</div>
+    <div class="z3"><b>Fair</b><div class="num" style="font-size:28px">$105–118</div></div><div class="z3"><b>目前 $112.82 在此</b></div><div class="z3">FY27 強增長已大部分定價</div>
+    <div class="z4"><b>Premium / Expensive</b><div class="num" style="font-size:28px">$118–130</div></div><div class="z4">接近 27–30x normal EPS</div><div class="z4">需要 FY28 持續上修與更長 duration</div>
+    <div class="z5"><b>Bull-success</b><div class="num" style="font-size:28px">&gt; $130</div></div><div class="z5">多項成功同時成立</div><div class="z5">AI + Security + FCF + 利率至少一項要明顯優於 Base</div>
+  </div>
+  <div class="grid g5" style="margin-top:22px">
+    <div class="card"><div class="label">驗證點 1</div><h3>FY27 Q1 收入</h3><p class="small">Base：接近 $18.1B，且不是靠一次性出貨。</p></div>
+    <div class="card"><div class="label">驗證點 2</div><h3>AI 轉收入</h3><p class="small">$7.5B 全年路徑要有實際出貨與毛利支持。</p></div>
+    <div class="card"><div class="label">驗證點 3</div><h3>Networking orders</h3><p class="small">至少保持雙位數，不宜快速掉至個位數。</p></div>
+    <div class="card"><div class="label">驗證點 4</div><h3>Economic FCF</h3><p class="small">庫存與 financing receivables 應逐步轉回現金。</p></div>
+    <div class="card"><div class="label">驗證點 5</div><h3>FY28 revisions</h3><p class="small">真正支持 25x 的是 FY28 EPS 繼續上修，而非 FY27 單年達標。</p></div>
+  </div>
+</div></section>
+
+<section class="slide dark" id="audit"><div class="inner">
+  <div class="kicker">11 · Valuation Audit / Reconciliation</div><h2>估值對帳：任何分析師都能從原始數據重建 $110 Base</h2>
+  <p class="lead">最後一頁把主要假設、來源類型、證據等級、方法角色與 double-count audit 放在一起。這是為了讓 fair value 不只是「一個看起來合理的數字」，而是可以拆回原始資料與假設。</p>
+  <div class="grid g2">
+    <div class="card"><h3>Base Fair Value 對帳</h3><div class="tableWrap"><table><thead><tr><th>步驟</th><th>數值</th><th>來源類型</th></tr></thead><tbody>
+      <tr><td>FY2027 Company Non-GAAP EPS 中點</td><td>$5.08</td><td>管理層指引</td></tr>
+      <tr><td>正常化 SBC</td><td>−$0.60</td><td>管理層 guidance reconciliation / 分析師 route</td></tr>
+      <tr><td>重複性重組 / 併購負擔</td><td>−$0.08</td><td>分析師假設</td></tr>
+      <tr><td><b>FY2027 Analyst Normalized EPS</b></td><td><b>$4.40</b></td><td>Derived + Analyst Assumption</td></tr>
+      <tr><td>Selected Base P/E</td><td><b>25x</b></td><td>分析師假設；Grid / Implied Return Test</td></tr>
+      <tr><td><b>Base Equity Fair Value</b></td><td><b>$110</b></td><td>$4.40 × 25</td></tr>
+      <tr><td>Current Price</td><td>$112.82</td><td>2026/10/05 市場收盤</td></tr>
+      <tr><td>Current vs Base</td><td>+2.6%</td><td>Derived</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>Assumption Lineage 假設來源追蹤</h3><div class="tableWrap"><table><thead><tr><th>核心假設</th><th>P/E</th><th>FY2 PV</th><th>DCF</th><th>原始來源</th><th>Evidence Grade</th></tr></thead><tbody>
+      <tr><td>FY27 revenue</td><td>✓</td><td>✓</td><td>✓</td><td>管理層指引 + 共識</td><td>C</td></tr>
+      <tr><td>AI $7.5B</td><td>✓</td><td>✓</td><td>✓</td><td>管理層指引</td><td>C</td></tr>
+      <tr><td>SBC 經濟成本</td><td>✓</td><td>✓</td><td>✓</td><td>10-K + guidance</td><td>A/B</td></tr>
+      <tr><td>25x multiple</td><td>✓</td><td>—</td><td>—</td><td>Required return / duration / quality</td><td>D</td></tr>
+      <tr><td>9.4% required return</td><td>Implied test</td><td>✓</td><td>✓</td><td>10Y Treasury + ERP</td><td>A/B</td></tr>
+      <tr><td>Economic FCF 起點</td><td>Cross-check</td><td>—</td><td>✓</td><td>10-K + normalization</td><td>B/C</td></tr>
+    </tbody></table></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><h3>Method Reliability</h3><div class="tableWrap"><table><thead><tr><th>方法</th><th>Value</th><th>Economic Fit</th><th>Reliability</th><th>角色</th></tr></thead><tbody>
+      <tr><td>FY27 Normalized EPS × P/E</td><td><b>$110</b></td><td>高</td><td>Medium–High</td><td><b>Primary</b></td></tr>
+      <tr><td>FCFE DCF</td><td>約 $88 Base</td><td>中高</td><td>Medium / Uncalibrated</td><td>保守 cross-check</td></tr>
+      <tr><td>FY29 Exit P/E PV</td><td>Base 約 $96</td><td>中</td><td>Low–Medium</td><td>遠期情境</td></tr>
+      <tr><td>Peer / analyst target</td><td>不作主錨</td><td>中</td><td>Medium</td><td>市場制度 cross-check</td></tr>
+      <tr><td>Reverse valuation</td><td>n/a</td><td>高</td><td>Medium</td><td>Expectations test</td></tr>
+    </tbody></table></div></div>
+    <div class="card"><h3>Valuation Audit：通過 / 保留事項</h3><div class="tableWrap"><table><thead><tr><th>檢查</th><th>結果</th></tr></thead><tbody>
+      <tr><td>Company Non-GAAP 未直接當 Analyst EPS</td><td><span class="pill g">Pass</span></td></tr>
+      <tr><td>SBC 只有一條主要 Economic Route</td><td><span class="pill g">Pass</span></td></tr>
+      <tr><td>Equity P/E 未再扣同一 debt principal</td><td><span class="pill g">Pass</span></td></tr>
+      <tr><td>AI success 未同時完整進 EPS + multiple</td><td><span class="pill g">Pass</span></td></tr>
+      <tr><td>FY2 raw target 已做 PV</td><td><span class="pill g">Pass</span></td></tr>
+      <tr><td>FY2 probability 有充分 calibration</td><td><span class="pill a">未校準；不給精確概率</span></td></tr>
+      <tr><td>Economic FCF 完整 WC normalization</td><td><span class="pill a">未完全校準</span></td></tr>
+      <tr><td>P/E vs DCF 方法獨立性</td><td><span class="pill a">部分共享假設，只能 correlated consistency</span></td></tr>
+    </tbody></table></div></div>
+  </div>
+  <div class="callout"><b>最終收束：</b>以 FY2027 Analyst Normalized EPS $4.40 與股東經濟品質為基礎，Cisco 合理估值約 <b>$95–125</b>，Base 約 <b>$110</b>。目前 $112.82 已在定價「FY27 強增長大致成立」。真正決定下一段 rerating 的不是 FY27 單年 EPS，而是 FY28 revisions、AI / Networking 的 duration、Economic FCF，以及高利率是否回落。</div>
+  <div class="sourceGrid" style="margin-top:18px">
+    <div class="source"><strong>Cisco FY2026 Q4 / 全年業績與 FY2027 指引</strong><a href="https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx">Cisco Investor Relations · 2026-08-12</a></div>
+    <div class="source"><strong>Cisco FY2026 10-K</strong><a href="https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm">SEC · filed 2026-09-02</a></div>
+    <div class="source"><strong>市場價格</strong><a href="https://finance.yahoo.com/quote/CSCO/history/">Yahoo Finance · 2026-10-05 close $112.82</a></div>
+    <div class="source"><strong>市場共識收入</strong><a href="https://www.marketscreener.com/quote/stock/CISCO-SYSTEMS-INC-4862/finances/">MarketScreener · FY2027/28/29 estimates</a></div>
+    <div class="source"><strong>EPS 共識</strong><a href="https://stockanalysis.com/stocks/csco/forecast/">StockAnalysis · S&amp;P Global / TipRanks · updated 2026-09-30</a></div>
+    <div class="source"><strong>美國股權風險溢價</strong><a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/home.htm">Damodaran · 2026-09-01 implied ERP 4.14%</a></div>
+    <div class="source"><strong>美國 10Y Treasury</strong><a href="https://www.wsj.com/finance/stocks/u-s-stock-futures-nudge-higher-as-oil-falls-below-100-0c7a5b1a">WSJ · 2026-10-06 約 5.29%</a></div>
+    <div class="source"><strong>估值工作流</strong>統合估值工作流 V5.1：Decision-First、Required Return Ledger、Risk Placement、Assumption Lineage、Valuation Audit。</div>
+  </div>
+  <div class="foot">資料截至 2026-10-06（新加坡時間）；股價以最近完整美股正常交易日 2026-10-05 收盤為準。所有「分析師正常化 EPS、Economic FCF、選定 P/E、DCF」均為估值模型假設，不是 Cisco 指引或市場共識。本文為研究用途，不構成投資建議。</div>
+</div></section>
+
+<script>
+const $=(id)=>document.getElementById(id);
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight; $('progress').style.width=(scrollY/h*100)+'%'});
+function svgWrap(w=800,h=320){return {w,h,ns:'http://www.w3.org/2000/svg'}}
+function makeSVG(container,w=800,h=320){const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox',`0 0 ${w} ${h}`);container.appendChild(s);return s}
+function el(s,tag,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));s.appendChild(e);return e}
+function textSvg(s,x,y,t,cls='barLabel',anchor='middle'){const e=el(s,'text',{x,y,'text-anchor':anchor,class:cls});e.textContent=t;return e}
+function revenueChart(){const d=[['FY22',51.557,3.5,'a'],['FY23',56.998,10.6,'a'],['FY24',53.803,-5.6,'a'],['FY25',56.654,5.3,'a'],['FY26',63.325,11.8,'a'],['FY27G',72.8,15.0,'g'],['FY28C',78.072,6.7,'c'],['FY29C',83.538,7.0,'c']];const c=$('revChart'),s=makeSVG(c,900,330),L=55,R=30,T=25,B=55,max=90,minG=-8,maxG=18;[0,20,40,60,80].forEach(v=>{let y=T+(1-v/max)*(330-T-B);el(s,'line',{x1:L,x2:900-R,y1:y,y2:y,class:'axis'});textSvg(s,L-8,y+4,v+'B','barLabel','end')});const bw=(900-L-R)/d.length*.56;const pts=[];d.forEach((x,i)=>{const cx=L+(i+.5)*(900-L-R)/d.length;const bh=(x[1]/max)*(330-T-B);const y=330-B-bh;const cls=x[3]==='a'?'actual':x[3]==='g'?'guidance':'future';el(s,'rect',{x:cx-bw/2,y,width:bw,height:bh,rx:8,class:cls});textSvg(s,cx,y-7,'$'+x[1].toFixed(1),'barLabel');textSvg(s,cx,330-B+20,x[0],'barLabel');const gy=T+(maxG-x[2])/(maxG-minG)*(330-T-B);pts.push([cx,gy]);textSvg(s,cx,gy-9,(x[2]>0?'+':'')+x[2].toFixed(1)+'%','barLabel');});el(s,'polyline',{points:pts.map(p=>p.join(',')).join(' '),fill:'none',stroke:'#7bd3a8','stroke-width':3});pts.forEach(p=>el(s,'circle',{cx:p[0],cy:p[1],r:4,fill:'#7bd3a8'}));}
+function hBars(containerId,data,max){const c=$(containerId),s=makeSVG(c,760,320),L=120,R=45,T=20,row=58;data.forEach((x,i)=>{const y=T+i*row;const w=(x[1]/max)*(760-L-R);textSvg(s,L-10,y+22,x[0],'barLabel','end');el(s,'rect',{x:L,y:y+4,width:w,height:26,rx:8,fill:i===0?'#049fd9':i===1?'#25b5e5':i===2?'#70cce9':'#a8e2f5'});textSvg(s,L+w+8,y+23,'$'+x[1].toFixed(1)+'B / '+x[2],'barLabel','start')})}
+function geo(){const c=$('geoChart'),s=makeSVG(c,760,300),data=[['美洲',37.799,59.7],['EMEA',16.613,26.2],['APJC',8.914,14.1]],max=40,L=90,R=50,T=20;data.forEach((x,i)=>{const y=T+i*78,w=(x[1]/max)*(760-L-R);textSvg(s,L-10,y+28,x[0],'barLabel','end');el(s,'rect',{x:L,y:y+4,width:w,height:34,rx:10,fill:['#049fd9','#25b5e5','#9dddf4'][i]});textSvg(s,L+w+10,y+28,`$${x[1].toFixed(1)}B · ${x[2]}%`,'barLabel','start')})}
+function donut(){const data=[['Networking 網路',34.668,'#049fd9'],['Security 資安',8.232,'#25b5e5'],['Collaboration 協作',4.300,'#70cce9'],['Observability 可觀測性',1.095,'#a8e2f5'],['Services 服務',15.030,'#5f7f95']],total=data.reduce((a,b)=>a+b[1],0),s=$('donut'),cx=125,cy=125,r=90,C=2*Math.PI*r;let off=0;data.forEach(x=>{const p=x[1]/total;const c=el(s,'circle',{cx,cy,r,fill:'none',stroke:x[2],'stroke-width':32,'stroke-dasharray':`${p*C} ${C-p*C}`,'stroke-dashoffset':-off*C,transform:`rotate(-90 ${cx} ${cy})`});off+=p;});el(s,'circle',{cx,cy,r:60,fill:'#fff'});textSvg(s,cx,cy-4,'$63.3B','barLabel');textSvg(s,cx,cy+17,'FY2026','barLabel');const list=$('donutList');data.forEach(x=>{const div=document.createElement('div');div.innerHTML=`<span><i class="dot" style="background:${x[2]}"></i>${x[0]}</span><b>$${x[1].toFixed(1)}B · ${(x[1]/total*100).toFixed(1)}%</b>`;list.appendChild(div)})}
+function dcf(){const data=[['8.4%',104],['9.4%',88],['10.4%',76]],c=$('dcfChart'),s=makeSVG(c,620,300),max=115,L=60,R=40,T=25,B=55;[0,25,50,75,100].forEach(v=>{let y=T+(1-v/max)*(300-T-B);el(s,'line',{x1:L,x2:620-R,y1:y,y2:y,class:'axis'});textSvg(s,L-8,y+4,'$'+v,'barLabel','end')});const bw=80;data.forEach((x,i)=>{const cx=L+(i+.5)*(620-L-R)/3,bh=(x[1]/max)*(300-T-B),y=300-B-bh;el(s,'rect',{x:cx-bw/2,y,width:bw,height:bh,rx:10,fill:['#74cfa7','#049fd9','#d88968'][i]});textSvg(s,cx,y-8,'$'+x[1],'barLabel');textSvg(s,cx,300-B+22,'Required Return '+x[0],'barLabel')})}
+revenueChart();hBars('productChart',[['Networking',34.668,'+22%'],['Security',8.232,'+2%'],['Collaboration',4.300,'+4%'],['Observability',1.095,'+4%']],36);geo();donut();dcf();
+</script>
+</body></html>
