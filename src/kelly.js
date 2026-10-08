@@ -1,8 +1,8 @@
 export const KELLY_DEFAULTS = Object.freeze({
-  capital: 10000,
-  probability: 55,
+  capital: 5000,
+  probability: 60,
   odds: 1.5,
-  scale: 50,
+  scale: 100,
 });
 
 export function calculateKelly(input) {
